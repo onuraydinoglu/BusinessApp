@@ -15,7 +15,7 @@ namespace BusinessApp.Entities
     public int JobTypeId { get; set; }
     public JobType? JobType { get; set; }
     public int UserId { get; set; }
-    public User? User { get; set; }
+    public User User { get; set; }
     public int CategoryId { get; set; }
     public Category? Category { get; set; }
   }
