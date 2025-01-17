@@ -1,0 +1,39 @@
+@model IEnumerable<Category>
+
+<a asp-controller="Categories" asp-action="Create" class="btn btn-primary">Add Category</a>
+
+<div class="overflow-x-auto">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Created Date</th>
+        <th>Url</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @foreach (var category in Model)
+      {
+        <tr>
+          <th>@category.Id</th>
+          <td>@category.Name</td>
+          <td>@category.CreatedDate</td>
+          <td>@category.Url</td>
+          <td>
+            <button class="btn btn-sm btn-error" onclick="my_modal_@(category.Id).showModal()">
+              Delete
+            </button>
+            <a asp-controller="Categories" asp-action="Edit" asp-route-id="@category.Id"
+              class="btn btn-sm btn-warning">Edit</a>
+          </td>
+        </tr>
+        @await Html.PartialAsync("_Delete", category)
+      }
+    </tbody>
+
+  </table>
+</div>
