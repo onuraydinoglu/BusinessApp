@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" data-theme="pastel">
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -9,11 +9,15 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BusinessApp.styles.css" asp-append-version="true" />
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.22/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
-    <header>
-        <div class="navbar bg-base-100">
+<body class="bg-[#F0F0F0] text-black">
+
+    <div class="container mx-auto px-10">
+        <div class="navbar">
             <div class="navbar-start">
                 <div class="dropdown">
                     <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -23,39 +27,46 @@
                                 d="M4 6h16M4 12h8m-8 6h16" />
                         </svg>
                     </div>
-                    <ul tabindex="0"
-                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                    <ul tabindex="0" class="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p- shadow">
                         <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-
                         <li><a asp-controller="Categories" asp-action="Index">Category</a></li>
                     </ul>
                 </div>
-                <a class="btn btn-ghost text-xl">BusinessApp</a>
+                <a asp-controller="Home" asp-action="Index" class="text-black text-2xl font-medium">BusinessApp</a>
             </div>
-            <div class="navbar-center hidden lg:flex">
-                <ul class="menu menu-horizontal px-1">
-                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
 
-                    <li><a asp-controller="Categories" asp-action="Index">Category</a></li>
-                </ul>
-            </div>
             <div class="navbar-end">
-                <a class="btn">Button</a>
+                <div class="navbar-center hidden lg:flex">
+                    <ul class="menu menu-horizontal">
+                        <li><a asp-controller="Home" asp-action="Index" class="text-black">Job Advertisements</a></li>
+                        <li><a asp-controller="Home" asp-action="Index" class="text-black">Blog</a></li>
+                        <li><a asp-controller="Home" asp-action="Index" class="text-black">Login</a></li>
+                        <li><a asp-controller="Home" asp-action="Index" class="text-black">Register</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </header>
 
-    <div class="container mx-auto px-12 py-4">
-        <main role="main" class="pb-3">
+        </div>
+    </div>
+
+    <div class="bg-[#230939] w-full">
+        <div class="container mx-auto px-20">
+            @RenderSection("FullWidthSection", required: false)
+        </div>
+    </div>
+
+    <div class="container mx-auto px-20">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - BusinessApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    <div class="container mx-auto px-20">
+        <footer>
+        </footer>
+    </div>
+
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

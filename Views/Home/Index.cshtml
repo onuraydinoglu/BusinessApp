@@ -1,8 +1,219 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿<!-- Job Search -->
+@section FullWidthSection {
+    <div class="flex justify-between items-center h-[500px]">
+        <div>
+            <p class="text-[48px] text-[#B561B0] py-2">Find the <span class="text-white">right</span> fit.</p>
+
+            <div class="grid grid-cols-3 gap-3 py-2">
+                <label class="input input-bordered flex items-center gap-2 h-[40px] min-h-0">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" class="grow text-white" placeholder="Jobs" />
+                </label>
+
+                <label class="input input-bordered flex items-center gap-2 h-[40px] min-h-0">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input type="text" class="grow text-white" placeholder="Location" />
+                </label>
+                <div class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white w-32 h-[40px] min-h-0">Search</div>
+            </div>
+
+            <div class="flex mt-5 gap-3">
+                <div class="btn bg-[#B561B0] hover:bg-[#B561B0] border-0 text-white h-[40px] min-h-0"> Frontend Developer
+                </div>
+                <div class="btn bg-[#B561B0] hover:bg-[#B561B0] border-0 text-white h-[40px] min-h-0"> Backend Developer
+                </div>
+                <div class="btn bg-[#B561B0] hover:bg-[#B561B0] border-0 text-white h-[40px] min-h-0">Full Stack Developer
+                </div>
+                <div class="btn bg-[#B561B0] hover:bg-[#B561B0] border-0 text-white h-[40px] min-h-0">React Developer</div>
+            </div>
+
+            <div class="flex mt-5 gap-3">
+                <div class="btn bg-[#B561B0] hover:bg-[#B561B0] border-0 text-white h-[40px] min-h-0">Istanbul</div>
+                <div class="btn bg-[#B561B0] hover:bg-[#B561B0] border-0 text-white h-[40px] min-h-0">Hatay</div>
+                <div class="btn bg-[#B561B0] hover:bg-[#B561B0] border-0 text-white h-[40px] min-h-0">Ankara</div>
+                <div class="btn bg-[#B561B0] hover:bg-[#B561B0] border-0 text-white h-[40px] min-h-0">Izmir</div>
+                <div class="btn bg-[#B561B0] hover:bg-[#B561B0] border-0 text-white h-[40px] min-h-0">Samsun</div>
+                <div class="btn bg-[#B561B0] hover:bg-[#B561B0] border-0 text-white h-[40px] min-h-0">Kocaeli</div>
+                <div class="btn bg-[#B561B0] hover:bg-[#B561B0] border-0 text-white h-[40px] min-h-0">Bursa</div>
+            </div>
+
+        </div>
+
+        <div>
+            <img src="~/img/BusinessAppImage.png" alt="">
+        </div>
+    </div>
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- Job Advertisements -->
+<div class="my-[110px]">
+    <div class="mt-[110px] text-center">
+        <h2 class="text-[33px] text-black">Job Advertisements</h2>
+        <div class="divider w-[330px] mx-auto before:bg-black after:bg-black"></div>
+    </div>
+
+    <div class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-6 my-[55px]">
+        <div class="text-center shadow-lg rounded-md p-5">
+            <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-3">
+            <div class="mb-3">
+                <h5>Frontend Developer</h5>
+                <p>ONI Software</p>
+                <p>İstanbul</p>
+            </div>
+            <div class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40px] min-h-0">Apply Now</div>
+        </div>
+
+        <div class="text-center shadow-lg rounded-md p-5">
+            <img src="~/img/Job/2.webp" alt="" class="rounded-md mb-3">
+            <div class="mb-3">
+                <h5>Backend Developer</h5>
+                <p>Skyline Solutions</p>
+                <p>Ankara</p>
+            </div>
+            <div class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40px] min-h-0">Apply Now</div>
+        </div>
+
+        <div class="text-center shadow-lg rounded-md p-5">
+            <img src="~/img/Job/3.webp" alt="" class="rounded-md mb-3">
+            <div class="mb-3">
+                <h5>Full Stack Developer</h5>
+                <p>TechHub Innovations</p>
+                <p>İzmir</p>
+            </div>
+            <div class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40px] min-h-0">Apply Now</div>
+        </div>
+
+        <div class="text-center shadow-lg rounded-md p-5">
+            <img src="~/img/Job/4.webp" alt="" class="rounded-md mb-3">
+            <div class="mb-3">
+                <h5>React Developer</h5>
+                <p>CodeCraft</p>
+                <p>İstanbul</p>
+            </div>
+            <div class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40px] min-h-0">Apply Now</div>
+        </div>
+
+        <div class="text-center shadow-lg rounded-md p-5">
+            <img src="~/img/Job/5.webp" alt="" class="rounded-md mb-3">
+            <div class="mb-3">
+                <h5>UI/UX Designer</h5>
+                <p>Pixel Perfect Design</p>
+                <p>Bursa</p>
+            </div>
+            <div class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40px] min-h-0">Apply Now</div>
+        </div>
+
+        <div class="text-center shadow-lg rounded-md p-5">
+            <img src="~/img/Job/6.webp" alt="" class="rounded-md mb-3">
+            <div class="mb-3">
+                <h5>Mobile App Developer</h5>
+                <p>Appify Labs</p>
+                <p>Antalya</p>
+            </div>
+            <div class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40px] min-h-0">Apply Now</div>
+        </div>
+
+        <div class="text-center shadow-lg rounded-md p-5">
+            <img src="~/img/Job/7.webp" alt="" class="rounded-md mb-3">
+            <div class="mb-3">
+                <h5>DevOps Engineer</h5>
+                <p>CloudWorks</p>
+                <p>İstanbul</p>
+            </div>
+            <div class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40px] min-h-0">Apply Now</div>
+        </div>
+
+        <div class="text-center shadow-lg rounded-md p-5">
+            <img src="~/img/Job/8.webp" alt="" class="rounded-md mb-3">
+            <div class="mb-3">
+                <h5>Software Engineer</h5>
+                <p>Innovatech</p>
+                <p>Hatay</p>
+            </div>
+            <div class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40px] min-h-0">Apply Now</div>
+        </div>
+    </div>
+
+    <div class="flex justify-center">
+        <a class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40x] min-h-0 w-80">See
+            More</a>
+    </div>
+</div>
+
+<!-- Employee -->
+<div class="my-[110px]">
+    <div class="flex justify-center items-center gap-20">
+        <div class=" text-center">
+            <h2 class="text-[36px] font-medium">Looking for an employee?</h2>
+            <p class="text-lg font-medium w-[555px] mx-auto my-3">To reach thousands of people looking for a new
+                job, create your employer account on the İşin Olsun app and advertise for free!</p>
+            <div class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40px] min-h-0">
+                Looking for an Employee
+            </div>
+        </div>
+
+        <div class="xs:hidden">
+            <img src="~/img/employer.webp" alt="" class="w-[450px]">
+        </div>
+    </div>
+</div>
+
+<!-- Profession Guide-->
+<div class="my-[110px] pb-20">
+    <div class="mt-[110px] text-center">
+        <h2 class="text-[33px] text-black">Profession Guide</h2>
+        <div class="divider w-[330px] mx-auto before:bg-black after:bg-black"></div>
+    </div>
+
+    <div class="grid xl:grid-cols-3 lg:grid-cols-2 gap-6 my-[55px]">
+        <div class="shadow-lg rounded-md p-8">
+            <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-5">
+            <div class="mb-5">
+                <h5 class="font-medium text-[20px]">What Does a Web Developer Do?</h5>
+                <p class="text-[14px]">Web developers design, create, and maintain websites and web apps. Learn HTML,
+                    CSS, JavaScript, and practice regularly to excel in this field.</p>
+            </div>
+            <div class="flex justify-between">
+                <div class="">
+                    <span>14.09.2025</span>
+                </div>
+                <a href="#">Read More <i class="fa-solid fa-arrow-right ml-1"></i></a>
+            </div>
+        </div>
+
+        <div class="shadow-lg rounded-md p-8">
+            <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-5">
+            <div class="mb-5">
+                <h5 class="font-medium text-[20px]">What Does a Database Admin Do?</h5>
+                <p class="text-[14px]">Database admins manage, organize, and secure databases. Proficiency in SQL and a
+                    background in IT or computer science are essential.</p>
+            </div>
+            <div class="flex justify-between">
+                <div class="">
+                    <span>20.12.2025</span>
+                </div>
+                <a href="#">Read More <i class="fa-solid fa-arrow-right ml-1"></i></a>
+            </div>
+        </div>
+
+        <div class="shadow-lg rounded-md p-8">
+            <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-5">
+            <div class="mb-5">
+                <h5 class="font-medium text-[20px]">What Does a Digital Marketer Do?</h5>
+                <p class="text-[14px]">Digital marketers use SEO, ads, and social media to promote products. Training in
+                    digital tools and strong analytical skills are key.</p>
+            </div>
+            <div class="flex justify-between">
+                <div class="">
+                    <span>18.06.2025</span>
+                </div>
+                <a href="#">Read More <i class="fa-solid fa-arrow-right ml-1"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex justify-center">
+        <a class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40x] min-h-0 w-80">See
+            More</a>
+    </div>
 </div>
