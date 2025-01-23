@@ -1,3 +1,4 @@
+using BusinessApp.Repositories;
 using BusinessApp.Repositories.Abstracts;
 using BusinessApp.Repositories.Concretes;
 using BusinessApp.Repositories.Context;
@@ -15,9 +16,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 
 var app = builder.Build();
-
+SeedData.TestData(app);
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\onura\\Desktop\\BusinessApp\\BusinessApp.csproj": {}
+    "C:\\Users\\dell\\Desktop\\BusinessApp\\BusinessApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\onura\\Desktop\\BusinessApp\\BusinessApp.csproj": {
+    "C:\\Users\\dell\\Desktop\\BusinessApp\\BusinessApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\onura\\Desktop\\BusinessApp\\BusinessApp.csproj",
+        "projectUniqueName": "C:\\Users\\dell\\Desktop\\BusinessApp\\BusinessApp.csproj",
         "projectName": "BusinessApp",
-        "projectPath": "C:\\Users\\onura\\Desktop\\BusinessApp\\BusinessApp.csproj",
-        "packagesPath": "C:\\Users\\onura\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\onura\\Desktop\\BusinessApp\\obj\\",
+        "projectPath": "C:\\Users\\dell\\Desktop\\BusinessApp\\BusinessApp.csproj",
+        "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dell\\Desktop\\BusinessApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\onura\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -43,7 +45,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
+          "auditMode": "all"
         },
         "SdkAnalysisLevel": "9.0.100"
       },
@@ -85,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
