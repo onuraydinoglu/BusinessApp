@@ -5,9 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - BusinessApp</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/BusinessApp.styles.css" asp-append-version="true" />
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.22/dist/full.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -38,9 +35,8 @@
             <div class="navbar-end">
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal">
-                        <li><a asp-controller="Home" asp-action="Index" class="text-black">Job Advertisements</a></li>
+                        <li><a asp-controller="Jobs" asp-action="Index" class="text-black">Job Advertisements</a></li>
                         <li><a asp-controller="Home" asp-action="Index" class="text-black">Blog</a></li>
-                        <li><a asp-controller="Users" asp-action="Index" class="text-black">User</a></li>
                         <li><a asp-controller="Home" asp-action="Index" class="text-black">Login</a></li>
                         <li><a asp-controller="Home" asp-action="Index" class="text-black">Register</a></li>
                     </ul>
@@ -62,16 +58,62 @@
         </main>
     </div>
 
-    <div class="container mx-auto px-20">
-        <footer>
-        </footer>
-    </div>
-
+    <footer class="footer bg-[#230939] text-white px-28 py-10">
+        <nav>
+            <h6 class="footer-title">OUR PRODUCTS</h6>
+            <a class="link link-hover">Job Listings</a>
+            <a class="link link-hover">Get a Service </a>
+            <a class="link link-hover">Provide a Service</a>
+            <a class="link link-hover">Blog</a>
+            <a class="link link-hover">Career Guide</a>
+            <a class="link link-hover">Salary Calculator</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">CORPORATE</h6>
+            <a class="link link-hover">About Us</a>
+            <a class="link link-hover">Special for Employers</a>
+            <a class="link link-hover">Special for Job Seekers</a>
+            <a class="link link-hover">Contact</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">SUPPORT AND POLICIES</h6>
+            <a class="link link-hover">Agreements</a>
+            <a class="link link-hover">Cookie Policy</a>
+            <a class="link link-hover">Safe Job Search Guide</a>
+            <a class="link link-hover">Help Center</a>
+            <a class="link link-hover">Process Guide</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Our Projects</h6>
+            <a href="https://github.com/onuraydinoglu/AcademyApp" class="link link-hover" target="_blank">AcademyApp</a>
+            <a href="https://github.com/nisanurisik/BusinessApp" class="link link-hover" target="_blank">BusinessApp</a>
+            <a class="link link-hover">GradeApp</a>
+            <a class="link link-hover">FlightApp</a>
+            <a class="link link-hover">NewsApp</a>
+            <a class="link link-hover">PortfolioApp</a>
+        </nav>
+        <nav>
+            <select class="select select-bordered w-40">
+                <option selected>English</option>
+                <option>Turkish</option>
+            </select>
+            <label class="flex cursor-pointer gap-2 my-3">
+                <span class="label-text">Dark Mode</span>
+                <input type="checkbox" value="aqua" class="toggle theme-controller" />
+            </label>
+        </nav>
+    </footer>
+    <footer class="footer footer-center bg-[#230939] text-white p-4">
+        <aside>
+            <p>Copyright ©2025 - All right reserved by ONI Industries Ltd</p>
+        </aside>
+    </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 
 </html>

@@ -372,7 +372,6 @@ C:\Users\onura\Desktop\BusinessApp\obj\Debug\net9.0\BusinessApp.sourcelink.json
 C:\Users\onura\Desktop\BusinessApp\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\onura\Desktop\BusinessApp\obj\Debug\net9.0\scopedcss\bundle\BusinessApp.styles.css
 C:\Users\onura\Desktop\BusinessApp\obj\Debug\net9.0\scopedcss\projectbundle\BusinessApp.bundle.scp.css
-C:\Users\onura\Desktop\BusinessApp\obj\Debug\net9.0\compressed\n49v045uoc-b9sayid5wm.gz
 C:\Users\onura\Desktop\BusinessApp\obj\Debug\net9.0\compressed\2wp5hfo7yy-61n19gt1b8.gz
 C:\Users\onura\Desktop\BusinessApp\obj\Debug\net9.0\compressed\rmkg69rx2r-xtxxf3hu2r.gz
 C:\Users\onura\Desktop\BusinessApp\obj\Debug\net9.0\compressed\zyo9nc5sqq-t1cqhe9u97.gz
@@ -451,3 +450,4 @@ C:\Users\onura\Desktop\BusinessApp\obj\Debug\net9.0\refint\BusinessApp.dll
 C:\Users\onura\Desktop\BusinessApp\obj\Debug\net9.0\BusinessApp.pdb
 C:\Users\onura\Desktop\BusinessApp\obj\Debug\net9.0\BusinessApp.genruntimeconfig.cache
 C:\Users\onura\Desktop\BusinessApp\obj\Debug\net9.0\ref\BusinessApp.dll
+C:\Users\onura\Desktop\BusinessApp\obj\Debug\net9.0\compressed\n49v045uoc-5ipweew5fc.gz
