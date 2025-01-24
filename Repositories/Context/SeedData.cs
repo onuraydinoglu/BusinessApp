@@ -25,6 +25,15 @@ namespace BusinessApp.Repositories
           );
           context.SaveChanges();
         }
+
+        if (!context.JobTypes.Any())
+        {
+          context.JobTypes.AddRange(
+              new JobType { Type = "Full Time" },
+              new JobType { Type = "Part Time" }
+          );
+          context.SaveChanges();
+        }
       }
     }
   }

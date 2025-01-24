@@ -14,6 +14,12 @@ namespace BusinessApp.Repositories.Concretes
       _context = context;
     }
 
+    public async Task<IEnumerable<User>> GetAllUserAsync()
+    {
+      var users = await _context.Users.Include(x => x.Role).ToListAsync();
+      return users;
+    }
+
     public async Task UpdateUserAsync(User user)
     {
       var usr = await GetByIdAsync(user.Id);

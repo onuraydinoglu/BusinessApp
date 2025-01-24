@@ -27,6 +27,7 @@
                     <ul tabindex="0" class="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p- shadow">
                         <li><a asp-controller="Home" asp-action="Index">Home</a></li>
                         <li><a asp-controller="Categories" asp-action="Index">Category</a></li>
+                        <li><a asp-controller="Users" asp-action="Index">Users</a></li>
                     </ul>
                 </div>
                 <a asp-controller="Home" asp-action="Index" class="text-black text-2xl font-medium">BusinessApp</a>
@@ -93,13 +94,13 @@
             <a class="link link-hover">PortfolioApp</a>
         </nav>
         <nav>
-            <select class="select select-bordered w-40">
+            <select class="select select-bordered w-40 text-black">
                 <option selected>English</option>
                 <option>Turkish</option>
             </select>
             <label class="flex cursor-pointer gap-2 my-3">
-                <span class="label-text">Dark Mode</span>
-                <input type="checkbox" value="aqua" class="toggle theme-controller" />
+                <span class="label-text text-white">Dark Mode</span>
+                <input type="checkbox" value="pastel" class="toggle theme-controller" />
             </label>
         </nav>
     </footer>

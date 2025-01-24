@@ -110,10 +110,7 @@ namespace BusinessApp.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("FullTime")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PartTime")
+                    b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

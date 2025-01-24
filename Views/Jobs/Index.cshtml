@@ -7,3 +7,27 @@
     </div>
 
 }
+
+@model IEnumerable<Job>
+
+<a asp-controller="Jobs" asp-action="Create" class="btn btn-primary">Add Job</a>
+
+@foreach (var job in Model)
+{
+    <div class="card bg-base-100 w-96 shadow-xl">
+        <figure>
+            <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes" />
+        </figure>
+        <div class="card-body">
+            <h2 class="card-title">@job.Title</h2>
+            <p>@job.Description</p>
+            <p>@job.JobType?.Type</p>
+            <div class="card-actions justify-end">
+                <a asp-controller="Jobs" asp-action="Details" asp-route-id="@job.Id" class="btn btn-primary">
+                    Go to the job
+                </a>
+
+            </div>
+        </div>
+    </div>
+}

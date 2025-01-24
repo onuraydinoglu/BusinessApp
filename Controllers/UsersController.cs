@@ -18,7 +18,7 @@ namespace BusinessApp.Controllers
 
     public async Task<IActionResult> Index()
     {
-      var users = await _userRepository.GetAllAsync();
+      var users = await _userRepository.GetAllUserAsync();
       return View(users);
     }
 

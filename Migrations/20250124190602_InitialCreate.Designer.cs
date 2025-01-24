@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BusinessApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250124141038_InitialCreate")]
+    [Migration("20250124190602_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -113,10 +113,7 @@ namespace BusinessApp.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("FullTime")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PartTime")
+                    b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
