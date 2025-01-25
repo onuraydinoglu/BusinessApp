@@ -53,5 +53,29 @@ namespace BusinessApp.Controllers
 
             return View(job);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _jobRepository.DeleteAsync(id);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            ViewBag.Categories = new SelectList(await _categoryRepository.GetAllAsync(), "Id", "Name");
+            ViewBag.JobTypes = new SelectList(await _jobTypeRepository.GetAllAsync(), "Id", "Type");
+            ViewBag.Users = new SelectList(await _userRepository.GetAllAsync(), "Id", "FullName");
+            var job = await _jobRepository.GetByIdJobAsync(id);
+            return View(job);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Job job)
+        {
+            await _jobRepository.UpdateJobAsync(job);
+            return RedirectToAction("Index");
+        }
     }
 }

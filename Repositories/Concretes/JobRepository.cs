@@ -29,8 +29,17 @@ namespace BusinessApp.Repositories.Concretes
 
     public async Task UpdateJobAsync(Job job)
     {
-      var jb = await GetByIdAsync(job.Id);
+      var jb = await GetByIdJobAsync(job.Id);
       jb.Title = job.Title;
+      jb.CategoryId = job.CategoryId;
+      jb.CreatedDate = job.CreatedDate;
+      jb.Description = job.Description;
+      jb.IsActive = job.IsActive;
+      jb.JobTypeId = job.JobTypeId;
+      jb.Location = job.Location;
+      jb.SalaryRange = job.SalaryRange;
+      jb.JobTypeId = job.JobTypeId;
+      jb.UserId = job.UserId;
       _context.Jobs.Update(jb);
       await _context.SaveChangesAsync();
     }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tAaRqTZFDlPTikUSDybvrdGUTTb+uQD3YOSloPN0tNk=",
+  "Hash": "ul3YdLKrZwzIrHOSwSxc9IiaOe0+Gd74cX7PszsIRak=",
   "Source": "BusinessApp",
   "BasePath": "_content/BusinessApp",
   "Mode": "Default",
@@ -1424,6 +1424,27 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
+      "Identity": "C:\\Users\\dell\\Desktop\\BusinessApp\\wwwroot\\cv\\cv.pdf",
+      "SourceId": "BusinessApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dell\\Desktop\\BusinessApp\\wwwroot\\",
+      "BasePath": "_content/BusinessApp",
+      "RelativePath": "cv/cv#[.{fingerprint}]?.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "yo0hq5qo99",
+      "Integrity": "wks2eMhyDeZv9yviZqjOzw0ajwI08Mab6Q8mBaaQY2s=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\cv\\cv.pdf"
+    },
+    {
       "Identity": "C:\\Users\\dell\\Desktop\\BusinessApp\\wwwroot\\favicon.ico",
       "SourceId": "BusinessApp",
       "SourceType": "Discovered",
@@ -1695,6 +1716,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\job\\8.webp"
+    },
+    {
+      "Identity": "C:\\Users\\dell\\Desktop\\BusinessApp\\wwwroot\\img\\users\\profile.webp",
+      "SourceId": "BusinessApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dell\\Desktop\\BusinessApp\\wwwroot\\",
+      "BasePath": "_content/BusinessApp",
+      "RelativePath": "img/users/profile#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "y4rfugqgq3",
+      "Integrity": "3goo5aljv/ekIhgUogy/D1zZilQWrnMX9Gz7noeNO/o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\users\\profile.webp"
     },
     {
       "Identity": "C:\\Users\\dell\\Desktop\\BusinessApp\\wwwroot\\js\\site.js",
@@ -3874,6 +3916,88 @@
       ]
     },
     {
+      "Route": "cv/cv.pdf",
+      "AssetFile": "C:\\Users\\dell\\Desktop\\BusinessApp\\wwwroot\\cv\\cv.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "270081"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wks2eMhyDeZv9yviZqjOzw0ajwI08Mab6Q8mBaaQY2s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Jan 2025 10:08:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wks2eMhyDeZv9yviZqjOzw0ajwI08Mab6Q8mBaaQY2s="
+        }
+      ]
+    },
+    {
+      "Route": "cv/cv.yo0hq5qo99.pdf",
+      "AssetFile": "C:\\Users\\dell\\Desktop\\BusinessApp\\wwwroot\\cv\\cv.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "270081"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wks2eMhyDeZv9yviZqjOzw0ajwI08Mab6Q8mBaaQY2s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Jan 2025 10:08:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yo0hq5qo99"
+        },
+        {
+          "Name": "label",
+          "Value": "cv/cv.pdf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wks2eMhyDeZv9yviZqjOzw0ajwI08Mab6Q8mBaaQY2s="
+        }
+      ]
+    },
+    {
       "Route": "favicon.61n19gt1b8.ico",
       "AssetFile": "C:\\Users\\dell\\Desktop\\BusinessApp\\obj\\Debug\\net9.0\\compressed\\2wp5hfo7yy-61n19gt1b8.gz",
       "Selectors": [
@@ -5152,6 +5276,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-djOFAphXRQBPjuGvIgfA2oVroV7bWrclS4CZHZUkrxY="
+        }
+      ]
+    },
+    {
+      "Route": "img/users/profile.webp",
+      "AssetFile": "C:\\Users\\dell\\Desktop\\BusinessApp\\wwwroot\\img\\users\\profile.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17436"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3goo5aljv/ekIhgUogy/D1zZilQWrnMX9Gz7noeNO/o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Jan 2025 10:06:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-3goo5aljv/ekIhgUogy/D1zZilQWrnMX9Gz7noeNO/o="
+        }
+      ]
+    },
+    {
+      "Route": "img/users/profile.y4rfugqgq3.webp",
+      "AssetFile": "C:\\Users\\dell\\Desktop\\BusinessApp\\wwwroot\\img\\users\\profile.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17436"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"3goo5aljv/ekIhgUogy/D1zZilQWrnMX9Gz7noeNO/o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Jan 2025 10:06:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "y4rfugqgq3"
+        },
+        {
+          "Name": "label",
+          "Value": "img/users/profile.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-3goo5aljv/ekIhgUogy/D1zZilQWrnMX9Gz7noeNO/o="
         }
       ]
     },

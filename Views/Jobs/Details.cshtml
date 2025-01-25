@@ -21,7 +21,11 @@
         @Model.SalaryRange
       </p>
 
-      <button class="btn btn-primary">Get Started</button>
+      <button class="btn btn-sm btn-error" onclick="my_modal_@(Model.Id).showModal()">
+        Delete
+      </button>
+      <a asp-controller="Jobs" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-warning">Edit</a>
     </div>
+    @await Html.PartialAsync("_Delete", Model)
   </div>
 </div>

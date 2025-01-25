@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\dell\\Desktop\\BusinessApp\\wwwroot\\cv\\cv.pdf",
+      "PackagePath": "staticwebassets\\cv\\cv.pdf"
+    },
+    {
       "Id": "C:\\Users\\dell\\Desktop\\BusinessApp\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
@@ -59,6 +63,10 @@
     {
       "Id": "C:\\Users\\dell\\Desktop\\BusinessApp\\wwwroot\\img\\job\\8.webp",
       "PackagePath": "staticwebassets\\img\\job\\8.webp"
+    },
+    {
+      "Id": "C:\\Users\\dell\\Desktop\\BusinessApp\\wwwroot\\img\\users\\profile.webp",
+      "PackagePath": "staticwebassets\\img\\users\\profile.webp"
     },
     {
       "Id": "C:\\Users\\dell\\Desktop\\BusinessApp\\wwwroot\\js\\site.js",
