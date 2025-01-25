@@ -1,31 +1,109 @@
 @model Job
-<div class="hero bg-base-200 min-h-screen">
-  <div class="hero-content text-center">
-    <div class="max-w-md">
-      <h1 class="text-5xl font-bold">@Model.Title</h1>
-      <p class="py-6">
-        @Model.Description
-      </p>
-      <p class="py-6">
-        @(Model.Category?.Name)
-      </p>
 
-      <p class="py-6">
-        @(Model.JobType?.Type)
-      </p>
+@section FullJobImage {
+  <img src="~/img/job/1.webp" alt="" class="w-full h-[50vh] object-cover object-top">
+}
 
-      <p class="py-6">
+<div class="flex flex-row gap-20 mb-20">
+  <div class="w-2/3 my-5">
+    <h2 class="flex items-center text-[32px] font-medium">
+      @Model.Category?.Name
+      <span class="text-[30px] ml-2">(@Model.Title)</span>
+    </h2>
+
+    <div class="flex gap-6 my-5">
+      <p>
+        <i class="fa-regular fa-clock mr-1"></i>
+        @Model.JobType?.Type
+      </p>
+      <p>
+        <i class="fa-regular fa-building mr-1"></i>
+        Remote
+      </p>
+      <p>
+        <i class="fa-solid fa-location-dot mr-1"></i>
         @Model.Location
       </p>
-      <p class="py-6">
-        @Model.SalaryRange
-      </p>
-
-      <button class="btn btn-sm btn-error" onclick="my_modal_@(Model.Id).showModal()">
-        Delete
-      </button>
-      <a asp-controller="Jobs" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-warning">Edit</a>
     </div>
-    @await Html.PartialAsync("_Delete", Model)
+
+    <div class="divider"></div>
+
+    <div class="">
+      <h2 class="text-xl font-medium mb-3">About the Job Posting</h2>
+      <span class="">Would you like to work with us? Our recruitment process is always ongoing! We are looking for
+        qualified
+        candidates for various departments. You can share your skills and experiences to get to know us better.</span>
+
+      <h2 class="text-md font-medium mt-5 mb-3">Qualifications We Are Looking For:</h2>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Relevant education or experience in the field</li>
+        <li>Strong communication skills</li>
+        <li>Ability to work effectively in a team</li>
+        <li>Problem-solving and analytical thinking abilities</li>
+      </ul>
+
+      <h2 class="text-md font-medium mt-5 mb-3">Application Process:</h2>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>This posting is not for a specific position but is created for general applications.</li>
+        <li>After evaluating your application, we will contact you when a suitable position becomes available.</li>
+        <li>Please attach your CV and a cover letter introducing yourself.</li>
+      </ul>
+    </div>
+
   </div>
+
+  <div class="w-1/3">
+    <div class="mt-16 p-5 rounded-sm shadow-lg">
+      <h2 class="text-lg font-medium">Apply Now</h2>
+      <p class="my-3">Fill out the form to apply for the active job posting and start your recruitment process.</p>
+
+      <div class="flex flex-col gap-5 mt-10">
+        <label class="input input-bordered flex items-center gap-2 shadow-md">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" class="grow" placeholder="First Name" />
+        </label>
+
+        <label class="input input-bordered flex items-center gap-2 shadow-md">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" class="grow" placeholder="Last Name" />
+        </label>
+
+        <label class="input input-bordered flex items-center gap-2 shadow-md">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" class="grow" placeholder="Email" />
+        </label>
+
+        <label class="input input-bordered flex items-center gap-2 shadow-md">
+          <i class="fa-solid fa-mobile-screen"></i>
+          <input type="phone" class="grow" placeholder="Phone" />
+        </label>
+
+        <label class="input input-bordered flex items-center gap-2 shadow-md">
+          <i class="fa-solid fa-location-dot"></i>
+          <input type="address" class="grow" placeholder="Location" />
+        </label>
+
+        <label class="input input-bordered flex items-center gap-2">
+          TRY
+          <input type="text" class="grow" placeholder="Monthly Payment" />
+          <span>Monthly</span>
+        </label>
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    @* <button class="btn btn-sm btn-error" onclick="my_modal_@(Model.Id).showModal()">
+      Delete
+    </button>
+    <a asp-controller="Jobs" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-warning">Edit</a>
+    @await Html.PartialAsync("_Delete", Model) *@
+  </div>
+
 </div>

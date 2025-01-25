@@ -1,33 +1,81 @@
+@model JobViewModel
+
 @section FullWidthSection {
-    <div class="flex flex-col justify-center items-center text-white h-[400px] mb-20">
+    <div class="flex flex-col justify-center items-center text-white h-[75vh] mb-20">
         <h2 class="text-[55px] font-medium">Join the Future of AI</h2>
         <h2 class="text-[55px] font-medium">We're Hiring!</h2>
         <p class="text-2xl">We're looking for great people to join our growing team.</p>
-        <button class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white w-56 my-5">View Vacancies</button>
+    @* <button class="btn btn-outline hover:bg-[#230939] text-white hover:text-white w-56 my-5">View Vacancies</button> *@
+        <a asp-controller="Jobs" asp-action="Create" class="btn btn-outline hover:bg-[#230939] text-white hover:text-white w-56 my-5">Add Job</a>
     </div>
-
 }
 
-@model IEnumerable<Job>
+<p class="my-3">
+    At Tor.app, we're not just offering a job – we're inviting you to shape the future of AI. Working here means being
+    part of a dynamic team that's pioneering solutions to simplify tasks, increase productivity, and drive connectivity.
+</p>
+<p>
+    If you're looking for a workplace that values innovation, encourages collaboration, and offers opportunities for
+    growth, Tor.app is the perfect workplace. <span class="font-medium">Join us, and let's revolutionize AI
+        together.</span>
+</p>
 
-<a asp-controller="Jobs" asp-action="Create" class="btn btn-primary">Add Job</a>
+<div class="text-center mt-[110px]">
+    <h2 class="text-[33px] text-black">Our Open Positions</h2>
+    <div class="divider w-[330px] mx-auto before:bg-black after:bg-black"></div>
+</div>
 
-@foreach (var job in Model)
-{
-    <div class="card bg-base-100 w-96 shadow-xl">
-        <figure>
-            <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes" />
-        </figure>
-        <div class="card-body">
-            <h2 class="card-title">@job.Title</h2>
-            <p>@job.Description</p>
-            <p>@job.JobType?.Type</p>
-            <div class="card-actions justify-end">
-                <a asp-controller="Jobs" asp-action="Details" asp-route-id="@job.Id" class="btn btn-primary">
-                    Go to the job
+<div class="flex justify-center space-x-5 my-[55px]">
+    <select asp-for="Job.CategoryId" asp-items="ViewBag.Categories"
+        class="select select-bordered w-full max-w-xs bg-white shadow-lg">
+        <option disabled selected>Select Department</option>
+    </select>
+    @* <span asp-validation-for="Job.CategoryId" class="text-red-500 text-sm"></span> *@
+
+    <select class="select select-bordered w-full max-w-xs bg-white shadow-lg">
+        <option disabled selected>Select Location</option>
+        <option>Istanbul</option>
+        <option>Hatay</option>
+    </select>
+
+    <select asp-for="Job.JobTypeId" asp-items="ViewBag.JobTypes"
+        class="select select-bordered w-full max-w-xs bg-white shadow-lg">
+        <option disabled selected>Select Job Type</option>
+    </select>
+    @* <span asp-validation-for="Job.JobTypeId" class="text-red-500 text-sm"></span> *@
+</div>
+
+<div class="grid xl:grid-cols-2 gap-6">
+    @foreach (var job in Model.Jobs)
+    {
+        <div class="flex items-center shadow-xl p-10 space-x-10">
+            <div class="">
+                <img src="~/img/job/1.webp" alt="@job.Title" class="rounded-md w-24" />
+            </div>
+            <div class="flex flex-col flex-grow justify-center">
+                <div>
+                    <h2 class="">@job.Title</h2>
+                </div>
+                <div class="flex space-x-5">
+                    <p>@job.Location</p>
+                    <p>@job.JobType?.Type</p>
+                </div>
+            </div>
+            <div class="ml-auto">
+                <a asp-controller="Jobs" asp-action="Details" asp-route-id="@job.Id"
+                    class="btn bg-[#230939] hover:bg-[#230939] text-white h-[40px] min-h-0">
+                    Apply
+                    <i class="fa-solid fa-arrow-right"></i>
                 </a>
-
             </div>
         </div>
-    </div>
-}
+    }
+</div>
+<div class="flex justify-center join my-[31px]">
+    <button class="join-item btn">«</button>
+    <button class="join-item btn">1</button>
+    <button class="join-item btn btn-active">2</button>
+    <button class="join-item btn">...</button>
+    <button class="join-item btn">31</button>
+    <button class="join-item btn">»</button>
+</div>

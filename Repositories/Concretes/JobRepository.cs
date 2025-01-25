@@ -20,7 +20,6 @@ namespace BusinessApp.Repositories.Concretes
       return jobs;
     }
 
-
     public async Task<Job> GetByIdJobAsync(int? id)
     {
       var job = await _context.Jobs.Include(x => x.Category).Include(x => x.JobType).FirstOrDefaultAsync(x => x.Id == id);

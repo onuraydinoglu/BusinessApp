@@ -1,17 +1,18 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - BusinessApp</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.22/dist/full.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-[#F0F0F0] text-black">
+<body>
 
     <div class="container mx-auto px-10">
         <div class="navbar">
@@ -51,6 +52,9 @@
         <div class="container mx-auto px-20">
             @RenderSection("FullWidthSection", required: false)
         </div>
+    </div>
+    <div class="w-full">
+        @RenderSection("FullJobImage", required: false)
     </div>
 
     <div class="container mx-auto px-20">

@@ -1,4 +1,5 @@
 using BusinessApp.Entities;
+using BusinessApp.Models;
 using BusinessApp.Repositories.Abstracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -21,8 +22,15 @@ namespace BusinessApp.Controllers
 
         public async Task<IActionResult> Index()
         {
+            ViewBag.Categories = new SelectList(await _categoryRepository.GetAllAsync(), "Id", "Name");
+            ViewBag.JobTypes = new SelectList(await _jobTypeRepository.GetAllAsync(), "Id", "Type");
+
             var jobs = await _jobRepository.GetAllJobsAsync();
-            return View(jobs);
+            var modelVirew = new JobViewModel
+            {
+                Jobs = jobs
+            };
+            return View(modelVirew);
         }
 
         [HttpGet]
@@ -42,6 +50,7 @@ namespace BusinessApp.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
             var job = await _jobRepository.GetByIdJobAsync(id);
