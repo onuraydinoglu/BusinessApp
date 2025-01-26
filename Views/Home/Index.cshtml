@@ -9,12 +9,12 @@
             <div class="grid grid-cols-3 gap-3 py-2">
                 <label class="input input-bordered flex items-center gap-2 h-[40px] min-h-0">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" class="grow text-white" placeholder="Jobs" />
+                    <input type="text" class="grow" placeholder="Jobs" />
                 </label>
 
                 <label class="input input-bordered flex items-center gap-2 h-[40px] min-h-0">
                     <i class="fa-solid fa-location-dot"></i>
-                    <input type="text" class="grow text-white" placeholder="Location" />
+                    <input type="text" class="grow" placeholder="Location" />
                 </label>
                 <button class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white w-32 h-[40px] min-h-0">Search</button>
             </div>
@@ -54,31 +54,39 @@
         <div class="divider w-[330px] mx-auto before:bg-black after:bg-black"></div>
     </div>
 
-    <div class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-6 my-[55px]">
+    <div class="grid xl:grid-cols-2 gap-6 my-[55px]">
         @foreach (var job in Model.Jobs)
         {
-            <div class="text-center shadow-lg rounded-md p-5">
-                <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-3">
-                <div class="mb-3">
-                    <h5>@job.Title</h5>
-                    <p>@job.User?.FullName</p>
-                    <p>@job.Location</p>
+            <div class="rounded-md flex items-center shadow-xl p-10 space-x-10">
+                <div class="">
+                    <img src="~/img/job/1.webp" alt="@job.Title" class="rounded-md w-24" />
                 </div>
-                <div class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40px] min-h-0">
-                    <a asp-controller="Jobs" asp-action="Details" asp-route-id="@job.Id">
-                        Apply Now
+                <div class="flex flex-col flex-grow justify-center">
+                    <div>
+                        <h2 class="">@job.Title</h2>
+                    </div>
+                    <div class="flex space-x-5">
+                        <p>@job.Location</p>
+                        <p>@job.JobType?.Type</p>
+                    </div>
+                </div>
+                <div class="ml-auto">
+                    <a asp-controller="Jobs" asp-action="Details" asp-route-id="@job.Id"
+                        class="btn bg-[#230939] hover:bg-[#230939] text-white h-[40px] min-h-0">
+                        Apply
+                        <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
         }
     </div>
-
     <div class="flex justify-center">
         <a class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40x] min-h-0 w-80" asp-controller="Jobs"
             asp-action="Index">See
             More</a>
     </div>
 </div>
+
 
 <!-- Employee -->
 <div class="my-[110px]">
