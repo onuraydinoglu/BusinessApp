@@ -54,8 +54,6 @@
         <div class="divider w-[330px] mx-auto before:bg-black after:bg-black"></div>
     </div>
 
-
-
     <div class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-6 my-[55px]">
         @foreach (var job in Model.Jobs)
         {
@@ -73,163 +71,164 @@
                 </div>
             </div>
         }
-
-        <div class="flex justify-center">
-            <a class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40x] min-h-0 w-80"
-                asp-controller="Jobs" asp-action="Index">See
-                More</a>
-        </div>
     </div>
 
-    <!-- Employee -->
-    <div class="my-[110px]">
-        <div class="flex justify-center items-center gap-20">
-            <div class=" text-center">
-                <h2 class="text-[36px] font-medium">Looking for an employee?</h2>
-                <p class="text-lg font-medium w-[555px] mx-auto my-3">To reach thousands of people looking for a new
-                    job, create your employer account on the İşin Olsun app and advertise for free!</p>
-                <div class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40px] min-h-0">
-                    Looking for an Employee
-                </div>
-            </div>
+    <div class="flex justify-center">
+        <a class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40x] min-h-0 w-80" asp-controller="Jobs"
+            asp-action="Index">See
+            More</a>
+    </div>
+</div>
 
-            <div class="xs:hidden">
-                <img src="~/img/employer.webp" alt="" class="w-[450px]">
+<!-- Employee -->
+<div class="my-[110px]">
+    <div class="flex justify-center items-center gap-20">
+        <div class=" text-center">
+            <h2 class="text-[36px] font-medium">Looking for an employee?</h2>
+            <p class="text-lg font-medium w-[555px] mx-auto my-3">To reach thousands of people looking for a new
+                job, create your employer account on the İşin Olsun app and advertise for free!</p>
+            <div class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40px] min-h-0">
+                Looking for an Employee
             </div>
+        </div>
+
+        <div class="xs:hidden">
+            <img src="~/img/employer.webp" alt="" class="w-[450px]">
         </div>
     </div>
+</div>
 
-    <!-- Profession Guide-->
-    <div class="my-[110px]">
-        <div class="text-center">
-            <h2 class="text-[33px] text-black">Profession Guide</h2>
-            <div class="divider w-[330px] mx-auto before:bg-black after:bg-black"></div>
-        </div>
-
-        <div class="grid xl:grid-cols-3 lg:grid-cols-2 gap-6 my-[55px]">
-
-            <div class="shadow-lg rounded-md p-5 flex flex-col h-full">
-                <a href="#">
-                    <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-5">
-                    <div class="mb-5">
-                        <h5 class="font-medium text-[18px]">What Does a Web Developer Do?</h5>
-                        <p class="text-[13px] text-gray-700 mt-3">Web developers design, create, and maintain websites
-                            and
-                            web apps. Learn
-                            HTML,
-                            CSS, JavaScript, and practice regularly to excel in this field.</p>
-                    </div>
-                    <div class="flex justify-between mt-auto">
-                        <span href="#" class="text-[14px]">Read Article </span>
-                        <span class="text-sm text-gray-500">14.09.2024</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shadow-lg rounded-md p-5 flex flex-col h-full">
-                <a href="#">
-                    <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-5">
-                    <div class="mb-5">
-                        <h5 class="font-medium text-[18px]">What Does a Database Admin Do?</h5>
-                        <p class="text-[13px] text-gray-700 mt-3">Database admins manage, organize, and secure
-                            databases.
-                            Proficiency in
-                            SQL
-                            and a
-                            background in IT or computer science are essential.</p>
-                    </div>
-                    <div class="flex justify-between mt-auto">
-                        <span href="#" class="text-[14px]">Read Article </span>
-                        <span class="text-sm text-gray-500">20.12.2024</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="shadow-lg rounded-md p-5 flex flex-col h-full">
-                <a href="#">
-                    <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-5">
-                    <!-- Kartın Ortasında Kalan Metin -->
-                    <div class="mb-5">
-                        <h5 class="font-medium text-[18px]">What Does a Digital Marketer Do?</h5>
-                        <p class="text-[13px] text-gray-700 mt-3">Digital marketers use SEO, ads, and social media to
-                            promote products.
-                            Training in
-                            digital tools and strong analytical skills are key.</p>
-                    </div>
-                    <div class="flex justify-between mt-auto">
-                        <span href="#" class="text-[14px]">Read Article </span>
-                        <span class="text-sm text-gray-500">18.06.2024</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="flex justify-center">
-            <a asp-controller="Blogs" asp-action="Index"
-                class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40x] min-h-0 w-80">See
-                More</a>
-        </div>
+<!-- Profession Guide-->
+<div class="my-[110px]">
+    <div class="text-center">
+        <h2 class="text-[33px] text-black">Profession Guide</h2>
+        <div class="divider w-[330px] mx-auto before:bg-black after:bg-black"></div>
     </div>
 
-    <!-- Profession Guide-->
-    <div class="my-[110px]">
-        <div class="text-center">
-            <h2 class="text-[33px] text-black">Who we are</h2>
-            <div class="divider w-[330px] mx-auto before:bg-black after:bg-black"></div>
-        </div>
+    <div class="grid xl:grid-cols-3 lg:grid-cols-2 gap-6 my-[55px]">
 
-        <div class="grid md:grid-cols-2 gap-6 my-[55px]">
-            <div class="flex flex-col place-content-between text-center shadow-lg rounded-md p-8">
-                <img src="~/img/admin/nisa.jpeg" alt="" class="rounded-full w-32 mx-auto mb-5">
+        <div class="shadow-lg rounded-md p-5 flex flex-col h-full">
+            <a href="#">
+                <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-5">
                 <div class="mb-5">
-                    <h5 class="font-medium text-[20px]">Nisa Nur Işık</h5>
-                    <p class="text-[14px]"> I am developing myself in Full-Stack web programming. Through the
-                        WebCrafters
-                        Full-Stack Bootcamp on Techcareer.net, I gained skills in HTML, CSS, JavaScript, Bootstrap
-                        (frontend), and ASP.NET Core (backend). Currently, I am working on Web APIs with N-tier
-                        architecture
-                        through a BTK Academy course, while continuously learning new technologies to enhance my
-                        expertise.
-                    </p>
+                    <h5 class="font-medium text-[18px]">What Does a Web Developer Do?</h5>
+                    <p class="text-[13px] text-gray-700 mt-3">Web developers design, create, and maintain websites
+                        and
+                        web apps. Learn
+                        HTML,
+                        CSS, JavaScript, and practice regularly to excel in this field.</p>
                 </div>
-                <div class="mt-2">
-                    <span>
-                        <a href="https://github.com/nisanurisik" target="_blank">
-                            <i class="fa-brands fa-github fa-lg border mr-5"></i>
-                        </a>
-                    </span>
-                    <span>
-                        <a href="https://www.linkedin.com/in/nisanurisik/" target="_blank">
-                            <i class="fa-brands fa-linkedin-in fa-lg border"></i>
-                        </a>
-                    </span>
+                <div class="flex justify-between mt-auto">
+                    <span href="#" class="text-[14px]">Read Article </span>
+                    <span class="text-sm text-gray-500">14.09.2024</span>
                 </div>
-            </div>
+            </a>
+        </div>
 
-            <div class="flex flex-col place-content-between text-center shadow-lg rounded-md p-8">
-                <img src="~/img/admin/onur.jpeg" alt="" class="rounded-full w-32 mx-auto mb-5">
+        <div class="shadow-lg rounded-md p-5 flex flex-col h-full">
+            <a href="#">
+                <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-5">
                 <div class="mb-5">
-                    <h5 class="font-medium text-[20px]">Muhammet Onur Aydınoğlu</h5>
-                    <p class="text-[14px]"> I am a software developer improving myself through Full-Stack projects. I
-                        use
-                        React JS with Bootstrap and Tailwind for front-end development and write N-tier architecture
-                        APIs on
-                        the back end. Currently, I am advancing my skills in React JS and ASP.NET Core Web API through a
-                        Techcareer bootcamp.
-                    </p>
+                    <h5 class="font-medium text-[18px]">What Does a Database Admin Do?</h5>
+                    <p class="text-[13px] text-gray-700 mt-3">Database admins manage, organize, and secure
+                        databases.
+                        Proficiency in
+                        SQL
+                        and a
+                        background in IT or computer science are essential.</p>
                 </div>
-                <div class="mt-2">
-                    <span>
-                        <a href="https://github.com/onuraydinoglu" target="_blank">
-                            <i class="fa-brands fa-github fa-lg border mr-5"></i>
-                        </a>
-                    </span>
-                    <span>
-                        <a href="https://www.linkedin.com/in/onuraydinoglu/" target="_blank">
-                            <i class="fa-brands fa-linkedin-in fa-lg border"></i>
-                        </a>
-                    </span>
+                <div class="flex justify-between mt-auto">
+                    <span href="#" class="text-[14px]">Read Article </span>
+                    <span class="text-sm text-gray-500">20.12.2024</span>
                 </div>
+            </a>
+        </div>
+
+        <div class="shadow-lg rounded-md p-5 flex flex-col h-full">
+            <a href="#">
+                <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-5">
+                <!-- Kartın Ortasında Kalan Metin -->
+                <div class="mb-5">
+                    <h5 class="font-medium text-[18px]">What Does a Digital Marketer Do?</h5>
+                    <p class="text-[13px] text-gray-700 mt-3">Digital marketers use SEO, ads, and social media to
+                        promote products.
+                        Training in
+                        digital tools and strong analytical skills are key.</p>
+                </div>
+                <div class="flex justify-between mt-auto">
+                    <span href="#" class="text-[14px]">Read Article </span>
+                    <span class="text-sm text-gray-500">18.06.2024</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="flex justify-center">
+        <a asp-controller="Blogs" asp-action="Index"
+            class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40x] min-h-0 w-80">See
+            More</a>
+    </div>
+</div>
+
+<!-- Profession Guide-->
+<div class="my-[110px]">
+    <div class="text-center">
+        <h2 class="text-[33px] text-black">Who we are</h2>
+        <div class="divider w-[330px] mx-auto before:bg-black after:bg-black"></div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 my-[55px]">
+        <div class="flex flex-col place-content-between text-center shadow-lg rounded-md p-8">
+            <img src="~/img/admin/nisa.jpeg" alt="" class="rounded-full w-32 mx-auto mb-5">
+            <div class="mb-5">
+                <h5 class="font-medium text-[20px]">Nisa Nur Işık</h5>
+                <p class="text-[14px]"> I am developing myself in Full-Stack web programming. Through the
+                    WebCrafters
+                    Full-Stack Bootcamp on Techcareer.net, I gained skills in HTML, CSS, JavaScript, Bootstrap
+                    (frontend), and ASP.NET Core (backend). Currently, I am working on Web APIs with N-tier
+                    architecture
+                    through a BTK Academy course, while continuously learning new technologies to enhance my
+                    expertise.
+                </p>
+            </div>
+            <div class="mt-2">
+                <span>
+                    <a href="https://github.com/nisanurisik" target="_blank">
+                        <i class="fa-brands fa-github fa-lg border mr-5"></i>
+                    </a>
+                </span>
+                <span>
+                    <a href="https://www.linkedin.com/in/nisanurisik/" target="_blank">
+                        <i class="fa-brands fa-linkedin-in fa-lg border"></i>
+                    </a>
+                </span>
+            </div>
+        </div>
+
+        <div class="flex flex-col place-content-between text-center shadow-lg rounded-md p-8">
+            <img src="~/img/admin/onur.jpeg" alt="" class="rounded-full w-32 mx-auto mb-5">
+            <div class="mb-5">
+                <h5 class="font-medium text-[20px]">Muhammet Onur Aydınoğlu</h5>
+                <p class="text-[14px]"> I am a software developer improving myself through Full-Stack projects. I
+                    use
+                    React JS with Bootstrap and Tailwind for front-end development and write N-tier architecture
+                    APIs on
+                    the back end. Currently, I am advancing my skills in React JS and ASP.NET Core Web API through a
+                    Techcareer bootcamp.
+                </p>
+            </div>
+            <div class="mt-2">
+                <span>
+                    <a href="https://github.com/onuraydinoglu" target="_blank">
+                        <i class="fa-brands fa-github fa-lg border mr-5"></i>
+                    </a>
+                </span>
+                <span>
+                    <a href="https://www.linkedin.com/in/onuraydinoglu/" target="_blank">
+                        <i class="fa-brands fa-linkedin-in fa-lg border"></i>
+                    </a>
+                </span>
             </div>
         </div>
     </div>
+</div>
