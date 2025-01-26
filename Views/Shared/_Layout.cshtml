@@ -38,9 +38,9 @@
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal">
                         <li><a asp-controller="Jobs" asp-action="Index" class="text-black">Job Advertisements</a></li>
-                        <li><a asp-controller="Home" asp-action="Index" class="text-black">Blog</a></li>
-                        <li><a asp-controller="Home" asp-action="Index" class="text-black">Login</a></li>
-                        <li><a asp-controller="Home" asp-action="Index" class="text-black">Register</a></li>
+                        <li><a asp-controller="Blogs" asp-action="Index" class="text-black">Blog</a></li>
+                        <li><a asp-controller="Auth" asp-action="Login" class="text-black">Login</a></li>
+                        <li><a asp-controller="Auth" asp-action="Signup" class="text-black">Sign up</a></li>
                     </ul>
                 </div>
             </div>
@@ -54,7 +54,7 @@
         </div>
     </div>
     <div class="w-full">
-        @RenderSection("FullJobImage", required: false)
+        @RenderSection("FullWidthImage", required: false)
     </div>
 
     <div class="container mx-auto px-20">

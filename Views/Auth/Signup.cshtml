@@ -1,0 +1,53 @@
+<div class="container mx-auto my-10">
+    <div class="flex flex-col lg:flex-row justify-center items-center gap-8">
+        <!-- Image Section -->
+        <div class="w-full md:w-1/2 flex justify-center">
+            <img src="~/img/auth/signup.webp" alt="Signup Illustration" class="max-w-xs lg:max-w-sm rounded-xl">
+        </div>
+
+        <!-- Form Section -->
+        <div class="w-full lg:w-1/2">
+            <h2 class="text-2xl font-bold text-gray-800">Get Start BusinessApp</h2>
+            <p class="text-gray-500 mt-2">Welcome to BusinessApp! Enter your email to get started.</p>
+
+            <form asp-controller="Users" asp-action="Signup" method="post" class="mt-6 space-y-4 w-[75%]">
+
+                <div class="flex flex-col gap-4">
+
+                    <label class="input input-bordered flex items-center gap-2">
+                        <i class="fa-solid fa-user"></i>
+                        <input for="FirstName" type="text" class="grow" placeholder="First Name" />
+                    </label>
+
+                    <label class="input input-bordered flex items-center gap-2">
+                        <i class="fa-solid fa-user"></i>
+                        <input for="LastName" type="text" class="grow" placeholder="Last Name" />
+                    </label>
+
+                    <label class="input input-bordered flex items-center gap-2">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input for="Email" type="text" class="grow" placeholder="Email" />
+                    </label>
+
+                    <label class="input input-bordered flex items-center gap-2">
+                        <i class="fa-solid fa-key"></i>
+                        <input for="Password" type="password" class="grow" placeholder="********" />
+                    </label>
+
+                    <!-- Register Button -->
+                    <button type="submit"
+                        class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white hover:text-white w-full">
+                        Register
+                    </button>
+                </div>
+
+                <small class="block mt-4 text-center ">
+                    By continuing, you agree to our
+                    <a href="#" class="link text-[#B561B0]">Terms of Service</a>
+                    and
+                    <a href="#" class="link text-[#B561B0]">Privacy Policy</a>.
+                </small>
+            </form>
+        </div>
+    </div>
+</div>

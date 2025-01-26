@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "T2KoWHmGSkYu6Mn17iRcZgBO9w/uDScqPcxU1nMgo6o=",
+  "Hash": "oYmgm06hx8N1nW0JM/Ri+spGPnxKTLl3XFTwV+Kui5E=",
   "Source": "BusinessApp",
   "BasePath": "_content/BusinessApp",
   "Mode": "Default",
@@ -1506,6 +1506,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\admin\\onur.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\img\\auth\\login.webp",
+      "SourceId": "BusinessApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\",
+      "BasePath": "_content/BusinessApp",
+      "RelativePath": "img/auth/login#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "7d1zg1407g",
+      "Integrity": "VRp/sO98DRexvM7sJVr8SoU7UqtyVGePSsJ6RURoAaE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\auth\\login.webp"
+    },
+    {
+      "Identity": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\img\\auth\\signup.webp",
+      "SourceId": "BusinessApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\",
+      "BasePath": "_content/BusinessApp",
+      "RelativePath": "img/auth/signup#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "iyakxnsn01",
+      "Integrity": "ho5tyxhyJB+fQ067nx6NyD2WZapUVSWER/G8RfbwR/o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\auth\\signup.webp"
     },
     {
       "Identity": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\img\\BusinessAppImage.png",
@@ -4456,6 +4498,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-tR2IKpTku9BLzJlQyC5V5RIAjbkWobd+Bas+EyF479A="
+        }
+      ]
+    },
+    {
+      "Route": "img/auth/login.7d1zg1407g.webp",
+      "AssetFile": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\img\\auth\\login.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "165820"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VRp/sO98DRexvM7sJVr8SoU7UqtyVGePSsJ6RURoAaE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 26 Jan 2025 11:06:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7d1zg1407g"
+        },
+        {
+          "Name": "label",
+          "Value": "img/auth/login.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-VRp/sO98DRexvM7sJVr8SoU7UqtyVGePSsJ6RURoAaE="
+        }
+      ]
+    },
+    {
+      "Route": "img/auth/login.webp",
+      "AssetFile": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\img\\auth\\login.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "165820"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VRp/sO98DRexvM7sJVr8SoU7UqtyVGePSsJ6RURoAaE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 26 Jan 2025 11:06:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-VRp/sO98DRexvM7sJVr8SoU7UqtyVGePSsJ6RURoAaE="
+        }
+      ]
+    },
+    {
+      "Route": "img/auth/signup.iyakxnsn01.webp",
+      "AssetFile": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\img\\auth\\signup.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "208242"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ho5tyxhyJB+fQ067nx6NyD2WZapUVSWER/G8RfbwR/o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 26 Jan 2025 11:06:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "iyakxnsn01"
+        },
+        {
+          "Name": "label",
+          "Value": "img/auth/signup.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ho5tyxhyJB+fQ067nx6NyD2WZapUVSWER/G8RfbwR/o="
+        }
+      ]
+    },
+    {
+      "Route": "img/auth/signup.webp",
+      "AssetFile": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\img\\auth\\signup.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "208242"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ho5tyxhyJB+fQ067nx6NyD2WZapUVSWER/G8RfbwR/o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 26 Jan 2025 11:06:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ho5tyxhyJB+fQ067nx6NyD2WZapUVSWER/G8RfbwR/o="
         }
       ]
     },

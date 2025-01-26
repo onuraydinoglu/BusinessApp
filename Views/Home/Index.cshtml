@@ -166,54 +166,64 @@
     </div>
 
     <div class="grid xl:grid-cols-3 lg:grid-cols-2 gap-6 my-[55px]">
-        <div class="shadow-lg rounded-md p-8">
-            <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-5">
-            <div class="mb-5">
-                <h5 class="font-medium text-[20px]">What Does a Web Developer Do?</h5>
-                <p class="text-[14px]">Web developers design, create, and maintain websites and web apps. Learn HTML,
-                    CSS, JavaScript, and practice regularly to excel in this field.</p>
-            </div>
-            <div class="flex justify-between">
-                <div class="">
-                    <span>14.09.2025</span>
+
+        <div class="shadow-lg rounded-md p-5 flex flex-col h-full">
+            <a href="#">
+                <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-5">
+                <div class="mb-5">
+                    <h5 class="font-medium text-[18px]">What Does a Web Developer Do?</h5>
+                    <p class="text-[13px] text-gray-700 mt-3">Web developers design, create, and maintain websites and
+                        web apps. Learn
+                        HTML,
+                        CSS, JavaScript, and practice regularly to excel in this field.</p>
                 </div>
-                <a href="#">Read More <i class="fa-solid fa-arrow-right ml-1"></i></a>
-            </div>
+                <div class="flex justify-between mt-auto">
+                    <span href="#" class="text-[14px]">Read Article </span>
+                    <span class="text-sm text-gray-500">14.09.2024</span>
+                </div>
+            </a>
         </div>
 
-        <div class="shadow-lg rounded-md p-8">
-            <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-5">
-            <div class="mb-5">
-                <h5 class="font-medium text-[20px]">What Does a Database Admin Do?</h5>
-                <p class="text-[14px]">Database admins manage, organize, and secure databases. Proficiency in SQL and a
-                    background in IT or computer science are essential.</p>
-            </div>
-            <div class="flex justify-between">
-                <div class="">
-                    <span>20.12.2025</span>
+        <div class="shadow-lg rounded-md p-5 flex flex-col h-full">
+            <a href="#">
+                <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-5">
+                <div class="mb-5">
+                    <h5 class="font-medium text-[18px]">What Does a Database Admin Do?</h5>
+                    <p class="text-[13px] text-gray-700 mt-3">Database admins manage, organize, and secure databases.
+                        Proficiency in
+                        SQL
+                        and a
+                        background in IT or computer science are essential.</p>
                 </div>
-                <a href="#">Read More <i class="fa-solid fa-arrow-right ml-1"></i></a>
-            </div>
+                <div class="flex justify-between mt-auto">
+                    <span href="#" class="text-[14px]">Read Article </span>
+                    <span class="text-sm text-gray-500">20.12.2024</span>
+                </div>
+            </a>
         </div>
 
-        <div class="shadow-lg rounded-md p-8">
-            <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-5">
-            <div class="mb-5">
-                <h5 class="font-medium text-[20px]">What Does a Digital Marketer Do?</h5>
-                <p class="text-[14px]">Digital marketers use SEO, ads, and social media to promote products. Training in
-                    digital tools and strong analytical skills are key.</p>
-            </div>
-            <div class="flex justify-between">
-                <div class="">
-                    <span>18.06.2025</span>
+        <div class="shadow-lg rounded-md p-5 flex flex-col h-full">
+            <a href="#">
+                <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-5">
+                <!-- Kartın Ortasında Kalan Metin -->
+                <div class="mb-5">
+                    <h5 class="font-medium text-[18px]">What Does a Digital Marketer Do?</h5>
+                    <p class="text-[13px] text-gray-700 mt-3">Digital marketers use SEO, ads, and social media to
+                        promote products.
+                        Training in
+                        digital tools and strong analytical skills are key.</p>
                 </div>
-                <a href="#">Read More <i class="fa-solid fa-arrow-right ml-1"></i></a>
-            </div>
+                <div class="flex justify-between mt-auto">
+                    <span href="#" class="text-[14px]">Read Article </span>
+                    <span class="text-sm text-gray-500">18.06.2024</span>
+                </div>
+            </a>
         </div>
     </div>
 
     <div class="flex justify-center">
-        <a class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40x] min-h-0 w-80">See
+        <a asp-controller="Blogs" asp-action="Index"
+            class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40x] min-h-0 w-80">See
             More</a>
     </div>
 </div>

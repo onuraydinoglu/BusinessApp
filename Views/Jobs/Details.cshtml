@@ -1,11 +1,11 @@
 @model Job
 
-@section FullJobImage {
+@section FullWidthImage {
   <img src="~/img/job/1.webp" alt="" class="w-full h-[50vh] object-cover object-top">
 }
 
-<div class="flex flex-row gap-20 mb-20">
-  <div class="w-2/3 my-5">
+<div class="flex lg:flex-row flex-col gap-20 mb-20">
+  <div class="lg:w-3/5 w-full my-5">
     <h2 class="flex items-center text-[32px] font-medium">
       @Model.Category?.Name
       <span class="text-[30px] ml-2">(@Model.Title)</span>
@@ -52,7 +52,7 @@
 
   </div>
 
-  <div class="w-1/3">
+  <div class="lg:w-2/5 w-full">
     <div class="mt-16 p-5 rounded-sm shadow-lg">
       <h2 class="text-lg font-medium">Apply Now</h2>
       <p class="my-3">Fill out the form to apply for the active job posting and start your recruitment process.</p>
@@ -84,11 +84,23 @@
         </label>
 
         <label class="input input-bordered flex items-center gap-2">
-          TRY
-          <input type="text" class="grow" placeholder="Monthly Payment" />
+          <i class="fa-solid fa-turkish-lira-sign"></i>
+          <input type="text" class="grow" placeholder="Turkish Lira" />
           <span>Monthly</span>
         </label>
 
+        <label for="reason" class="block text-sm font-medium text-gray-700">
+          Upload your CV
+        </label>
+        <input type="file"
+          class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200" />
+
+        <label for="reason" class="block text-sm font-medium text-gray-700">
+          Cover Letter
+        </label>
+        <textarea class="textarea textarea-bordered" placeholder="Cover Letter"></textarea>
+
+        <button class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white">Apply Now</button>
       </div>
     </div>
 

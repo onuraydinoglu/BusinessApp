@@ -29,6 +29,14 @@
       "PackagePath": "staticwebassets\\img\\admin\\onur.jpeg"
     },
     {
+      "Id": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\img\\auth\\login.webp",
+      "PackagePath": "staticwebassets\\img\\auth\\login.webp"
+    },
+    {
+      "Id": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\img\\auth\\signup.webp",
+      "PackagePath": "staticwebassets\\img\\auth\\signup.webp"
+    },
+    {
       "Id": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\img\\employer.webp",
       "PackagePath": "staticwebassets\\img\\employer.webp"
     },
