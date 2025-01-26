@@ -67,6 +67,9 @@ namespace BusinessApp.Migrations
                     b.Property<bool>("IsCompleted")
                         .HasColumnType("bit");
 
+                    b.Property<string>("JobImage")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("JobTypeId")
                         .HasColumnType("int");
 

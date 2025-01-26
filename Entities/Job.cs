@@ -11,6 +11,7 @@ namespace BusinessApp.Entities
     public bool IsActive { get; set; }
     public bool RemoteOption { get; set; }
     public bool IsCompleted { get; set; }
+    public string? JobImage { get; set; }
     public string? Url { get; set; }
     public int JobTypeId { get; set; }
     public JobType? JobType { get; set; }

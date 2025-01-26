@@ -32,11 +32,11 @@
     </select>
     @* <span asp-validation-for="Job.CategoryId" class="text-red-500 text-sm"></span> *@
 
-    <select class="select select-bordered w-full max-w-xs bg-white shadow-lg">
+    <select asp-for="Job.Location" asp-items="ViewBag.Locations"
+        class="select select-bordered w-full max-w-xs bg-white shadow-lg">
         <option disabled selected>Select Location</option>
-        <option>Istanbul</option>
-        <option>Hatay</option>
     </select>
+
 
     <select asp-for="Job.JobTypeId" asp-items="ViewBag.JobTypes"
         class="select select-bordered w-full max-w-xs bg-white shadow-lg">

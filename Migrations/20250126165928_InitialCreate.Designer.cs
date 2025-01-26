@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BusinessApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250125135123_InitialCreate")]
+    [Migration("20250126165928_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -69,6 +69,9 @@ namespace BusinessApp.Migrations
 
                     b.Property<bool>("IsCompleted")
                         .HasColumnType("bit");
+
+                    b.Property<string>("JobImage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("JobTypeId")
                         .HasColumnType("int");

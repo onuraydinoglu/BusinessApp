@@ -97,6 +97,7 @@ namespace BusinessApp.Migrations
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     RemoteOption = table.Column<bool>(type: "bit", nullable: false),
                     IsCompleted = table.Column<bool>(type: "bit", nullable: false),
+                    JobImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     JobTypeId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),

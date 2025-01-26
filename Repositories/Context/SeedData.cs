@@ -93,6 +93,118 @@ namespace BusinessApp.Repositories
           );
           context.SaveChanges();
         }
+
+        if (!context.Jobs.Any())
+        {
+          context.Jobs.AddRange(
+              new Job
+              {
+                Title = "Senior Software Engineer",
+                Description = "Develop and maintain enterprise applications.",
+                Location = "İstanbul",
+                SalaryRange = "10000-15000",
+                IsActive = true,
+                RemoteOption = true,
+                JobImage = "~/img/Job/8.webp",
+                JobTypeId = 1, // Full Time
+                UserId = 1, // Ahmet
+                CategoryId = 1 // Yazılım
+              },
+              new Job
+              {
+                Title = "Junior Web Developer",
+                Description = "Assist in the creation of web-based applications.",
+                Location = "Ankara",
+                SalaryRange = "6000-8000",
+                IsActive = true,
+                RemoteOption = false,
+                JobImage = "~/img/Job/8.webp",
+                JobTypeId = 2, // Part Time
+                UserId = 3, // Mehmet
+                CategoryId = 1 // Yazılım
+              },
+              new Job
+              {
+                Title = "HR Specialist",
+                Description = "Manage recruitment and employee relations.",
+                Location = "İzmir",
+                SalaryRange = "8000-10000",
+                IsActive = true,
+                RemoteOption = false,
+                JobImage = "~/img/Job/8.webp",
+                JobTypeId = 1, // Full Time
+                UserId = 2, // Ayşe
+                CategoryId = 3 // İnsan Kaynakları
+              },
+              new Job
+              {
+                Title = "Financial Analyst",
+                Description = "Analyze financial data and create reports.",
+                Location = "İstanbul",
+                SalaryRange = "9000-12000",
+                IsActive = true,
+                RemoteOption = true,
+                JobImage = "~/img/Job/8.webp",
+                JobTypeId = 1, // Full Time
+                UserId = 1, // Ahmet
+                CategoryId = 2 // Finans
+              },
+              new Job
+              {
+                Title = "Mobile App Developer",
+                Description = "Develop mobile applications for Android and iOS.",
+                Location = "Antalya",
+                SalaryRange = "10000-14000",
+                IsActive = true,
+                RemoteOption = true,
+                JobImage = "~/img/Job/8.webp",
+                JobTypeId = 1, // Full Time
+                UserId = 3, // Mehmet
+                CategoryId = 1 // Yazılım
+              },
+              new Job
+              {
+                Title = "Marketing Specialist",
+                Description = "Plan and execute marketing campaigns.",
+                Location = "Bursa",
+                SalaryRange = "7000-9000",
+                IsActive = true,
+                RemoteOption = false,
+                JobImage = "~/img/Job/8.webp",
+                JobTypeId = 2, // Part Time
+                UserId = 2, // Ayşe
+                CategoryId = 3 // İnsan Kaynakları
+              },
+              new Job
+              {
+                Title = "DevOps Engineer",
+                Description = "Maintain CI/CD pipelines and infrastructure.",
+                Location = "İstanbul",
+                SalaryRange = "11000-16000",
+                IsActive = true,
+                RemoteOption = true,
+                JobImage = "~/img/Job/8.webp",
+                JobTypeId = 1, // Full Time
+                UserId = 1, // Ahmet
+                CategoryId = 1 // Yazılım
+              },
+              new Job
+              {
+                Title = "Data Scientist",
+                Description = "Analyze and model large datasets to extract insights.",
+                Location = "Ankara",
+                SalaryRange = "12000-18000",
+                IsActive = true,
+                RemoteOption = true,
+                JobImage = "~/img/Job/8.webp",
+                JobTypeId = 1, // Full Time
+                UserId = 3, // Mehmet
+                CategoryId = 1 // Yazılım
+              }
+          );
+          context.SaveChanges();
+        }
+
       }
     }
   }
