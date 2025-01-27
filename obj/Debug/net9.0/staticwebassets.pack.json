@@ -41,6 +41,30 @@
       "PackagePath": "staticwebassets\\img\\employer.webp"
     },
     {
+      "Id": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\img\\employer\\connect.png",
+      "PackagePath": "staticwebassets\\img\\employer\\connect.png"
+    },
+    {
+      "Id": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\img\\employer\\contant.webp",
+      "PackagePath": "staticwebassets\\img\\employer\\contant.webp"
+    },
+    {
+      "Id": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\img\\employer\\employer.png",
+      "PackagePath": "staticwebassets\\img\\employer\\employer.png"
+    },
+    {
+      "Id": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\img\\employer\\login.png",
+      "PackagePath": "staticwebassets\\img\\employer\\login.png"
+    },
+    {
+      "Id": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\img\\employer\\post.png",
+      "PackagePath": "staticwebassets\\img\\employer\\post.png"
+    },
+    {
+      "Id": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\img\\employer\\post.webp",
+      "PackagePath": "staticwebassets\\img\\employer\\post.webp"
+    },
+    {
       "Id": "C:\\Users\\onura\\Desktop\\BusinessApp\\wwwroot\\img\\job\\1.webp",
       "PackagePath": "staticwebassets\\img\\job\\1.webp"
     },

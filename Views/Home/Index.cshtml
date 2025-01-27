@@ -47,10 +47,10 @@
     </div>
 }
 
-<!-- Job Advertisements -->
+<!-- Jobs -->
 <div class="my-[110px]">
     <div class="mt-[110px] text-center">
-        <h2 class="text-[33px] text-black">Job Advertisements</h2>
+        <h2 class="text-[33px] text-black">Jobs</h2>
         <div class="divider w-[330px] mx-auto before:bg-black after:bg-black"></div>
     </div>
 
@@ -87,7 +87,6 @@
     </div>
 </div>
 
-
 <!-- Employee -->
 <div class="my-[110px]">
     <div class="flex justify-center items-center gap-20">
@@ -95,9 +94,10 @@
             <h2 class="text-[36px] font-medium">Looking for an employee?</h2>
             <p class="text-lg font-medium w-[555px] mx-auto my-3">To reach thousands of people looking for a new
                 job, create your employer account on the İşin Olsun app and advertise for free!</p>
-            <div class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40px] min-h-0">
+            <a asp-controller="Employers" asp-action="Index"
+                class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white border-0 h-[40px] min-h-0">
                 Looking for an Employee
-            </div>
+            </a>
         </div>
 
         <div class="xs:hidden">
@@ -115,8 +115,8 @@
 
     <div class="grid xl:grid-cols-3 lg:grid-cols-2 gap-6 my-[55px]">
 
-        <div class="shadow-lg rounded-md p-5 flex flex-col h-full">
-            <a href="#">
+        <div class="shadow-lg rounded-md p-5">
+            <a href="#" class="flex flex-col h-full">
                 <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-5">
                 <div class="mb-5">
                     <h5 class="font-medium text-[18px]">What Does a Web Developer Do?</h5>
@@ -133,8 +133,8 @@
             </a>
         </div>
 
-        <div class="shadow-lg rounded-md p-5 flex flex-col h-full">
-            <a href="#">
+        <div class="shadow-lg rounded-md p-5">
+            <a href="#" class="flex flex-col h-full">
                 <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-5">
                 <div class="mb-5">
                     <h5 class="font-medium text-[18px]">What Does a Database Admin Do?</h5>
@@ -152,8 +152,8 @@
             </a>
         </div>
 
-        <div class="shadow-lg rounded-md p-5 flex flex-col h-full">
-            <a href="#">
+        <div class="shadow-lg rounded-md p-5">
+            <a href="#" class="flex flex-col h-full">
                 <img src="~/img/Job/1.webp" alt="" class="rounded-md mb-5">
                 <!-- Kartın Ortasında Kalan Metin -->
                 <div class="mb-5">
