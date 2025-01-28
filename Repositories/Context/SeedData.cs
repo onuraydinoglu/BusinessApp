@@ -223,6 +223,33 @@ namespace BusinessApp.Repositories
           context.Blogs.AddRange(
               new Blog
               {
+                Title = "What Does a Web Developer Do?",
+                Description = "Web developers design, create, and maintain websites and web apps.Learn HTML, CSS, JavaScript, and practice regularly to excel in this field.",
+                IsActive = true,
+                BlogImage = "~/img/Job/8.webp",
+                UserId = 1,
+                CategoryId = 1
+              },
+              new Blog
+              {
+                Title = "What Does a Database Admin Do?",
+                Description = "Database admins manage, organize, and secure databases. Proficiency in SQL and a background in IT or computer science are essential.",
+                IsActive = true,
+                BlogImage = "~/img/Job/8.webp",
+                UserId = 1,
+                CategoryId = 1
+              },
+              new Blog
+              {
+                Title = "What Does a Digital Marketer Do?",
+                Description = "Digital marketers use SEO, ads, and social media to promote products. Training in digital tools and strong analytical skills are key.",
+                IsActive = true,
+                BlogImage = "~/img/Job/8.webp",
+                UserId = 1,
+                CategoryId = 1
+              },
+              new Blog
+              {
                 Title = "Introduction to Full-Stack Development",
                 Description = "A beginner's guide to understanding full-stack web development.",
                 IsActive = true,

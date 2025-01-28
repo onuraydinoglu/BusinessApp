@@ -9,23 +9,22 @@ namespace BusinessApp.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ICategoryRepository _categoryRepository;
+    private readonly IBlogRepository _blogRepository;
     private readonly IJobRepository _jobRepository;
-    public HomeController(ICategoryRepository categoryRepository, IJobRepository jobRepository)
+    public HomeController(IJobRepository jobRepository, IBlogRepository blogRepository)
     {
-        _categoryRepository = categoryRepository;
         _jobRepository = jobRepository;
+        _blogRepository = blogRepository;
     }
-
-
 
     public async Task<IActionResult> Index()
     {
-
         var jobs = await _jobRepository.GetAllJobsAsync();
-        var modelView = new JobViewModel
+        var blogs = await _blogRepository.GetAllBlogsAsync();
+        var modelView = new HomeViewModel
         {
-            Jobs = jobs
+            Jobs = jobs,
+            Blogs = blogs
         };
         return View(modelView);
     }
