@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using BusinessApp.Entities;
 using BusinessApp.Models;
 using BusinessApp.Repositories.Abstracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -42,6 +43,7 @@ namespace BusinessApp.Controllers
             return View(blog);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> Create()
         {
@@ -51,6 +53,7 @@ namespace BusinessApp.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Create(Blog blog)
         {

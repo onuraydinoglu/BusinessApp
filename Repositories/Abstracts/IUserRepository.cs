@@ -6,5 +6,6 @@ namespace BusinessApp.Repositories.Abstracts
   {
     Task<IEnumerable<User>> GetAllUserAsync();
     Task UpdateUserAsync(User user);
+    Task<User> LoginAsync(string email, string password);
   }
 }

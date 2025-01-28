@@ -20,6 +20,16 @@ namespace BusinessApp.Repositories.Concretes
       return users;
     }
 
+    public async Task<User> LoginAsync(string email, string password)
+    {
+      var isUser = await _context.Users.Include(x => x.Role).FirstOrDefaultAsync(x => x.Email == email && x.Password == password);
+      if (isUser is null)
+      {
+        throw new Exception("User is not found.");
+      }
+      return isUser;
+    }
+
     public async Task UpdateUserAsync(User user)
     {
       var usr = await GetByIdAsync(user.Id);

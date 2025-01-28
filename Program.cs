@@ -2,6 +2,7 @@ using BusinessApp.Repositories;
 using BusinessApp.Repositories.Abstracts;
 using BusinessApp.Repositories.Concretes;
 using BusinessApp.Repositories.Context;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,8 +23,20 @@ builder.Services.AddScoped<IJobRepository, JobRepository>();
 builder.Services.AddScoped<IJobTypeRepository, JobTypeRepository>();
 builder.Services.AddScoped<IBlogRepository, BlogRepository>();
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Auth/Login";
+        options.AccessDeniedPath = "/Home/Index";
+    });
+
 var app = builder.Build();
+
 SeedData.TestData(app);
+app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

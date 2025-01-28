@@ -39,13 +39,21 @@
                     <li><a asp-controller="Jobs" asp-action="Index" class="font-medium">Post Jobs</a></li>
                     <li><a asp-controller="Employers" asp-action="Index" class="font-medium">Employers</a></li>
                     <li><a asp-controller="Blogs" asp-action="Index" class="font-medium">Blogs</a></li>
-                    <li><a asp-controller="Auth" asp-action="Login" class="font-medium">Login</a></li>
-                    <li>
-                        <a asp-controller="Auth" asp-action="Signup"
-                            class="btn bg-[#B561B0] text-white h-[40px] min-h-0 font-medium">
-                            Sign up
-                        </a>
-                    </li>
+                    @if (User.Identity!.IsAuthenticated)
+                    {
+                        <li><a asp-controller="Auth" asp-action="Logout" class="font-medium">Logout</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Auth" asp-action="Login" class="font-medium">Login</a></li>
+                        <li>
+                            <a asp-controller="Auth" asp-action="Signup"
+                                class="btn bg-[#B561B0] text-white h-[40px] min-h-0 font-medium">
+                                Sign up
+                            </a>
+                        </li>
+                    }
+
                 </ul>
             </div>
 
