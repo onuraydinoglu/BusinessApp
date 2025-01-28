@@ -19,9 +19,9 @@ namespace BusinessApp.Repositories
         if (!context.Roles.Any())
         {
           context.Roles.AddRange(
-              new Role { Name = "Yönetici" },
-              new Role { Name = "İş Veren" },
-              new Role { Name = "Kullanıcı" }
+              new Role { Name = "Admin" },
+              new Role { Name = "Employer" },
+              new Role { Name = "User" }
           );
           context.SaveChanges();
         }
@@ -38,9 +38,9 @@ namespace BusinessApp.Repositories
         if (!context.Categories.Any())
         {
           context.Categories.AddRange(
-              new Category { Name = "Yazılım" },
-              new Category { Name = "Finans" },
-              new Category { Name = "İnsan Kaynakları" }
+              new Category { Name = "Software" },
+              new Category { Name = "Finance" },
+              new Category { Name = "Human Resources" }
           );
           context.SaveChanges();
         }
@@ -50,45 +50,59 @@ namespace BusinessApp.Repositories
           context.Users.AddRange(
               new User
               {
-                FirstName = "Ahmet",
-                LastName = "Yılmaz",
-                Email = "ahmet.yilmaz@example.com",
-                Password = "hashedpassword1",
+                FirstName = "Muhammet Onur",
+                LastName = "Aydınoğlu",
+                Email = "onur@info.com",
+                Password = "onur",
                 PhoneNumber = "+905551112233",
-                DateOfBirth = new DateTime(1990, 5, 10),
+                DateOfBirth = new DateTime(1998, 09, 14),
                 ProfileImage = "profile.webp",
                 Education = "Computer Engineering",
                 Skills = "C#, .NET, SQL",
                 ResumeUrl = "cv.pdf",
-                RoleId = 1 // Yönetici
+                RoleId = 1
               },
               new User
               {
-                FirstName = "Ayşe",
-                LastName = "Kala",
-                Email = "ayse.kara@example.com",
-                Password = "hashedpassword2",
+                FirstName = "Nisa Nur",
+                LastName = "Işık",
+                Email = "nisa@info.com",
+                Password = "nisa",
                 PhoneNumber = "+905554445566",
-                DateOfBirth = new DateTime(1995, 8, 20),
+                DateOfBirth = new DateTime(1999, 12, 20),
                 ProfileImage = "profile.webp",
-                Education = "Business Administration",
+                Education = "Computer Engineering",
                 Skills = "Marketing, HR, Excel",
                 ResumeUrl = "cv.pdf",
-                RoleId = 2 // İş Veren
+                RoleId = 1
               },
               new User
               {
-                FirstName = "Mehmet",
-                LastName = "Demir",
-                Email = "mehmet.demir@example.com",
-                Password = "hashedpassword3",
+                FirstName = "Elisa",
+                LastName = "Aydınoğlu",
+                Email = "elisa@info.com",
+                Password = "elisa",
                 PhoneNumber = "+905556667788",
-                DateOfBirth = new DateTime(2000, 2, 15),
+                DateOfBirth = new DateTime(2029, 2, 15),
                 ProfileImage = "profile.webp",
                 Education = "Information Technology",
                 Skills = "JavaScript, React, Node.js",
                 ResumeUrl = "cv.pdf",
-                RoleId = 3 // Kullanıcı
+                RoleId = 3
+              },
+              new User
+              {
+                FirstName = "Yağız",
+                LastName = "Aydınoğlu",
+                Email = "yagiz@info.com",
+                Password = "elisa",
+                PhoneNumber = "+905556667788",
+                DateOfBirth = new DateTime(2030, 2, 15),
+                ProfileImage = "profile.webp",
+                Education = "Information Technology",
+                Skills = "JavaScript, React, Node.js",
+                ResumeUrl = "cv.pdf",
+                RoleId = 2
               }
           );
           context.SaveChanges();
@@ -106,9 +120,9 @@ namespace BusinessApp.Repositories
                 IsActive = true,
                 RemoteOption = true,
                 JobImage = "~/img/Job/8.webp",
-                JobTypeId = 1, // Full Time
-                UserId = 1, // Ahmet
-                CategoryId = 1 // Yazılım
+                JobTypeId = 1,
+                UserId = 1,
+                CategoryId = 1
               },
               new Job
               {
@@ -119,9 +133,9 @@ namespace BusinessApp.Repositories
                 IsActive = true,
                 RemoteOption = false,
                 JobImage = "~/img/Job/8.webp",
-                JobTypeId = 2, // Part Time
-                UserId = 3, // Mehmet
-                CategoryId = 1 // Yazılım
+                JobTypeId = 2,
+                UserId = 3,
+                CategoryId = 1
               },
               new Job
               {
@@ -132,9 +146,9 @@ namespace BusinessApp.Repositories
                 IsActive = true,
                 RemoteOption = false,
                 JobImage = "~/img/Job/8.webp",
-                JobTypeId = 1, // Full Time
-                UserId = 2, // Ayşe
-                CategoryId = 3 // İnsan Kaynakları
+                JobTypeId = 1,
+                UserId = 2,
+                CategoryId = 3
               },
               new Job
               {
@@ -145,9 +159,9 @@ namespace BusinessApp.Repositories
                 IsActive = true,
                 RemoteOption = true,
                 JobImage = "~/img/Job/8.webp",
-                JobTypeId = 1, // Full Time
-                UserId = 1, // Ahmet
-                CategoryId = 2 // Finans
+                JobTypeId = 1,
+                UserId = 1,
+                CategoryId = 2
               },
               new Job
               {
@@ -158,9 +172,9 @@ namespace BusinessApp.Repositories
                 IsActive = true,
                 RemoteOption = true,
                 JobImage = "~/img/Job/8.webp",
-                JobTypeId = 1, // Full Time
-                UserId = 3, // Mehmet
-                CategoryId = 1 // Yazılım
+                JobTypeId = 1,
+                UserId = 3,
+                CategoryId = 1
               },
               new Job
               {
@@ -171,9 +185,9 @@ namespace BusinessApp.Repositories
                 IsActive = true,
                 RemoteOption = false,
                 JobImage = "~/img/Job/8.webp",
-                JobTypeId = 2, // Part Time
-                UserId = 2, // Ayşe
-                CategoryId = 3 // İnsan Kaynakları
+                JobTypeId = 2,
+                UserId = 2,
+                CategoryId = 3
               },
               new Job
               {
@@ -184,9 +198,9 @@ namespace BusinessApp.Repositories
                 IsActive = true,
                 RemoteOption = true,
                 JobImage = "~/img/Job/8.webp",
-                JobTypeId = 1, // Full Time
-                UserId = 1, // Ahmet
-                CategoryId = 1 // Yazılım
+                JobTypeId = 1,
+                UserId = 1,
+                CategoryId = 1
               },
               new Job
               {
@@ -197,9 +211,60 @@ namespace BusinessApp.Repositories
                 IsActive = true,
                 RemoteOption = true,
                 JobImage = "~/img/Job/8.webp",
-                JobTypeId = 1, // Full Time
-                UserId = 3, // Mehmet
-                CategoryId = 1 // Yazılım
+                JobTypeId = 1,
+                UserId = 3,
+                CategoryId = 1
+              }
+          );
+          context.SaveChanges();
+        }
+        if (!context.Blogs.Any())
+        {
+          context.Blogs.AddRange(
+              new Blog
+              {
+                Title = "Introduction to Full-Stack Development",
+                Description = "A beginner's guide to understanding full-stack web development.",
+                IsActive = true,
+                BlogImage = "~/img/Job/8.webp",
+                UserId = 1,
+                CategoryId = 1
+              },
+              new Blog
+              {
+                Title = "Top Financial Strategies for Startups",
+                Description = "Effective financial strategies to help startups manage resources efficiently.",
+                IsActive = true,
+                BlogImage = "~/img/Job/8.webp",
+                UserId = 2,
+                CategoryId = 2
+              },
+              new Blog
+              {
+                Title = "Human Resources Trends in 2025",
+                Description = "Exploring the latest trends in HR and recruitment for the coming years.",
+                IsActive = true,
+                BlogImage = "~/img/Job/8.webp",
+                UserId = 4,
+                CategoryId = 3
+              },
+              new Blog
+              {
+                Title = "React vs Angular: Which One to Choose?",
+                Description = "A detailed comparison between React and Angular frameworks.",
+                IsActive = true,
+                BlogImage = "~/img/Job/8.webp",
+                UserId = 3,
+                CategoryId = 1
+              },
+              new Blog
+              {
+                Title = "The Role of Data Science in Modern Business",
+                Description = "How data science is revolutionizing industries and decision-making.",
+                IsActive = true,
+                BlogImage = "~/img/Job/8.webp",
+                UserId = 3,
+                CategoryId = 1
               }
           );
           context.SaveChanges();

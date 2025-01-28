@@ -16,6 +16,7 @@ namespace BusinessApp.Repositories.Context
     public DbSet<Role> Roles { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<SavedJob> SavedJobs { get; set; }
+    public DbSet<Blog> Blogs { get; set; }
 
   }
 }
