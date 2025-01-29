@@ -1,0 +1,23 @@
+@model IEnumerable<Blog>
+
+<div class="overflow-x-auto">
+    <table class="table">
+        <!-- head -->
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Job</th>
+                <th>Favorite Color</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var blog in Model)
+            {
+                <tr>
+                    <th>@blog.Id</th>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

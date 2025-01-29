@@ -41,7 +41,40 @@
                     <li><a asp-controller="Blogs" asp-action="Index" class="font-medium">Blogs</a></li>
                     @if (User.Identity!.IsAuthenticated)
                     {
-                        <li><a asp-controller="Auth" asp-action="Logout" class="font-medium">Logout</a></li>
+                        <ul class="menu menu-horizontal px-1">
+                            <li>
+                                <details>
+                                    <summary>
+                                        <i class="fa-regular fa-user"></i>@User.Identity.Name
+                                    </summary>
+                                    <ul class="w-full border p-2">
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <li>
+                                                <a asp-controller="Admin" asp-action="Index">
+                                                    <i class="fa-brands fa-cpanel"></i>Admin Panel
+                                                </a>
+                                            </li>
+                                        }
+                                        <li>
+                                            <a asp-controller="Users" asp-action="Profile">
+                                                <i class="fa-regular fa-user"></i>Profile
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-controller="Enrollments" asp-action="MyCourses">
+                                                <i class="fa-solid fa-play"></i>My Jobs
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-controller="Auth" asp-action="Logout">
+                                                <i class="fa-solid fa-arrow-right-from-bracket"></i>Logout
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </details>
+                            </li>
+                        </ul>
                     }
                     else
                     {
