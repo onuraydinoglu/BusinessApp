@@ -1,0 +1,116 @@
+@model User
+
+<form asp-controller="AdminUsers" asp-action="Edit" method="post">
+  <input type="hidden" asp-for="Id">
+  <div class="mt-5 w-[50%] mx-auto space-y-4">
+
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">
+          <span class="label-text">First Name</span>
+        </span>
+      </div>
+      <input asp-for="FirstName" type="text" placeholder="First Name" class="input input-bordered" />
+    </label>
+    <span asp-validation-for="FirstName" class="text-red-500 text-sm"></span>
+
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">
+          <span class="label-text">Last Name</span>
+        </span>
+      </div>
+      <input asp-for="LastName" type="text" placeholder="Last Name" class="input input-bordered" />
+    </label>
+    <span asp-validation-for="LastName" class="text-red-500 text-sm"></span>
+
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">
+          <span class="label-text">Email</span>
+        </span>
+      </div>
+      <input asp-for="Email" type="text" placeholder="Email" class="input input-bordered" />
+    </label>
+    <span asp-validation-for="Email" class="text-red-500 text-sm"></span>
+
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">
+          <span class="label-text">Password</span>
+        </span>
+      </div>
+      <input asp-for="Password" type="text" placeholder="Password" class="input input-bordered" />
+    </label>
+    <span asp-validation-for="Password" class="text-red-500 text-sm"></span>
+
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">
+          <span class="label-text">Phone Number</span>
+        </span>
+      </div>
+      <input asp-for="PhoneNumber" type="text" placeholder="Phone Number" class="input input-bordered" />
+    </label>
+    <span asp-validation-for="PhoneNumber" class="text-red-500 text-sm"></span>
+
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">
+          <span class="label-text">Date Of Birth</span>
+        </span>
+      </div>
+      <input asp-for="DateOfBirth" type="date" class="input input-bordered" />
+    </label>
+    <span asp-validation-for="DateOfBirth" class="text-red-500 text-sm"></span>
+
+
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">
+          <span class="label-text">Education</span>
+        </span>
+      </div>
+      <input asp-for="Education" type="text" placeholder="Education" class="input input-bordered" />
+    </label>
+    <span asp-validation-for="Education" class="text-red-500 text-sm"></span>
+
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">
+          <span class="label-text">Skills</span>
+        </span>
+      </div>
+      <input asp-for="Skills" type="text" placeholder="Skills" class="input input-bordered" />
+    </label>
+    <span asp-validation-for="Skills" class="text-red-500 text-sm"></span>
+
+    <div class="flex gap-4">
+      <label class="form-control w-full max-w-xs">
+        <div class="label">
+          <span class="label-text">Role</span>
+        </div>
+        <select asp-for="RoleId" asp-items="ViewBag.Roles" class="select select-bordered">
+          <option disabled selected>Select Role</option>
+        </select>
+        <span asp-validation-for="RoleId" class="text-red-500 text-sm"></span>
+      </label>
+    </div>
+
+    <label class="form-control w-full max-w-xs">
+      <div class="label">
+        <span class="label-text">Profile Image</span>
+      </div>
+      <input type="file" class="file-input file-input-bordered w-full max-w-xs" />
+    </label>
+
+    <label class="form-control w-full max-w-xs">
+      <div class="label">
+        <span class="label-text">Resume</span>
+      </div>
+      <input type="file" class="file-input file-input-bordered w-full max-w-xs" />
+    </label>
+
+    <button type="submit" class="btn btn-primary my-4 w-full">Update User</button>
+  </div>
+</form>

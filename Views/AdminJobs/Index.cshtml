@@ -2,7 +2,7 @@
 
 <div class="flex justify-between items-center mt-5">
 
-    <h2>job List</h2>
+    <h2>Jobs List</h2>
     <a asp-controller="AdminJobs" asp-action="Create"
         class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white">Add Enrollment</a>
 
@@ -17,6 +17,7 @@
                 <th>Name</th>
                 <th>Location</th>
                 <th>Remote Option</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -26,8 +27,17 @@
                     <th>@job.Id</th>
                     <td>@job.Title</td>
                     <td>@job.Location</td>
-                    <td>@job.RemoteOption</td>
+                    <td> @(job.RemoteOption ? "Remote" : "In the office")</td>
+                    <td>
+                        <a asp-controller="AdminJobs" asp-action="Edit" asp-route-id="@job.Id"
+                            class="btn btn-sm btn-warning">Edit</a>
+                        <button class="btn btn-sm btn-error" onclick="my_modal_@(job.Id).showModal()">
+                            Delete
+                        </button>
+
+                    </td>
                 </tr>
+                @await Html.PartialAsync("_Delete", job)
             }
         </tbody>
     </table>

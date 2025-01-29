@@ -1,6 +1,7 @@
 @model Job
 
-<form asp-controller="Jobs" asp-action="Edit" method="post">
+<form asp-controller="AdminJobs" asp-action="Edit" method="post">
+  <input type="hidden" asp-for="Id">
   <div class="mt-5 w-[50%] mx-auto space-y-4">
 
     <label class="form-control">

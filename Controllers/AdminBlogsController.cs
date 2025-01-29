@@ -24,7 +24,7 @@ namespace BusinessApp.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var blogs = await _blogRepository.GetAllAsync();
+            var blogs = await _blogRepository.GetAllBlogsAsync();
             return View(blogs);
         }
 
@@ -44,5 +44,29 @@ namespace BusinessApp.Controllers
             await _blogRepository.AddAsync(blog);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            ViewBag.Categories = new SelectList(await _categoryRepository.GetAllAsync(), "Id", "Name");
+            ViewBag.Users = new SelectList(await _userRepository.GetAllAsync(), "Id", "FullName");
+            var blog = await _blogRepository.GetByIdBlogAsync(id);
+            return View(blog);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Blog blog)
+        {
+            await _blogRepository.UpdateBlogAsync(blog);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _blogRepository.DeleteAsync(id);
+            return RedirectToAction("Index");
+        }
+
     }
 }

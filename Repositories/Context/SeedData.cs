@@ -128,7 +128,7 @@ namespace BusinessApp.Repositories
               {
                 Title = "Junior Web Developer",
                 Description = "Assist in the creation of web-based applications.",
-                Location = "Ankara",
+                Location = "Hatay",
                 SalaryRange = "6000-8000",
                 IsActive = true,
                 RemoteOption = false,
@@ -141,7 +141,7 @@ namespace BusinessApp.Repositories
               {
                 Title = "HR Specialist",
                 Description = "Manage recruitment and employee relations.",
-                Location = "İzmir",
+                Location = "Samsun",
                 SalaryRange = "8000-10000",
                 IsActive = true,
                 RemoteOption = false,

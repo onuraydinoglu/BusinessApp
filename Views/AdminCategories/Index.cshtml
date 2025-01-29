@@ -1,0 +1,32 @@
+@model IEnumerable<Category>
+
+<div class="overflow-x-auto">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var ctg in Model)
+      {
+        <tr>
+          <td>@ctg.Id</td>
+          <th>@ctg.Name</th>
+          <td>
+            <a asp-controller="AdminCategories" asp-action="Edit" asp-route-id="@ctg.Id"
+              class="btn btn-sm btn-warning">Edit</a>
+            <button class="btn btn-sm btn-error" onclick="my_modal_@(ctg.Id).showModal()">
+              Delete
+            </button>
+
+          </td>
+        </tr>
+        @await Html.PartialAsync("_Delete", ctg)
+      }
+    </tbody>
+  </table>
+</div>

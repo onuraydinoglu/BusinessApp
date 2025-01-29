@@ -1,0 +1,9 @@
+@model Category
+
+<form asp-controller="AdminCategories" asp-action="Create" method="post">
+  <label asp-for="Name" class="input input-bordered flex items-center gap-2">
+    Name
+    <input asp-for="Name" type="text" class="grow" placeholder="Name" />
+  </label>
+  <button class="btn btn-primary">Button</button>
+</form>
