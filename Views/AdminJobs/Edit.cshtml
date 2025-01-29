@@ -68,22 +68,36 @@
     <div class="flex gap-4">
       <label class="form-control w-full max-w-xs">
         <div class="label">
-          <span class="label-text">User</span>
+          <span class="label-text">Company Name</span>
         </div>
-        <select asp-for="UserId" asp-items="ViewBag.Users" class="select select-bordered">
-          <option disabled selected>Select User</option>
+        <select asp-for="EmployerId" asp-items="ViewBag.Employers" class="select select-bordered">
+          <option disabled selected>Select Company</option>
         </select>
-        <span asp-validation-for="UserId" class="text-red-500 text-sm"></span>
+        <span asp-validation-for="EmployerId" class="text-red-500 text-sm"></span>
       </label>
     </div>
 
+    <div class="form-control">
+      <label class="label cursor-pointer">
+        <span asp-validation-for="RemoteOption" class="label-text">Remote?</span>
+        <input asp-for="RemoteOption" type="checkbox" class="checkbox" />
+      </label>
+    </div>
+
+    <div class="form-control">
+      <label class="label cursor-pointer">
+        <span asp-validation-for="IsCompleted" class="label-text">Is Completed?</span>
+        <input asp-for="IsCompleted" type="checkbox" class="checkbox" />
+      </label>
+    </div>
 
     <div class="form-control">
       <label class="label cursor-pointer">
         <span asp-validation-for="IsActive" class="label-text">Is Active?</span>
-        <input asp-for="IsActive" type="checkbox" checked="checked" class="checkbox" />
+        <input asp-for="IsActive" type="checkbox" class="checkbox" />
       </label>
     </div>
+
 
     <button type="submit" class="btn btn-primary my-4 w-full">Update Job</button>
   </div>

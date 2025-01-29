@@ -1,5 +1,13 @@
 @model IEnumerable<User>
 
+<div class="flex justify-between items-center mt-5">
+
+  <h2>Users List</h2>
+  <a asp-controller="AdminUsers" asp-action="Create"
+    class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white">Add User</a>
+
+</div>
+
 <div class="overflow-x-auto">
   <table class="table">
     <!-- head -->

@@ -1,0 +1,18 @@
+@model Employer
+
+<form asp-controller="AdminEmployers" asp-action="Create" method="post" enctype="multipart/form-data">
+  <div class="mt-5 w-[50%] mx-auto space-y-4">
+
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">
+          <span class="label-text">Company Name</span>
+        </span>
+      </div>
+      <input asp-for="CompanyName" type="text" placeholder="Company Name" class="input input-bordered" />
+    </label>
+    <span asp-validation-for="CompanyName" class="text-red-500 text-sm"></span>
+
+    <button type="submit" class="btn btn-primary my-4 w-full">Add Employer</button>
+  </div>
+</form>

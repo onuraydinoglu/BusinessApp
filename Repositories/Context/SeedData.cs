@@ -35,12 +35,57 @@ namespace BusinessApp.Repositories
           context.SaveChanges();
         }
 
+
+
         if (!context.Categories.Any())
         {
           context.Categories.AddRange(
               new Category { Name = "Software" },
               new Category { Name = "Finance" },
               new Category { Name = "Human Resources" }
+          );
+          context.SaveChanges();
+        }
+
+        if (!context.Employers.Any())
+        {
+          context.Employers.AddRange(
+              new Employer
+              {
+                CompanyName = "Google",
+                JobId = 1,
+                UserId = 1
+              },
+              new Employer
+              {
+                CompanyName = "Microsoft",
+                JobId = 2,
+                UserId = 2
+              },
+              new Employer
+              {
+                CompanyName = "JP Morgan",
+                JobId = 3,
+                UserId = 3
+              },
+              new Employer
+              {
+                CompanyName = "Amazon",
+                JobId = 4,
+                UserId = 4
+              },
+              new Employer
+              {
+                CompanyName = "Tesla",
+                JobId = 5,
+                UserId = 1
+              },
+              new Employer
+              {
+                CompanyName = "Netflix",
+                JobId = 6,
+                UserId = 2
+              }
           );
           context.SaveChanges();
         }
@@ -60,7 +105,8 @@ namespace BusinessApp.Repositories
                 Education = "Computer Engineering",
                 Skills = "C#, .NET, SQL",
                 ResumeUrl = "cv.pdf",
-                RoleId = 1
+                RoleId = 1,
+                EmployerId = 1
               },
               new User
               {
@@ -74,7 +120,8 @@ namespace BusinessApp.Repositories
                 Education = "Computer Engineering",
                 Skills = "Marketing, HR, Excel",
                 ResumeUrl = "cv.pdf",
-                RoleId = 1
+                RoleId = 1,
+                EmployerId = 1
               },
               new User
               {
@@ -88,7 +135,8 @@ namespace BusinessApp.Repositories
                 Education = "Information Technology",
                 Skills = "JavaScript, React, Node.js",
                 ResumeUrl = "cv.pdf",
-                RoleId = 3
+                RoleId = 3,
+                EmployerId = 1
               },
               new User
               {
@@ -102,11 +150,14 @@ namespace BusinessApp.Repositories
                 Education = "Information Technology",
                 Skills = "JavaScript, React, Node.js",
                 ResumeUrl = "cv.pdf",
-                RoleId = 2
+                RoleId = 2,
+                EmployerId = 2
               }
           );
           context.SaveChanges();
         }
+
+
 
         if (!context.Jobs.Any())
         {
@@ -121,7 +172,7 @@ namespace BusinessApp.Repositories
                 RemoteOption = true,
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
-                UserId = 1,
+                EmployerId = 1,
                 CategoryId = 1
               },
               new Job
@@ -134,7 +185,7 @@ namespace BusinessApp.Repositories
                 RemoteOption = false,
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 2,
-                UserId = 3,
+                EmployerId = 3,
                 CategoryId = 1
               },
               new Job
@@ -147,7 +198,7 @@ namespace BusinessApp.Repositories
                 RemoteOption = false,
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
-                UserId = 2,
+                EmployerId = 2,
                 CategoryId = 3
               },
               new Job
@@ -160,7 +211,7 @@ namespace BusinessApp.Repositories
                 RemoteOption = true,
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
-                UserId = 1,
+                EmployerId = 1,
                 CategoryId = 2
               },
               new Job
@@ -173,7 +224,7 @@ namespace BusinessApp.Repositories
                 RemoteOption = true,
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
-                UserId = 3,
+                EmployerId = 3,
                 CategoryId = 1
               },
               new Job
@@ -186,7 +237,7 @@ namespace BusinessApp.Repositories
                 RemoteOption = false,
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 2,
-                UserId = 2,
+                EmployerId = 2,
                 CategoryId = 3
               },
               new Job
@@ -199,7 +250,7 @@ namespace BusinessApp.Repositories
                 RemoteOption = true,
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
-                UserId = 1,
+                EmployerId = 1,
                 CategoryId = 1
               },
               new Job
@@ -212,7 +263,7 @@ namespace BusinessApp.Repositories
                 RemoteOption = true,
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
-                UserId = 3,
+                EmployerId = 3,
                 CategoryId = 1
               }
           );

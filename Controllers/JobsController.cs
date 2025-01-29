@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using BusinessApp.Entities;
 using BusinessApp.Models;
 using BusinessApp.Repositories.Abstracts;
@@ -11,12 +12,14 @@ namespace BusinessApp.Controllers
         private readonly ICategoryRepository _categoryRepository;
         private readonly IJobRepository _jobRepository;
         private readonly IJobTypeRepository _jobTypeRepository;
+        private readonly IEmployerRepository _employerRepository;
         private readonly IUserRepository _userRepository;
-        public JobsController(IJobRepository jobRepository, ICategoryRepository categoryRepository, IJobTypeRepository jobTypeRepository, IUserRepository userRepository)
+        public JobsController(IJobRepository jobRepository, ICategoryRepository categoryRepository, IJobTypeRepository jobTypeRepository, IEmployerRepository employerRepository, IUserRepository userRepository)
         {
             _jobRepository = jobRepository;
             _categoryRepository = categoryRepository;
             _jobTypeRepository = jobTypeRepository;
+            _employerRepository = employerRepository;
             _userRepository = userRepository;
         }
 
@@ -38,7 +41,7 @@ namespace BusinessApp.Controllers
         {
             ViewBag.Categories = new SelectList(await _categoryRepository.GetAllAsync(), "Id", "Name");
             ViewBag.JobTypes = new SelectList(await _jobTypeRepository.GetAllAsync(), "Id", "Type");
-            ViewBag.Users = new SelectList(await _userRepository.GetAllAsync(), "Id", "FullName");
+            ViewBag.Employers = new SelectList(await _employerRepository.GetAllAsync(), "Id", "CompanyName");
 
             return View();
         }
@@ -60,7 +63,16 @@ namespace BusinessApp.Controllers
                 return NotFound();
             }
 
-            return View(job);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var user = userId != null ? await _userRepository.GetByIdUserAsync(int.Parse(userId)) : null;
+
+            var viewModel = new JobViewModel
+            {
+                Job = job,
+                User = user
+            };
+
+            return View(viewModel);
         }
 
         [HttpPost]
@@ -75,7 +87,7 @@ namespace BusinessApp.Controllers
         {
             ViewBag.Categories = new SelectList(await _categoryRepository.GetAllAsync(), "Id", "Name");
             ViewBag.JobTypes = new SelectList(await _jobTypeRepository.GetAllAsync(), "Id", "Type");
-            ViewBag.Users = new SelectList(await _userRepository.GetAllAsync(), "Id", "FullName");
+            ViewBag.Employers = new SelectList(await _employerRepository.GetAllAsync(), "Id", "CompanyName");
             var job = await _jobRepository.GetByIdJobAsync(id);
             return View(job);
         }

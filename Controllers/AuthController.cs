@@ -16,8 +16,13 @@ namespace BusinessApp.Controllers
             _userRepository = userRepository;
         }
 
+        [HttpGet]
         public IActionResult Login()
         {
+            if (User.Identity!.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
@@ -70,6 +75,10 @@ namespace BusinessApp.Controllers
 
         public IActionResult Signup()
         {
+            if (User.Identity!.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 

@@ -15,6 +15,8 @@ namespace BusinessApp.Entities
     public string? ResumeUrl { get; set; }
     public int RoleId { get; set; }
     public Role? Role { get; set; }
+    public int EmployerId { get; set; }
+    public Employer? Employer { get; set; }
     public ICollection<Job> Jobs { get; set; } = new List<Job>();
   }
 }

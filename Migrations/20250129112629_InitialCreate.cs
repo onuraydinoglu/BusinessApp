@@ -27,6 +27,22 @@ namespace BusinessApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Employers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    JobId = table.Column<int>(type: "int", nullable: true),
+                    UserId = table.Column<int>(type: "int", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Employers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "JobTypes",
                 columns: table => new
                 {
@@ -71,11 +87,18 @@ namespace BusinessApp.Migrations
                     Skills = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ResumeUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RoleId = table.Column<int>(type: "int", nullable: false),
+                    EmployerId = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Users_Employers_EmployerId",
+                        column: x => x.EmployerId,
+                        principalTable: "Employers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Users_Roles_RoleId",
                         column: x => x.RoleId,
@@ -132,8 +155,9 @@ namespace BusinessApp.Migrations
                     JobImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     JobTypeId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    EmployerId = table.Column<int>(type: "int", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -146,6 +170,12 @@ namespace BusinessApp.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
+                        name: "FK_Jobs_Employers_EmployerId",
+                        column: x => x.EmployerId,
+                        principalTable: "Employers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Jobs_JobTypes_JobTypeId",
                         column: x => x.JobTypeId,
                         principalTable: "JobTypes",
@@ -155,8 +185,7 @@ namespace BusinessApp.Migrations
                         name: "FK_Jobs_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -201,6 +230,11 @@ namespace BusinessApp.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Jobs_EmployerId",
+                table: "Jobs",
+                column: "EmployerId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Jobs_JobTypeId",
                 table: "Jobs",
                 column: "JobTypeId");
@@ -219,6 +253,11 @@ namespace BusinessApp.Migrations
                 name: "IX_SavedJobs_UserId",
                 table: "SavedJobs",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_EmployerId",
+                table: "Users",
+                column: "EmployerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_RoleId",
@@ -246,6 +285,9 @@ namespace BusinessApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Employers");
 
             migrationBuilder.DropTable(
                 name: "Roles");

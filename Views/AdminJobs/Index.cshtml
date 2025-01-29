@@ -15,6 +15,7 @@
             <tr>
                 <th>#</th>
                 <th>Name</th>
+                <th>Company Name</th>
                 <th>Location</th>
                 <th>Remote Option</th>
                 <th>Action</th>
@@ -26,6 +27,7 @@
                 <tr>
                     <th>@job.Id</th>
                     <td>@job.Title</td>
+                    <td>@job.Employer?.CompanyName</td>
                     <td>@job.Location</td>
                     <td> @(job.RemoteOption ? "Remote" : "In the office")</td>
                     <td>

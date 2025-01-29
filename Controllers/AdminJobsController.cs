@@ -13,13 +13,13 @@ namespace BusinessApp.Controllers
         private readonly ICategoryRepository _categoryRepository;
         private readonly IJobRepository _jobRepository;
         private readonly IJobTypeRepository _jobTypeRepository;
-        private readonly IUserRepository _userRepository;
-        public AdminJobsController(IJobRepository jobRepository, ICategoryRepository categoryRepository, IJobTypeRepository jobTypeRepository, IUserRepository userRepository)
+        private readonly IEmployerRepository _employerRepository;
+        public AdminJobsController(IJobRepository jobRepository, ICategoryRepository categoryRepository, IJobTypeRepository jobTypeRepository, IEmployerRepository employerRepository)
         {
             _jobRepository = jobRepository;
             _categoryRepository = categoryRepository;
             _jobTypeRepository = jobTypeRepository;
-            _userRepository = userRepository;
+            _employerRepository = employerRepository;
         }
 
         [HttpGet]
@@ -34,7 +34,7 @@ namespace BusinessApp.Controllers
         {
             ViewBag.Categories = new SelectList(await _categoryRepository.GetAllAsync(), "Id", "Name");
             ViewBag.JobTypes = new SelectList(await _jobTypeRepository.GetAllAsync(), "Id", "Type");
-            ViewBag.Users = new SelectList(await _userRepository.GetAllAsync(), "Id", "FullName");
+            ViewBag.Employers = new SelectList(await _employerRepository.GetAllAsync(), "Id", "CompanyName");
 
             return View();
         }
@@ -71,7 +71,7 @@ namespace BusinessApp.Controllers
         {
             ViewBag.Categories = new SelectList(await _categoryRepository.GetAllAsync(), "Id", "Name");
             ViewBag.JobTypes = new SelectList(await _jobTypeRepository.GetAllAsync(), "Id", "Type");
-            ViewBag.Users = new SelectList(await _userRepository.GetAllAsync(), "Id", "FullName");
+            ViewBag.Employers = new SelectList(await _employerRepository.GetAllAsync(), "Id", "CompanyName");
             var job = await _jobRepository.GetByIdJobAsync(id);
             return View(job);
         }

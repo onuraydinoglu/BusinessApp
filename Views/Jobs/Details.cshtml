@@ -1,4 +1,4 @@
-@model Job
+@model JobViewModel
 
 @section FullWidthImage {
   <img src="~/img/job/1.webp" alt="" class="w-full h-[50vh] object-cover object-top">
@@ -7,23 +7,29 @@
 <div class="flex lg:flex-row flex-col gap-20 mb-20">
   <div class="lg:w-3/5 w-full my-5">
     <h2 class="flex items-center text-[32px] font-medium">
-      @Model.Category?.Name
-      <span class="text-[30px] ml-2">(@Model.Title)</span>
+      @Model.Job.Category?.Name
+      <span class="text-[30px] ml-2">(@Model.Job.Title)</span>
+
     </h2>
 
     <div class="flex gap-6 my-5">
       <p>
+        <i class="fas fa-building mr-1"></i>
+
+        @Model.Job.Employer?.CompanyName
+      </p>
+      <p>
         <i class="fa-regular fa-clock mr-1"></i>
-        @Model.JobType?.Type
+        @Model.Job.JobType?.Type
       </p>
       <p>
         <i class="fa-regular fa-building mr-1"></i>
-        @(Model.RemoteOption ? "Remote" : "In the office")
+        @(Model.Job.RemoteOption ? "Remote" : "In the office")
       </p>
 
       <p>
         <i class="fa-solid fa-location-dot mr-1"></i>
-        @Model.Location
+        @Model.Job.Location
       </p>
     </div>
 
@@ -58,70 +64,107 @@
       <h2 class="text-lg font-medium text-gray-800">Apply Now</h2>
       <p class="text-gray-700 my-3">Fill out the form to apply for the active job posting and start your recruitment
         process.</p>
+      @if (User.Identity!.IsAuthenticated)
+      {
+        <form>
+          <div class="flex flex-col gap-5 mt-10">
+            <label class="input input-bordered flex items-center gap-2 shadow-md">
+              <i class="fa-solid fa-user"></i>
+              <input asp-for="@Model.User.FirstName" type="text" class="grow" placeholder="First Name" />
+            </label>
 
-      <form>
-        <div class="flex flex-col gap-5 mt-10">
-          <label class="input input-bordered flex items-center gap-2 shadow-md">
-            <i class="fa-solid fa-user"></i>
-            <input type="text" class="grow" placeholder="First Name" />
-          </label>
+            <label class="input input-bordered flex items-center gap-2 shadow-md">
+              <i class="fa-solid fa-user"></i>
+              <input asp-for="@Model.User.LastName" type="text" class="grow" placeholder="Last Name" />
+            </label>
 
-          <label class="input input-bordered flex items-center gap-2 shadow-md">
-            <i class="fa-solid fa-user"></i>
-            <input type="text" class="grow" placeholder="Last Name" />
-          </label>
+            <label class="input input-bordered flex items-center gap-2 shadow-md">
+              <i class="fa-solid fa-envelope"></i>
+              <input asp-for="@Model.User.Email" type="email" class="grow" placeholder="Email" />
+            </label>
 
-          <label class="input input-bordered flex items-center gap-2 shadow-md">
-            <i class="fa-solid fa-envelope"></i>
-            <input type="email" class="grow" placeholder="Email" />
-          </label>
+            <label class="input input-bordered flex items-center gap-2 shadow-md">
+              <i class="fa-solid fa-mobile-screen"></i>
+              <input asp-for="@Model.User.PhoneNumber" type="phone" class="grow" placeholder="Phone" />
+            </label>
 
-          <label class="input input-bordered flex items-center gap-2 shadow-md">
-            <i class="fa-solid fa-mobile-screen"></i>
-            <input type="phone" class="grow" placeholder="Phone" />
-          </label>
+            <label class="input input-bordered flex items-center gap-2 shadow-md">
+              <i class="fa-solid fa-location-dot"></i>
+              <input type="address" class="grow" placeholder="Location" />
+            </label>
 
-          <label class="input input-bordered flex items-center gap-2 shadow-md">
-            <i class="fa-solid fa-location-dot"></i>
-            <input type="address" class="grow" placeholder="Location" />
-          </label>
+            <label class="input input-bordered flex items-center gap-2">
+              <i class="fa-solid fa-turkish-lira-sign"></i>
+              <input type="text" class="grow" placeholder="Turkish Lira" />
+              <span>Monthly</span>
+            </label>
 
-          <label class="input input-bordered flex items-center gap-2">
-            <i class="fa-solid fa-turkish-lira-sign"></i>
-            <input type="text" class="grow" placeholder="Turkish Lira" />
-            <span>Monthly</span>
-          </label>
+            <label for="reason" class="block text-sm font-medium text-gray-700">
+              Upload your CV
+            </label>
+            <input asp-for="@Model.User.ResumeUrl" type="file"
+              class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200" />
 
-          <label for="reason" class="block text-sm font-medium text-gray-700">
-            Upload your CV
-          </label>
-          <input type="file"
-            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200" />
+            <label for="reason" class="block text-sm font-medium text-gray-700">
+              Cover Letter
+            </label>
+            <textarea class="textarea textarea-bordered" placeholder="Cover Letter"></textarea>
 
-          <label for="reason" class="block text-sm font-medium text-gray-700">
-            Cover Letter
-          </label>
-          <textarea class="textarea textarea-bordered" placeholder="Cover Letter"></textarea>
+            <button class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white">Apply Now</button>
+          </div>
+        </form>
+      }
+      else
+      {
+        <form>
+          <div class="flex flex-col gap-5 mt-10">
+            <label class="input input-bordered flex items-center gap-2 shadow-md">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" class="grow" placeholder="First Name" />
+            </label>
 
-          <button class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white">Apply Now</button>
-        </div>
-      </form>
+            <label class="input input-bordered flex items-center gap-2 shadow-md">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" class="grow" placeholder="Last Name" />
+            </label>
 
+            <label class="input input-bordered flex items-center gap-2 shadow-md">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="email" class="grow" placeholder="Email" />
+            </label>
 
+            <label class="input input-bordered flex items-center gap-2 shadow-md">
+              <i class="fa-solid fa-mobile-screen"></i>
+              <input type="phone" class="grow" placeholder="Phone" />
+            </label>
+
+            <label class="input input-bordered flex items-center gap-2 shadow-md">
+              <i class="fa-solid fa-location-dot"></i>
+              <input type="address" class="grow" placeholder="Location" />
+            </label>
+
+            <label class="input input-bordered flex items-center gap-2">
+              <i class="fa-solid fa-turkish-lira-sign"></i>
+              <input type="text" class="grow" placeholder="Turkish Lira" />
+              <span>Monthly</span>
+            </label>
+
+            <label for="reason" class="block text-sm font-medium text-gray-700">
+              Upload your CV
+            </label>
+            <input type="file"
+              class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200" />
+
+            <label for="reason" class="block text-sm font-medium text-gray-700">
+              Cover Letter
+            </label>
+            <textarea class="textarea textarea-bordered" placeholder="Cover Letter"></textarea>
+
+            <button class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white">Apply Now</button>
+          </div>
+        </form>
+      }
     </div>
-
-
-
-
-
-
-
-
-    @* <button class="btn btn-sm btn-error" onclick="my_modal_@(Model.Id).showModal()">
-      Delete
-    </button>
-    <a asp-controller="Jobs" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-warning">Edit</a>
-    @await Html.PartialAsync("_Delete", Model) *@
   </div>
 
 </div>

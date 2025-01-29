@@ -1,0 +1,42 @@
+@model IEnumerable<Employer>
+
+<div class="flex justify-between items-center mt-5">
+
+  <h2>Employers List</h2>
+  <a asp-controller="AdminEmployers" asp-action="Create"
+    class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white">Add Employer</a>
+
+</div>
+
+<div class="overflow-x-auto">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Company Name</th>
+        <th>Created Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var employer in Model)
+      {
+        <tr>
+          <td>@employer.Id</td>
+          <td>@employer.CompanyName</td>
+          <td>@employer.CreatedDate</td>
+          <td>
+            <a asp-controller="AdminEmployers" asp-action="Edit" asp-route-id="@employer.Id"
+              class="btn btn-sm btn-warning">Edit</a>
+            <button class="btn btn-sm btn-error" onclick="my_modal_@(employer.Id).showModal()">
+              Delete
+            </button>
+
+          </td>
+        </tr>
+        @await Html.PartialAsync("_Delete", employer)
+      }
+    </tbody>
+  </table>
+</div>
