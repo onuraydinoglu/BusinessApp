@@ -4,10 +4,10 @@
 }
 
 <div class="max-w-4xl mx-auto px-4 py-8 mt-12">
+
     <!-- Başlık -->
     <h1 class="text-3xl font-bold text-gray-800 mb-6">@Model.Title</h1>
-    <p>@Model.User?.FullName</p>
-    <p>@Model.CreatedDate</p>
+
     <!-- Giriş -->
     <p class="text-gray-700 text-lg mb-6">
         Risk management is a crucial aspect of personal, organizational, and financial decision-making. It involves
@@ -76,4 +76,16 @@
         vulnerabilities and seize opportunities. By adopting a structured approach, risks can become catalysts for
         innovation and growth.
     </p>
+
+    <div class="divider my-10"></div>
+
+    <div class="flex gap-5 items-center mb-5">
+        <img src="~/img/users/profile.webp" alt="" class="rounded-full w-12">
+        <div class="">
+            <p class=" text-gray-700 font-medium">@Model.User?.FullName</p>
+            <p class="text-gray-600"><span class="font-medium">Release Date:</span>
+                @Model.CreatedDate.ToString("dd.MM.yyyy")</p>
+        </div>
+    </div>
+
 </div>

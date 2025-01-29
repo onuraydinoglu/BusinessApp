@@ -2,9 +2,19 @@
 
 <form asp-controller="AdminCategories" asp-action="Edit" method="post">
   <input type="hidden" asp-for="Id">
-  <label asp-for="Name" class="input input-bordered flex items-center gap-2">
-    Name
-    <input asp-for="Name" type="text" class="grow" placeholder="Name" />
-  </label>
-  <button class="btn btn-primary">Edit</button>
+
+  <div class="mt-5 w-[50%] mx-auto space-y-4">
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">
+          <span class="label-text">First Name</span>
+        </span>
+      </div>
+      <input asp-for="Name" type="text" placeholder="Name" class="input input-bordered" />
+    </label>
+
+    <button type="submit" class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white my-4 w-full">Update
+      Category</button>
+  </div>
+
 </form>

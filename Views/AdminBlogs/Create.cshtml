@@ -1,6 +1,14 @@
 @model Blog
 
-<form asp-controller="AdminBlogs" asp-action="Create" method="post" enctype="multipart/form-data">
+<div class="flex justify-between items-center mt-5">
+  <h2>Add Blog</h2>
+  <a asp-controller="AdminBlogs" asp-action="Index"
+    class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white">Back to Blogs</a>
+</div>
+
+<div class="divider my-5"></div>
+
+<form asp-controller="AdminBlogs" asp-action="Create" method="post" enctype="multipart/form-data" class="mb-20">
   <div class="mt-5 w-[50%] mx-auto space-y-4">
 
     <label class="form-control">
@@ -56,6 +64,7 @@
       </label>
     </div>
 
-    <button type="submit" class="btn btn-primary my-4 w-full">Add Job</button>
+    <button type="submit" class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white my-4 w-full">Add
+      Blog</button>
   </div>
 </form>

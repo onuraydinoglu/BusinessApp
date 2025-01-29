@@ -1,6 +1,14 @@
 @model Job
 
-<form asp-controller="AdminJobs" asp-action="Create" method="post">
+<div class="flex justify-between items-center mt-5">
+  <h2>Add Job</h2>
+  <a asp-controller="AdminJobs" asp-action="Index"
+    class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white">Back to Jobs</a>
+</div>
+
+<div class="divider my-5"></div>
+
+<form asp-controller="AdminJobs" asp-action="Create" method="post" class="mb-20">
   <div class="mt-5 w-[50%] mx-auto space-y-4">
 
     <label class="form-control">
@@ -30,15 +38,6 @@
       <input asp-for="Location" type="text" placeholder="Location" class="input input-bordered" />
     </label>
     <span asp-validation-for="Location" class="text-red-500 text-sm"></span>
-
-    <input asp-for="SalaryRange" type="range" min="0" max="5000" value="1000" class="range" step="1000" />
-    <div class="flex w-full justify-between px-2 text-xs text-black">
-      <span asp-validation-for="SalaryRange">$1000</span>
-      <span asp-validation-for="SalaryRange">$2000</span>
-      <span asp-validation-for="SalaryRange">$3000</span>
-      <span asp-validation-for="SalaryRange">$4000</span>
-      <span asp-validation-for="SalaryRange">$5000</span>
-    </div>
 
     <div class="flex gap-4">
       <label class="form-control w-full max-w-xs">
@@ -85,7 +84,7 @@
 
     <div class="form-control">
       <label class="label cursor-pointer">
-        <span asp-validation-for="IsCompleted" class="label-text">Is Comleted??</span>
+        <span asp-validation-for="IsCompleted" class="label-text">Is Comleted?</span>
         <input asp-for="IsCompleted" type="checkbox" checked="checked" class="checkbox" />
       </label>
     </div>
@@ -97,6 +96,7 @@
       </label>
     </div>
 
-    <button type="submit" class="btn btn-primary my-4 w-full">Add Job</button>
+    <button type="submit" class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white my-4 w-full">Add
+      Job</button>
   </div>
 </form>

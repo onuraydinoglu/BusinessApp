@@ -1,6 +1,6 @@
 @model Employer
 
-<form asp-controller="AdminEmployers" asp-action="Edit" method="post" enctype="multipart/form-data">
+<form asp-controller="AdminEmployers" asp-action="Edit" method="post" enctype="multipart/form-data" class="mb-20">
   <input type="hidden" asp-for="Id">
   <div class="mt-5 w-[50%] mx-auto space-y-4">
 
@@ -14,6 +14,7 @@
     </label>
     <span asp-validation-for="CompanyName" class="text-red-500 text-sm"></span>
 
-    <button type="submit" class="btn btn-primary my-4 w-full">Update Employer</button>
+    <button type="submit" class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white my-4 w-full">Update
+      Employer</button>
   </div>
 </form>

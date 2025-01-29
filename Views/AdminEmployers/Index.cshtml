@@ -1,15 +1,15 @@
 @model IEnumerable<Employer>
 
 <div class="flex justify-between items-center mt-5">
-
   <h2>Employers List</h2>
   <a asp-controller="AdminEmployers" asp-action="Create"
     class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white">Add Employer</a>
-
 </div>
 
-<div class="overflow-x-auto">
-  <table class="table">
+<div class="divider my-5"></div>
+
+<div class="mb-20">
+  <table class="table text-center">
     <!-- head -->
     <thead>
       <tr>
@@ -25,7 +25,7 @@
         <tr>
           <td>@employer.Id</td>
           <td>@employer.CompanyName</td>
-          <td>@employer.CreatedDate</td>
+          <td>@employer.CreatedDate.ToString("dd.MM.yyyy")</td>
           <td>
             <a asp-controller="AdminEmployers" asp-action="Edit" asp-route-id="@employer.Id"
               class="btn btn-sm btn-warning">Edit</a>

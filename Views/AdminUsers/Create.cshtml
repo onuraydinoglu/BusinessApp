@@ -1,6 +1,14 @@
 @model User
 
-<form asp-controller="AdminUsers" asp-action="Create" method="post">
+<div class="flex justify-between items-center mt-5">
+  <h2>Add User</h2>
+  <a asp-controller="AdminUsers" asp-action="Index"
+    class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white">Back to Users</a>
+</div>
+
+<div class="divider my-5"></div>
+
+<form asp-controller="AdminUsers" asp-action="Create" method="post" class="mb-20">
   <div class="mt-5 w-[50%] mx-auto space-y-4">
 
     <label class="form-control">
@@ -110,6 +118,7 @@
       <input type="file" class="file-input file-input-bordered w-full max-w-xs" />
     </label>
 
-    <button type="submit" class="btn btn-primary my-4 w-full">Add User</button>
+    <button type="submit" class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white my-4 w-full">Add
+      User</button>
   </div>
 </form>

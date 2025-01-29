@@ -11,7 +11,8 @@ namespace BusinessApp.Entities
     {
       if (typeof(TCreatedTime) == typeof(DateTime))
       {
-        CreatedDate = (TCreatedTime)(object)DateTime.Now;
+        CreatedDate = (TCreatedTime)(object)DateTime.Now.Date; // Yalnızca tarih kısmını alır
+
       }
     }
   }

@@ -1,6 +1,6 @@
 @model User
 
-<div class="flex gap-10 mb-5">
+<div class="flex gap-10 mt-10 mb-20">
   <div class="w-1/3">
     <div class="p-6 bg-white shadow-lg rounded-lg">
       <div class="flex flex-col justify-center items-center">
@@ -15,7 +15,7 @@
         </div>
 
         <a asp-controller="Profile" asp-action="Edit"
-          class="btn bg-[#230939] hover:bg-[#230939] text-white font-bold py-2 px-4 rounded h-[40px] min-h-0">Edits</a>
+          class="btn bg-[#230939] hover:bg-[#230939] text-white font-bold py-2 px-4 rounded w-40 h-[40px] min-h-0">Edits</a>
       </div>
     </div>
   </div>
@@ -23,36 +23,32 @@
     <h1 class="text-4xl font-bold text-center mb-10">My Profile</h1>
     <div class="grid grid-cols-3 gap-6">
 
-      <div class="shadow-lg bg-white rounded-lg p-6 text-center">
-        <div class="my-4">
-          <h2 class="text-2xl font-bold text-center">Jobs</h2>
-          <p class="text-gray-600">Manage your jobs</p>
+      <div class="flex flex-col h-full shadow-lg bg-white rounded-lg p-5 text-center">
+        <div class="mb-4">
+          <h2 class="text-2xl font-bold text-center mb-2">My Applications</h2>
+          <p class="text-gray-600">Track your job applications</p>
         </div>
-        <a asp-controller="Jobs" asp-action="Index"
-          class="btn bg-[#230939] hover:bg-[#230939] text-white font-bold py-2 px-4 rounded h-[40px] min-h-0">Go
-          to Jobs</a>
-
+        <a class="btn bg-[#230939] hover:bg-[#230939] text-white font-bold py-2 px-4 rounded h-[40px] min-h-0 mt-auto">View
+          Applications</a>
       </div>
 
-      <div class="shadow-lg bg-white rounded-lg p-6 text-center">
-        <div class="my-4">
-          <h2 class="text-2xl font-bold text-center">Blogs</h2>
-          <p class="text-gray-600">Manage your blogs</p>
+      <div class="flex flex-col h-full shadow-lg bg-white rounded-lg  p-5 text-center">
+        <div class="mb-4">
+          <h2 class="text-2xl font-bold text-center mb-2">Saved Opportunities</h2>
+          <p class="text-gray-600">Access your saved job opportunities</p>
         </div>
-        <a asp-controller="Blogs" asp-action="Index"
-          class="btn bg-[#230939] hover:bg-[#230939] text-white font-bold py-2 px-4 rounded h-[40px] min-h-0">Go
-          to Blogs</a>
+        <a class="btn bg-[#230939] hover:bg-[#230939] text-white font-bold py-2 px-4 rounded h-[40px] min-h-0 mt-auto">View
+          Saved Jobs</a>
       </div>
 
 
-      <div class="shadow-lg bg-white rounded-lg p-6 text-center">
-        <div class="my-4">
-          <h2 class="text-2xl font-bold text-center">Employers</h2>
-          <p class="text-gray-600">Manage your employers</p>
+      <div class="flex flex-col h-full shadow-lg bg-white rounded-lg p-5 text-center">
+        <div class="mb-4">
+          <h2 class="text-2xl font-bold text-center mb-2">My Blogs</h2>
+          <p class="text-gray-600">Manage and review your blogs</p>
         </div>
-        <a asp-controller="Employers" asp-action="Index"
-          class="btn bg-[#230939] hover:bg-[#230939] text-white font-bold py-2 px-4 rounded h-[40px] min-h-0">Go
-          to Employers</a>
+        <a class="btn bg-[#230939] hover:bg-[#230939] text-white font-bold py-2 px-4 rounded h-[40px] min-h-0 mt-auto">Manage
+          Blogs</a>
       </div>
 
     </div>

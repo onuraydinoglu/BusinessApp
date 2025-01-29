@@ -1,6 +1,6 @@
 @model Blog
 
-<form asp-controller="AdminBlogs" asp-action="Edit" method="post" enctype="multipart/form-data">
+<form asp-controller="AdminBlogs" asp-action="Edit" method="post" enctype="multipart/form-data" class="mb-20">
   <input type="hidden" asp-for="Id">
   <div class="mt-5 w-[50%] mx-auto space-y-4">
 
@@ -57,6 +57,7 @@
       </label>
     </div>
 
-    <button type="submit" class="btn btn-primary my-4 w-full">Edit Blog</button>
+    <button type="submit" class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white my-4 w-full">Update
+      Blog</button>
   </div>
 </form>
