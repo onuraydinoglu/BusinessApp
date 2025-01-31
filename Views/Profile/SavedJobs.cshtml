@@ -1,0 +1,7 @@
+@model IEnumerable<SavedJob>
+
+@foreach (var savedJobs in Model)
+{
+  <p>@savedJobs.UserId</p>
+  <p>@savedJobs.JobId</p>
+}

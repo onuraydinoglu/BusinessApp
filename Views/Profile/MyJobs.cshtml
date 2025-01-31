@@ -1,0 +1,9 @@
+@model IEnumerable<Application>
+
+@foreach (var myJobs in Model)
+
+{
+
+  <p>@myJobs.UserId</p>
+  <p>@myJobs.JobId</p>
+}

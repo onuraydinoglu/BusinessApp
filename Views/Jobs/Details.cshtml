@@ -66,7 +66,16 @@
         process.</p>
       @if (User.Identity!.IsAuthenticated)
       {
-        <form>
+        @if (TempData["ErrorMessage"] != null)
+        {
+          <div class="text-red-500">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            @TempData["ErrorMessage"]
+          </div>
+        }
+
+        <form asp-controller="Application" asp-action="Create" method="post">
+          <input type="hidden" name="jobId" value="@Model.Job.Id">
           <div class="flex flex-col gap-5 mt-10">
             <label class="input input-bordered flex items-center gap-2 shadow-md">
               <i class="fa-solid fa-user"></i>
