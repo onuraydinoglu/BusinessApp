@@ -28,10 +28,15 @@ namespace BusinessApp.Controllers
             ViewBag.Categories = new SelectList(await _categoryRepository.GetAllAsync(), "Id", "Name");
             ViewBag.JobTypes = new SelectList(await _jobTypeRepository.GetAllAsync(), "Id", "Type");
             ViewBag.Locations = new SelectList(await _jobRepository.GetAllLocationsAsync(), null, null);
+
             var jobs = await _jobRepository.GetAllJobsAsync();
+            var jobTypes = await _jobTypeRepository.GetAllAsync();
+            var Categories = await _categoryRepository.GetAllAsync();
             var modelView = new JobViewModel
             {
-                Jobs = jobs
+                Jobs = jobs,
+                JobTypes = jobTypes,
+                Categories = Categories
             };
             return View(modelView);
         }

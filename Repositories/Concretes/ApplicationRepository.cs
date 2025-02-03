@@ -15,7 +15,7 @@ namespace BusinessApp.Repositories.Concretes
 
     public async Task<IEnumerable<Application>> GetAllApplicationsAsync(int userId)
     {
-      var myApplications = await _context.Applications.Where(x => x.UserId == userId).ToListAsync();
+      var myApplications = await _context.Applications.Include(x => x.User).Include(x => x.Job).Where(x => x.UserId == userId).ToListAsync();
       return myApplications;
     }
 

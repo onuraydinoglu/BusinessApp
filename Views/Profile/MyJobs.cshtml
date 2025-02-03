@@ -1,9 +1,30 @@
 @model IEnumerable<Application>
 
-@foreach (var myJobs in Model)
 
-{
+<div class="overflow-x-auto">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Full Name</th>
+        <th>Job</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>@foreach (var myJobs in Model)
+      {
+        <tr>
+          <th>@myJobs.Id</th>
+          <td>@myJobs.User?.FullName</td>
+          <td>@myJobs.Job?.Title</td>
+          <td>
+            <a asp-controller="Jobs" asp-action="Details" asp-route-id="@myJobs.Job?.Id"
+              class="btn bg-[#B561B0] text-white">Details</a>
+          </td>
+        </tr>
+      }
 
-  <p>@myJobs.UserId</p>
-  <p>@myJobs.JobId</p>
-}
+    </tbody>
+  </table>
+</div>

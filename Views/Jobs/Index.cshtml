@@ -30,7 +30,6 @@
         class="select select-bordered w-full max-w-xs bg-white shadow-lg">
         <option disabled selected>Select Department</option>
     </select>
-    @* <span asp-validation-for="Job.CategoryId" class="text-red-500 text-sm"></span> *@
 
     <select asp-for="Job.Location" asp-items="ViewBag.Locations"
         class="select select-bordered w-full max-w-xs bg-white shadow-lg">
@@ -42,35 +41,143 @@
         class="select select-bordered w-full max-w-xs bg-white shadow-lg">
         <option disabled selected>Select Job Type</option>
     </select>
-    @* <span asp-validation-for="Job.JobTypeId" class="text-red-500 text-sm"></span> *@
 </div>
 
-<div class="grid xl:grid-cols-2 gap-6">
-    @foreach (var job in Model.Jobs)
-    {
-        <div class="rounded-md flex items-center shadow-xl p-10 space-x-10">
-            <div class="">
-                <img src="~/img/job/1.webp" alt="@job.Title" class="rounded-md w-24" />
-            </div>
-            <div class="flex flex-col flex-grow justify-center">
-                <div>
-                    <h2 class="">@job.Title</h2>
+<div class="flex gap-6">
+
+    <div class="w-1/6">
+        <ul class="menu rounded-md shadow-xl">
+            <li>
+                <details open>
+                    <summary class="text-xl">Country / City</summary>
+                    <ol>
+                        <li>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
+                                <span class="ml-2">İstanbul</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
+                                <span class="ml-2">Hatay</span>
+                            </label>
+                        </li>
+                    </ol>
+                </details>
+            </li>
+            <div class="divider m-0"></div>
+            <li>
+                <details open>
+                    <summary class="text-xl">Categories</summary>
+                    <ol>
+                        @foreach (var positon in Model.Categories)
+                        {
+                            <li>
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
+                                    <span class="ml-2">@positon.Name</span>
+                                </label>
+                            </li>
+                        }
+                    </ol>
+                </details>
+            </li>
+            <div class="divider m-0"></div>
+            <li>
+                <details open>
+                    <summary class="text-xl">Job Type</summary>
+                    <ol>
+                        @foreach (var jobType in Model.JobTypes)
+                        {
+                            <li>
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
+                                    <span class="ml-2">@jobType.Type</span>
+                                </label>
+                            </li>
+                        }
+                    </ol>
+                </details>
+            </li>
+            <div class="divider m-0"></div>
+            <li>
+                <details open>
+                    <summary class="text-xl">Sector</summary>
+                    <ol>
+                        <li>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
+                                <span class="ml-2">asd</span>
+                            </label>
+                        </li>
+                    </ol>
+                </details>
+            </li>
+            <div class="divider m-0"></div>
+            <li>
+                <details open>
+                    <summary class="text-xl">Position Level</summary>
+                    <ol>
+                        <li>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
+                                <span class="ml-2">asd</span>
+                            </label>
+                        </li>
+                    </ol>
+                </details>
+            </li>
+            <div class="divider m-0"></div>
+            <li>
+                <details open>
+                    <summary class="text-xl">Department</summary>
+                    <ol>
+                        <li>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
+                                <span class="ml-2">asd</span>
+                            </label>
+                        </li>
+                    </ol>
+                </details>
+            </li>
+            <div class="divider m-0"></div>
+            <button class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white my-3">Apply</button>
+        </ul>
+    </div>
+
+    <div class="w-5/6">
+        <div class="grid xl:grid-cols-2 gap-6">
+            @foreach (var job in Model.Jobs)
+            {
+                <div class="rounded-md flex items-center shadow-xl p-10 space-x-10">
+                    <div class="">
+                        <img src="~/img/job/1.webp" alt="@job.Title" class="rounded-md w-24" />
+                    </div>
+                    <div class="flex flex-col flex-grow justify-center">
+                        <div>
+                            <h2 class="">@job.Title</h2>
+                        </div>
+                        <div class="flex space-x-5">
+                            <p>@job.Location</p>
+                            <p>@job.JobType?.Type</p>
+                        </div>
+                    </div>
+                    <div class="ml-auto">
+                        <a asp-controller="Jobs" asp-action="Details" asp-route-id="@job.Id"
+                            class="btn bg-[#230939] hover:bg-[#230939] text-white h-[40px] min-h-0">
+                            Apply
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="flex space-x-5">
-                    <p>@job.Location</p>
-                    <p>@job.JobType?.Type</p>
-                </div>
-            </div>
-            <div class="ml-auto">
-                <a asp-controller="Jobs" asp-action="Details" asp-route-id="@job.Id"
-                    class="btn bg-[#230939] hover:bg-[#230939] text-white h-[40px] min-h-0">
-                    Apply
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
+            }
         </div>
-    }
+    </div>
+
 </div>
+
 <div class="flex justify-center join my-[31px]">
     <button class="join-item btn">«</button>
     <button class="join-item btn">1</button>

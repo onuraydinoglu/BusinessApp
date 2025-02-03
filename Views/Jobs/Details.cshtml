@@ -73,7 +73,6 @@
             @TempData["ErrorMessage"]
           </div>
         }
-
         <form asp-controller="Application" asp-action="Create" method="post">
           <input type="hidden" name="jobId" value="@Model.Job.Id">
           <div class="flex flex-col gap-5 mt-10">
