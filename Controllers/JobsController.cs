@@ -17,7 +17,9 @@ namespace BusinessApp.Controllers
         private readonly ICityRepository _cityRepository;
         private readonly ISavedJobRepository _savedJobRepository;
         private readonly IApplicationRepository _applicationRepository;
-        public JobsController(IJobRepository jobRepository, ICategoryRepository categoryRepository, IJobTypeRepository jobTypeRepository, IEmployerRepository employerRepository, IUserRepository userRepository, ICityRepository cityRepository, ISavedJobRepository savedJobRepository, IApplicationRepository applicationRepository)
+        private readonly IRemoteOptionRepository _remoteOptionRepository;
+        private readonly IPositionLevelRepository _positionLevelRepository;
+        public JobsController(IJobRepository jobRepository, ICategoryRepository categoryRepository, IJobTypeRepository jobTypeRepository, IEmployerRepository employerRepository, IUserRepository userRepository, ICityRepository cityRepository, ISavedJobRepository savedJobRepository, IApplicationRepository applicationRepository, IRemoteOptionRepository remoteOptionRepository, IPositionLevelRepository positionLevelRepository)
         {
             _jobRepository = jobRepository;
             _categoryRepository = categoryRepository;
@@ -27,6 +29,8 @@ namespace BusinessApp.Controllers
             _cityRepository = cityRepository;
             _savedJobRepository = savedJobRepository;
             _applicationRepository = applicationRepository;
+            _remoteOptionRepository = remoteOptionRepository;
+            _positionLevelRepository = positionLevelRepository;
         }
 
         public async Task<IActionResult> Index()
@@ -35,6 +39,8 @@ namespace BusinessApp.Controllers
             var jobTypes = await _jobTypeRepository.GetAllAsync();
             var categories = await _categoryRepository.GetAllAsync();
             var cities = await _cityRepository.GetAllAsync();
+            var remoteOption = await _remoteOptionRepository.GetAllAsync();
+            var positionLevel = await _positionLevelRepository.GetAllAsync();
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var savedJobIds = new List<int>();
@@ -51,7 +57,9 @@ namespace BusinessApp.Controllers
                 Jobs = jobs,
                 JobTypes = jobTypes,
                 Categories = categories,
-                Cities = cities
+                Cities = cities,
+                RemoteOptions = remoteOption,
+                PositionLevels = positionLevel
             });
         }
 
@@ -61,6 +69,8 @@ namespace BusinessApp.Controllers
         {
             ViewBag.Categories = new SelectList(await _categoryRepository.GetAllAsync(), "Id", "Name");
             ViewBag.JobTypes = new SelectList(await _jobTypeRepository.GetAllAsync(), "Id", "Type");
+            ViewBag.RemoteOptions = new SelectList(await _remoteOptionRepository.GetAllAsync(), "Id", "Name");
+            ViewBag.PositionLevels = new SelectList(await _positionLevelRepository.GetAllAsync(), "Id", "Level");
             ViewBag.Employers = new SelectList(await _employerRepository.GetAllAsync(), "Id", "CompanyName");
 
             return View();
@@ -115,6 +125,8 @@ namespace BusinessApp.Controllers
         {
             ViewBag.Categories = new SelectList(await _categoryRepository.GetAllAsync(), "Id", "Name");
             ViewBag.JobTypes = new SelectList(await _jobTypeRepository.GetAllAsync(), "Id", "Type");
+            ViewBag.RemoteOptions = new SelectList(await _remoteOptionRepository.GetAllAsync(), "Id", "Name");
+            ViewBag.PositionLevels = new SelectList(await _positionLevelRepository.GetAllAsync(), "Id", "Level");
             ViewBag.Employers = new SelectList(await _employerRepository.GetAllAsync(), "Id", "CompanyName");
             var job = await _jobRepository.GetByIdJobAsync(id);
             return View(job);

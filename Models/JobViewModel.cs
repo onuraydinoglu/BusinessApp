@@ -11,5 +11,7 @@ namespace BusinessApp.Models
         public IEnumerable<Category> Categories { get; set; } = null!;
         public IEnumerable<City> Cities { get; set; } = null!;
         public IEnumerable<SavedJob> SavedJobs { get; set; } = null!;
+        public IEnumerable<RemoteOption> RemoteOptions { get; set; } = null!;
+        public IEnumerable<PositionLevel> PositionLevels { get; set; } = null!;
     }
 }

@@ -14,12 +14,16 @@ namespace BusinessApp.Controllers
         private readonly IJobRepository _jobRepository;
         private readonly IJobTypeRepository _jobTypeRepository;
         private readonly IEmployerRepository _employerRepository;
-        public AdminJobsController(IJobRepository jobRepository, ICategoryRepository categoryRepository, IJobTypeRepository jobTypeRepository, IEmployerRepository employerRepository)
+        private readonly IRemoteOptionRepository _remoteOptionRepository;
+        private readonly IPositionLevelRepository _positionLevelRepository;
+        public AdminJobsController(IJobRepository jobRepository, ICategoryRepository categoryRepository, IJobTypeRepository jobTypeRepository, IEmployerRepository employerRepository, IRemoteOptionRepository remoteOptionRepository, IPositionLevelRepository positionLevelRepository)
         {
             _jobRepository = jobRepository;
             _categoryRepository = categoryRepository;
             _jobTypeRepository = jobTypeRepository;
             _employerRepository = employerRepository;
+            _remoteOptionRepository = remoteOptionRepository;
+            _positionLevelRepository = positionLevelRepository;
         }
 
         [HttpGet]
@@ -34,6 +38,8 @@ namespace BusinessApp.Controllers
         {
             ViewBag.Categories = new SelectList(await _categoryRepository.GetAllAsync(), "Id", "Name");
             ViewBag.JobTypes = new SelectList(await _jobTypeRepository.GetAllAsync(), "Id", "Type");
+            ViewBag.RemoteOptions = new SelectList(await _remoteOptionRepository.GetAllAsync(), "Id", "Name");
+            ViewBag.PositionLevels = new SelectList(await _positionLevelRepository.GetAllAsync(), "Id", "Level");
             ViewBag.Employers = new SelectList(await _employerRepository.GetAllAsync(), "Id", "CompanyName");
 
             return View();
@@ -71,6 +77,8 @@ namespace BusinessApp.Controllers
         {
             ViewBag.Categories = new SelectList(await _categoryRepository.GetAllAsync(), "Id", "Name");
             ViewBag.JobTypes = new SelectList(await _jobTypeRepository.GetAllAsync(), "Id", "Type");
+            ViewBag.RemoteOptions = new SelectList(await _remoteOptionRepository.GetAllAsync(), "Id", "Name");
+            ViewBag.PositionLevels = new SelectList(await _positionLevelRepository.GetAllAsync(), "Id", "Level");
             ViewBag.Employers = new SelectList(await _employerRepository.GetAllAsync(), "Id", "CompanyName");
             var job = await _jobRepository.GetByIdJobAsync(id);
             return View(job);

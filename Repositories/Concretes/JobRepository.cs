@@ -16,7 +16,7 @@ namespace BusinessApp.Repositories.Concretes
 
     public async Task<IEnumerable<Job>> GetAllJobsAsync()
     {
-      var jobs = await _context.Jobs.Include(x => x.Category).Include(x => x.JobType).Include(x => x.Employer).Include(x => x.SavedJobs).ToListAsync();
+      var jobs = await _context.Jobs.Include(x => x.Category).Include(x => x.JobType).Include(x => x.Employer).Include(x => x.SavedJobs).Include(x => x.RemoteOption).Include(x => x.PositionLevel).ToListAsync();
       return jobs;
     }
 
@@ -30,7 +30,7 @@ namespace BusinessApp.Repositories.Concretes
 
     public async Task<Job> GetByIdJobAsync(int? id)
     {
-      var job = await _context.Jobs.Include(x => x.Category).Include(x => x.JobType).Include(x => x.Employer).FirstOrDefaultAsync(x => x.Id == id);
+      var job = await _context.Jobs.Include(x => x.Category).Include(x => x.JobType).Include(x => x.Employer).Include(x => x.RemoteOption).Include(x => x.PositionLevel).FirstOrDefaultAsync(x => x.Id == id);
       return job;
     }
 
@@ -47,7 +47,8 @@ namespace BusinessApp.Repositories.Concretes
       jb.SalaryRange = job.SalaryRange;
       jb.JobTypeId = job.JobTypeId;
       jb.EmployerId = job.EmployerId;
-      jb.RemoteOption = job.RemoteOption;
+      jb.RemoteOptionId = job.RemoteOptionId;
+      jb.PositionLevelId = job.PositionLevelId;
       jb.IsCompleted = job.IsCompleted;
       _context.Jobs.Update(jb);
       await _context.SaveChangesAsync();

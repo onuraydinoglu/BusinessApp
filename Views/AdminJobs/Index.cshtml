@@ -29,7 +29,7 @@
                     <td>@job.Title</td>
                     <td>@job.Employer?.CompanyName</td>
                     <td>@job.Location</td>
-                    <td> @(job.RemoteOption ? "Remote" : "In the office")</td>
+                    <td> @(job.RemoteOption?.Name)</td>
                     <td>
                         <a asp-controller="AdminJobs" asp-action="Edit" asp-route-id="@job.Id"
                             class="btn btn-sm btn-warning">Edit</a>

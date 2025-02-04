@@ -23,7 +23,7 @@
       </p>
       <p>
         <i class="fa-regular fa-building mr-1"></i>
-        @(Model.Job.RemoteOption ? "Remote" : "In the office")
+        @Model.Job.RemoteOption?.Name
       </p>
 
       <p>

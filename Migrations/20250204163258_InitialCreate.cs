@@ -71,6 +71,34 @@ namespace BusinessApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PositionLevels",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Level = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PositionLevels", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RemoteOptions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RemoteOptions", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Roles",
                 columns: table => new
                 {
@@ -164,13 +192,15 @@ namespace BusinessApp.Migrations
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SalaryRange = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    RemoteOption = table.Column<bool>(type: "bit", nullable: false),
                     IsCompleted = table.Column<bool>(type: "bit", nullable: false),
                     JobImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     JobTypeId = table.Column<int>(type: "int", nullable: false),
+                    RemoteOptionId = table.Column<int>(type: "int", nullable: false),
+                    PositionLevelId = table.Column<int>(type: "int", nullable: false),
                     EmployerId = table.Column<int>(type: "int", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
+                    SavedJobId = table.Column<int>(type: "int", nullable: true),
                     UserId = table.Column<int>(type: "int", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -193,6 +223,18 @@ namespace BusinessApp.Migrations
                         name: "FK_Jobs_JobTypes_JobTypeId",
                         column: x => x.JobTypeId,
                         principalTable: "JobTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Jobs_PositionLevels_PositionLevelId",
+                        column: x => x.PositionLevelId,
+                        principalTable: "PositionLevels",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Jobs_RemoteOptions_RemoteOptionId",
+                        column: x => x.RemoteOptionId,
+                        principalTable: "RemoteOptions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -291,6 +333,16 @@ namespace BusinessApp.Migrations
                 column: "JobTypeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Jobs_PositionLevelId",
+                table: "Jobs",
+                column: "PositionLevelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Jobs_RemoteOptionId",
+                table: "Jobs",
+                column: "RemoteOptionId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Jobs_UserId",
                 table: "Jobs",
                 column: "UserId");
@@ -339,6 +391,12 @@ namespace BusinessApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "JobTypes");
+
+            migrationBuilder.DropTable(
+                name: "PositionLevels");
+
+            migrationBuilder.DropTable(
+                name: "RemoteOptions");
 
             migrationBuilder.DropTable(
                 name: "Users");

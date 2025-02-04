@@ -9,12 +9,15 @@ namespace BusinessApp.Entities
     public string? Location { get; set; }
     public string? SalaryRange { get; set; }
     public bool IsActive { get; set; }
-    public bool RemoteOption { get; set; }
     public bool IsCompleted { get; set; }
     public string? JobImage { get; set; }
     public string? Url { get; set; }
     public int JobTypeId { get; set; }
     public JobType? JobType { get; set; }
+    public int RemoteOptionId { get; set; }
+    public RemoteOption? RemoteOption { get; set; }
+    public int PositionLevelId { get; set; }
+    public PositionLevel? PositionLevel { get; set; }
     public int EmployerId { get; set; }
     public Employer Employer { get; set; }
     public int CategoryId { get; set; }

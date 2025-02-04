@@ -191,8 +191,11 @@ namespace BusinessApp.Migrations
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("RemoteOption")
-                        .HasColumnType("bit");
+                    b.Property<int>("PositionLevelId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RemoteOptionId")
+                        .HasColumnType("int");
 
                     b.Property<string>("SalaryRange")
                         .HasColumnType("nvarchar(max)");
@@ -217,6 +220,10 @@ namespace BusinessApp.Migrations
 
                     b.HasIndex("JobTypeId");
 
+                    b.HasIndex("PositionLevelId");
+
+                    b.HasIndex("RemoteOptionId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Jobs");
@@ -239,6 +246,45 @@ namespace BusinessApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("JobTypes");
+                });
+
+            modelBuilder.Entity("BusinessApp.Entities.PositionLevel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Level")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PositionLevels");
+                });
+
+            modelBuilder.Entity("BusinessApp.Entities.RemoteOption", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RemoteOptions");
                 });
 
             modelBuilder.Entity("BusinessApp.Entities.Role", b =>
@@ -401,6 +447,18 @@ namespace BusinessApp.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BusinessApp.Entities.PositionLevel", "PositionLevel")
+                        .WithMany()
+                        .HasForeignKey("PositionLevelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BusinessApp.Entities.RemoteOption", "RemoteOption")
+                        .WithMany()
+                        .HasForeignKey("RemoteOptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("BusinessApp.Entities.User", null)
                         .WithMany("Jobs")
                         .HasForeignKey("UserId");
@@ -410,6 +468,10 @@ namespace BusinessApp.Migrations
                     b.Navigation("Employer");
 
                     b.Navigation("JobType");
+
+                    b.Navigation("PositionLevel");
+
+                    b.Navigation("RemoteOption");
                 });
 
             modelBuilder.Entity("BusinessApp.Entities.SavedJob", b =>

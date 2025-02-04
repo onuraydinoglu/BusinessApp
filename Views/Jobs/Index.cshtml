@@ -154,30 +154,15 @@
                 <details>
                     <summary class="text-xl">Position Level</summary>
                     <ol class="max-h-[300px] overflow-y-auto">
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Senior</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Mid Level</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Entry Level</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Intern</span>
-                            </label>
-                        </li>
+                        @foreach (var positionLevel in Model.PositionLevels)
+                        {
+                            <li>
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
+                                    <span class="ml-2">@positionLevel.Level</span>
+                                </label>
+                            </li>
+                        }
                     </ol>
                 </details>
             </li>
@@ -274,7 +259,7 @@
                             <div class="space-x-1">
                                 <span class="text-xs text-gray-500">@job.Location</span>
                                 <span>-</span>
-                                <span class="text-xs text-gray-500">(In Office - Remote - Hybrid)</span>
+                                <span class="text-xs text-gray-500">@job.RemoteOption?.Name</span>
                             </div>
                         </div>
                         <div class="flex flex-col items-center justify-between h-full">

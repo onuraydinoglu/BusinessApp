@@ -35,6 +35,27 @@ namespace BusinessApp.Repositories
           context.SaveChanges();
         }
 
+        if (!context.RemoteOptions.Any())
+        {
+          context.RemoteOptions.AddRange(
+              new RemoteOption { Name = "Remote" },
+              new RemoteOption { Name = "In The Office" },
+              new RemoteOption { Name = "Hybrid" }
+          );
+          context.SaveChanges();
+        }
+
+        if (!context.PositionLevels.Any())
+        {
+          context.PositionLevels.AddRange(
+              new PositionLevel { Level = "Intern" },
+              new PositionLevel { Level = "Entry Level" },
+              new PositionLevel { Level = "Mid Level" },
+              new PositionLevel { Level = "Senior" }
+          );
+          context.SaveChanges();
+        }
+
         if (!context.Categories.Any())
         {
           context.Categories.AddRange(
@@ -170,7 +191,8 @@ namespace BusinessApp.Repositories
                 Location = "İstanbul",
                 SalaryRange = "10000-15000",
                 IsActive = true,
-                RemoteOption = true,
+                RemoteOptionId = 1,
+                PositionLevelId = 1,
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
                 EmployerId = 1,
@@ -183,7 +205,8 @@ namespace BusinessApp.Repositories
                 Location = "Hatay",
                 SalaryRange = "6000-8000",
                 IsActive = true,
-                RemoteOption = false,
+                RemoteOptionId = 1,
+                PositionLevelId = 2,
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 2,
                 EmployerId = 3,
@@ -196,7 +219,8 @@ namespace BusinessApp.Repositories
                 Location = "Samsun",
                 SalaryRange = "8000-10000",
                 IsActive = true,
-                RemoteOption = false,
+                RemoteOptionId = 1,
+                PositionLevelId = 3,
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
                 EmployerId = 2,
@@ -209,7 +233,8 @@ namespace BusinessApp.Repositories
                 Location = "İstanbul",
                 SalaryRange = "9000-12000",
                 IsActive = true,
-                RemoteOption = true,
+                RemoteOptionId = 2,
+                PositionLevelId = 4,
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
                 EmployerId = 1,
@@ -222,7 +247,8 @@ namespace BusinessApp.Repositories
                 Location = "Antalya",
                 SalaryRange = "10000-14000",
                 IsActive = true,
-                RemoteOption = true,
+                RemoteOptionId = 1,
+                PositionLevelId = 1,
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
                 EmployerId = 3,
@@ -235,7 +261,8 @@ namespace BusinessApp.Repositories
                 Location = "Bursa",
                 SalaryRange = "7000-9000",
                 IsActive = true,
-                RemoteOption = false,
+                RemoteOptionId = 2,
+                PositionLevelId = 2,
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 2,
                 EmployerId = 2,
@@ -248,7 +275,8 @@ namespace BusinessApp.Repositories
                 Location = "İstanbul",
                 SalaryRange = "11000-16000",
                 IsActive = true,
-                RemoteOption = true,
+                RemoteOptionId = 3,
+                PositionLevelId = 3,
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
                 EmployerId = 1,
@@ -261,7 +289,8 @@ namespace BusinessApp.Repositories
                 Location = "Ankara",
                 SalaryRange = "12000-18000",
                 IsActive = true,
-                RemoteOption = true,
+                RemoteOptionId = 3,
+                PositionLevelId = 4,
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
                 EmployerId = 3,

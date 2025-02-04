@@ -68,10 +68,27 @@
       </label>
     </div>
 
-    <div class="form-control">
-      <label class="label cursor-pointer">
-        <span asp-validation-for="RemoteOption" class="label-text">Remote?</span>
-        <input asp-for="RemoteOption" type="checkbox" class="checkbox" />
+    <div class="flex gap-4">
+      <label class="form-control w-full max-w-xs">
+        <div class="label">
+          <span class="label-text">Remote Option</span>
+        </div>
+        <select asp-for="RemoteOptionId" asp-items="ViewBag.RemoteOptions" class="select select-bordered">
+          <option disabled selected>Select Remote Option</option>
+        </select>
+        <span asp-validation-for="RemoteOptionId" class="text-red-500 text-sm"></span>
+      </label>
+    </div>
+
+    <div class="flex gap-4">
+      <label class="form-control w-full max-w-xs">
+        <div class="label">
+          <span class="label-text">Position Level</span>
+        </div>
+        <select asp-for="PositionLevelId" asp-items="ViewBag.PositionLevels" class="select select-bordered">
+          <option disabled selected>Select Position Level</option>
+        </select>
+        <span asp-validation-for="PositionLevelId" class="text-red-500 text-sm"></span>
       </label>
     </div>
 
