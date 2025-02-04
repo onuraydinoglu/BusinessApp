@@ -7,10 +7,10 @@
         <div>
           <img src="~/img/users/@Model.ProfileImage" alt="" class="rounded-full w-32">
         </div>
-        <div class="my-4">
-
+        <div class="my-4 text-center">
           <h2 class="text-xl font-bold mb-3">@Model.FullName</h2>
-          <p class="text-gray-600 text-center">@Model.Email</p>
+          <p class="text-gray-600 text-center">@Model.Education</p>
+          <p class="text-gray-600 text-center">@Model.Skills</p>
 
         </div>
 
@@ -38,7 +38,8 @@
           <h2 class="text-2xl font-bold text-center mb-2">Saved Opportunities</h2>
           <p class="text-gray-600">Access your saved job opportunities</p>
         </div>
-        <a class="btn bg-[#230939] hover:bg-[#230939] text-white font-bold py-2 px-4 rounded h-[40px] min-h-0 mt-auto">View
+        <a asp-controller="Profile" asp-action="SavedJobs"
+          class="btn bg-[#230939] hover:bg-[#230939] text-white font-bold py-2 px-4 rounded h-[40px] min-h-0 mt-auto">View
           Saved Jobs</a>
       </div>
 

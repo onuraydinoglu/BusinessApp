@@ -16,7 +16,7 @@ namespace BusinessApp.Repositories.Concretes
 
     public async Task<IEnumerable<Job>> GetAllJobsAsync()
     {
-      var jobs = await _context.Jobs.Include(x => x.Category).Include(x => x.JobType).Include(x => x.Employer).ToListAsync();
+      var jobs = await _context.Jobs.Include(x => x.Category).Include(x => x.JobType).Include(x => x.Employer).Include(x => x.SavedJobs).ToListAsync();
       return jobs;
     }
 

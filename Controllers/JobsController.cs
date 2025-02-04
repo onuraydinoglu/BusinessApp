@@ -14,32 +14,47 @@ namespace BusinessApp.Controllers
         private readonly IJobTypeRepository _jobTypeRepository;
         private readonly IEmployerRepository _employerRepository;
         private readonly IUserRepository _userRepository;
-        public JobsController(IJobRepository jobRepository, ICategoryRepository categoryRepository, IJobTypeRepository jobTypeRepository, IEmployerRepository employerRepository, IUserRepository userRepository)
+        private readonly ICityRepository _cityRepository;
+        private readonly ISavedJobRepository _savedJobRepository;
+        private readonly IApplicationRepository _applicationRepository;
+        public JobsController(IJobRepository jobRepository, ICategoryRepository categoryRepository, IJobTypeRepository jobTypeRepository, IEmployerRepository employerRepository, IUserRepository userRepository, ICityRepository cityRepository, ISavedJobRepository savedJobRepository, IApplicationRepository applicationRepository)
         {
             _jobRepository = jobRepository;
             _categoryRepository = categoryRepository;
             _jobTypeRepository = jobTypeRepository;
             _employerRepository = employerRepository;
             _userRepository = userRepository;
+            _cityRepository = cityRepository;
+            _savedJobRepository = savedJobRepository;
+            _applicationRepository = applicationRepository;
         }
 
         public async Task<IActionResult> Index()
         {
-            ViewBag.Categories = new SelectList(await _categoryRepository.GetAllAsync(), "Id", "Name");
-            ViewBag.JobTypes = new SelectList(await _jobTypeRepository.GetAllAsync(), "Id", "Type");
-            ViewBag.Locations = new SelectList(await _jobRepository.GetAllLocationsAsync(), null, null);
-
             var jobs = await _jobRepository.GetAllJobsAsync();
             var jobTypes = await _jobTypeRepository.GetAllAsync();
-            var Categories = await _categoryRepository.GetAllAsync();
-            var modelView = new JobViewModel
+            var categories = await _categoryRepository.GetAllAsync();
+            var cities = await _cityRepository.GetAllAsync();
+
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var savedJobIds = new List<int>();
+
+            if (userId != null)
+            {
+                var savedJobs = await _savedJobRepository.GetAllSavedJobsAsync(int.Parse(userId));
+                savedJobIds = savedJobs.Select(s => s.JobId).ToList();
+            }
+
+            ViewBag.SavedJobIds = savedJobIds; // Kullanıcının kaydettiği iş ilanları ID'leri
+            return View(new JobViewModel
             {
                 Jobs = jobs,
                 JobTypes = jobTypes,
-                Categories = Categories
-            };
-            return View(modelView);
+                Categories = categories,
+                Cities = cities
+            });
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Create()
@@ -69,6 +84,14 @@ namespace BusinessApp.Controllers
             }
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var isApplication = false;
+
+            if (userId != null)
+            {
+                isApplication = await _applicationRepository.IsApplicationAsync(int.Parse(userId), id);
+            }
+
+            ViewBag.IsApplication = isApplication;
             var user = userId != null ? await _userRepository.GetByIdUserAsync(int.Parse(userId)) : null;
 
             var viewModel = new JobViewModel

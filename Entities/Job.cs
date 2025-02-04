@@ -19,5 +19,7 @@ namespace BusinessApp.Entities
     public Employer Employer { get; set; }
     public int CategoryId { get; set; }
     public Category? Category { get; set; }
+    public int? SavedJobId { get; set; }
+    public ICollection<SavedJob> SavedJobs { get; set; } = new List<SavedJob>();
   }
 }

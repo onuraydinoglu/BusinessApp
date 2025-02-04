@@ -1,5 +1,4 @@
 using BusinessApp.Entities;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BusinessApp.Models
 {
@@ -10,5 +9,7 @@ namespace BusinessApp.Models
         public User? User { get; set; }
         public IEnumerable<JobType> JobTypes { get; set; } = null!;
         public IEnumerable<Category> Categories { get; set; } = null!;
+        public IEnumerable<City> Cities { get; set; } = null!;
+        public IEnumerable<SavedJob> SavedJobs { get; set; } = null!;
     }
 }

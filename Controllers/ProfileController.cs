@@ -13,12 +13,14 @@ namespace BusinessApp.Controllers
     private readonly IUserRepository _userRepository;
     private readonly IRoleRepository _roleRepository;
     private readonly IApplicationRepository _applicationRepository;
+    private readonly ISavedJobRepository _savedJobRepository;
 
-    public ProfileController(IUserRepository userRepository, IRoleRepository roleRepository, IApplicationRepository applicationRepository)
+    public ProfileController(IUserRepository userRepository, IRoleRepository roleRepository, IApplicationRepository applicationRepository, ISavedJobRepository savedJobRepository)
     {
       _userRepository = userRepository;
       _roleRepository = roleRepository;
       _applicationRepository = applicationRepository;
+      _savedJobRepository = savedJobRepository;
     }
 
     public async Task<IActionResult> Index()
@@ -43,6 +45,18 @@ namespace BusinessApp.Controllers
       }
       var myJobs = await _applicationRepository.GetAllApplicationsAsync(int.Parse(userId));
       return View(myJobs);
+    }
+
+    public async Task<IActionResult> SavedJobs()
+    {
+      var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+      if (userId is null)
+      {
+        return Unauthorized();
+      }
+
+      var savedJobs = await _savedJobRepository.GetAllSavedJobsAsync(int.Parse(userId));
+      return View(savedJobs);
     }
   }
 }

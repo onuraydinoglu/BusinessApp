@@ -19,6 +19,7 @@ namespace BusinessApp.Repositories.Context
     public DbSet<Blog> Blogs { get; set; }
     public DbSet<Employer> Employers { get; set; }
     public DbSet<Application> Applications { get; set; }
+    public DbSet<City> Cities { get; set; }
 
   }
 }

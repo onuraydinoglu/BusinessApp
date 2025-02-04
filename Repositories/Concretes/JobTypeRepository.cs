@@ -1,7 +1,6 @@
 using BusinessApp.Entities;
 using BusinessApp.Repositories.Abstracts;
 using BusinessApp.Repositories.Context;
-using Microsoft.EntityFrameworkCore;
 
 namespace BusinessApp.Repositories.Concretes
 {

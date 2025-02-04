@@ -35,14 +35,17 @@ namespace BusinessApp.Repositories
           context.SaveChanges();
         }
 
-
-
         if (!context.Categories.Any())
         {
           context.Categories.AddRange(
-              new Category { Name = "Software" },
+              new Category { Name = "Software Development" },
               new Category { Name = "Finance" },
-              new Category { Name = "Human Resources" }
+              new Category { Name = "Accountant" },
+              new Category { Name = "Sales Consultant" },
+              new Category { Name = "Customer Representative" },
+              new Category { Name = "Sales Representative" },
+              new Category { Name = "Accounting Staff" },
+              new Category { Name = "Store Manager" }
           );
           context.SaveChanges();
         }
@@ -97,7 +100,7 @@ namespace BusinessApp.Repositories
               {
                 FirstName = "Muhammet Onur",
                 LastName = "Aydınoğlu",
-                Email = "onur@info.com",
+                Email = "onur@example.com",
                 Password = "onur",
                 PhoneNumber = "+905551112233",
                 DateOfBirth = new DateTime(1998, 09, 14),
@@ -112,7 +115,7 @@ namespace BusinessApp.Repositories
               {
                 FirstName = "Nisa Nur",
                 LastName = "Işık",
-                Email = "nisa@info.com",
+                Email = "nisa@example.com",
                 Password = "nisa",
                 PhoneNumber = "+905554445566",
                 DateOfBirth = new DateTime(1999, 12, 20),
@@ -127,7 +130,7 @@ namespace BusinessApp.Repositories
               {
                 FirstName = "Elisa",
                 LastName = "Aydınoğlu",
-                Email = "elisa@info.com",
+                Email = "elisa@example.com",
                 Password = "elisa",
                 PhoneNumber = "+905556667788",
                 DateOfBirth = new DateTime(2029, 2, 15),
@@ -142,7 +145,7 @@ namespace BusinessApp.Repositories
               {
                 FirstName = "Yağız",
                 LastName = "Aydınoğlu",
-                Email = "yagiz@info.com",
+                Email = "yagiz@example.com",
                 Password = "elisa",
                 PhoneNumber = "+905556667788",
                 DateOfBirth = new DateTime(2030, 2, 15),
@@ -156,8 +159,6 @@ namespace BusinessApp.Repositories
           );
           context.SaveChanges();
         }
-
-
 
         if (!context.Jobs.Any())
         {
@@ -269,6 +270,7 @@ namespace BusinessApp.Repositories
           );
           context.SaveChanges();
         }
+
         if (!context.Blogs.Any())
         {
           context.Blogs.AddRange(
@@ -344,6 +346,23 @@ namespace BusinessApp.Repositories
                 UserId = 3,
                 CategoryId = 1
               }
+          );
+          context.SaveChanges();
+        }
+
+        if (!context.Cities.Any())
+        {
+          context.Cities.AddRange(
+              new City { Name = "İstanbul" },
+              new City { Name = "Ankara" },
+              new City { Name = "İzmir" },
+              new City { Name = "Bursa" },
+              new City { Name = "Antalya" },
+              new City { Name = "Adana" },
+              new City { Name = "Konya" },
+              new City { Name = "Hatay" },
+              new City { Name = "Kayseri" },
+              new City { Name = "Kocaeli" }
           );
           context.SaveChanges();
         }
