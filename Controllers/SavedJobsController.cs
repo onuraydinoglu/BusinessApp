@@ -59,6 +59,5 @@ namespace BusinessApp.Controllers
       return RedirectToAction("Index", "Jobs");
     }
 
-
   }
 }

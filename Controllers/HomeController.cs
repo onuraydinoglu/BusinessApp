@@ -36,7 +36,7 @@ public class HomeController : Controller
             savedJobIds = savedJobs.Select(s => s.JobId).ToList();
         }
 
-        ViewBag.SavedJobIds = savedJobIds; // Kullanıcının kaydettiği iş ilanları ID'leri
+        ViewBag.SavedJobIds = savedJobIds;
 
         var modelView = new HomeViewModel
         {

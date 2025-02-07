@@ -16,7 +16,21 @@ namespace BusinessApp.Repositories.Concretes
 
     public async Task<IEnumerable<SavedJob>> GetAllSavedJobsAsync(int userId)
     {
-      var mySavedJobs = await _context.SavedJobs.Include(x => x.User).Include(x => x.Job).Where(x => x.UserId == userId).ToListAsync();
+      var mySavedJobs = await _context.SavedJobs
+          .Include(x => x.User)
+          .Include(x => x.Job).ThenInclude(x => x.Category)
+          .Include(x => x.Job).ThenInclude(x => x.PositionLevel)
+          .Include(x => x.Job).ThenInclude(x => x.JobType)
+          .Include(x => x.Job).ThenInclude(x => x.RemoteOption)
+          .Where(x => x.UserId == userId)
+          .ToListAsync();
+
+      return mySavedJobs;
+    }
+
+    public async Task<List<int>> GetAllUserAndJobAsync(int userId)
+    {
+      var mySavedJobs = await _context.SavedJobs.Where(x => x.UserId == userId).Select(x => x.JobId).ToListAsync();
       return mySavedJobs;
     }
 

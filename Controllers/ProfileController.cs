@@ -50,10 +50,14 @@ namespace BusinessApp.Controllers
     public async Task<IActionResult> SavedJobs()
     {
       var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-      if (userId is null)
+      var savedIds = new List<int>();
+
+      if (userId is not null)
       {
-        return Unauthorized();
+        savedIds = await _applicationRepository.GetAllUserAndJobAsync(int.Parse(userId));
       }
+
+      ViewBag.SavedIds = savedIds;
 
       var savedJobs = await _savedJobRepository.GetAllSavedJobsAsync(int.Parse(userId));
       return View(savedJobs);

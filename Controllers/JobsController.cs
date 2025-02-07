@@ -47,11 +47,11 @@ namespace BusinessApp.Controllers
 
             if (userId != null)
             {
-                var savedJobs = await _savedJobRepository.GetAllSavedJobsAsync(int.Parse(userId));
-                savedJobIds = savedJobs.Select(s => s.JobId).ToList();
+                savedJobIds = await _savedJobRepository.GetAllUserAndJobAsync(int.Parse(userId));
             }
 
-            ViewBag.SavedJobIds = savedJobIds; // Kullanıcının kaydettiği iş ilanları ID'leri
+            ViewBag.SavedJobIds = savedJobIds;
+
             return View(new JobViewModel
             {
                 Jobs = jobs,

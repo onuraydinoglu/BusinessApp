@@ -28,10 +28,11 @@
 
 <div class="flex gap-6 my-[55px]">
 
-    <div class="w-1/6">
+    <div class="w-1/5">
         <ul class="menu rounded-md shadow-xl">
+            <!-- Country / City -->
             <li>
-                <details open>
+                <details>
                     <summary class="text-xl">Country / City</summary>
                     <ol class="max-h-[300px] overflow-y-auto">
                         @foreach (var city in Model.Cities)
@@ -48,16 +49,17 @@
                 </details>
             </li>
             <div class="divider m-0"></div>
+            <!-- Sector -->
             <li>
-                <details open>
-                    <summary class="text-xl">Categories</summary>
+                <details>
+                    <summary class="text-xl">Sector</summary>
                     <ol class="max-h-[300px] overflow-y-auto">
-                        @foreach (var positon in Model.Categories)
+                        @foreach (var sector in Model.Categories)
                         {
                             <li>
                                 <label class="flex items-center cursor-pointer">
                                     <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                    <span class="ml-2">@positon.Name</span>
+                                    <span class="ml-2">@sector.Name</span>
                                 </label>
                             </li>
                         }
@@ -65,9 +67,10 @@
                 </details>
             </li>
             <div class="divider m-0"></div>
+            <!-- Specialization -->
             <li>
                 <details>
-                    <summary class="text-xl">Job Type</summary>
+                    <summary class="text-xl">Specialization</summary>
                     <ol class="max-h-[300px] overflow-y-auto">
                         @foreach (var jobType in Model.JobTypes)
                         {
@@ -82,74 +85,7 @@
                 </details>
             </li>
             <div class="divider m-0"></div>
-            <li>
-                <details>
-                    <summary class="text-xl">Sector</summary>
-                    <ol class="max-h-[300px] overflow-y-auto">
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Information Technology (IT)</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Manufacturing / Industrial Products</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Electrical & Electronics</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Security</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Energy</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Food Industry</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Chemical Industry</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Mining and Metal Industry</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Furniture and Accessories</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Healthcare</span>
-                            </label>
-                        </li>
-                    </ol>
-                </details>
-            </li>
-            <div class="divider m-0"></div>
+            <!-- Position Level -->
             <li>
                 <details>
                     <summary class="text-xl">Position Level</summary>
@@ -167,70 +103,38 @@
                 </details>
             </li>
             <div class="divider m-0"></div>
+            <!-- Job Type -->
             <li>
                 <details>
-                    <summary class="text-xl">Department</summary>
+                    <summary class="text-xl">Job Type</summary>
                     <ol class="max-h-[300px] overflow-y-auto">
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Corporate Finance</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">International Capital Markets</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Asset Management</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Domestic Capital Markets</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Real Estate Valuation</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Front Office</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Sales and Marketing</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Information Technology (IT)</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Technical Services</span>
-                            </label>
-                        </li>
-                        <li>
-                            <label class="flex items-center cursor-pointer">
-                                <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                <span class="ml-2">Research and Development</span>
-                            </label>
-                        </li>
+                        @foreach (var jobType in Model.JobTypes)
+                        {
+                            <li>
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
+                                    <span class="ml-2">@jobType.Type</span>
+                                </label>
+                            </li>
+                        }
+                    </ol>
+                </details>
+            </li>
+            <div class="divider m-0"></div>
+            <!-- Remoto Options -->
+            <li>
+                <details>
+                    <summary class="text-xl">Remoto Options</summary>
+                    <ol class="max-h-[300px] overflow-y-auto">
+                        @foreach (var remote in Model.RemoteOptions)
+                        {
+                            <li>
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
+                                    <span class="ml-2">@remote.Name</span>
+                                </label>
+                            </li>
+                        }
                     </ol>
                 </details>
             </li>
@@ -239,65 +143,67 @@
         </ul>
     </div>
 
-    <div class="w-5/6">
+    <div class="w-4/5">
         <div class="grid xl:grid-cols-2 gap-6">
             @foreach (var job in Model.Jobs)
             {
-                <a asp-controller="Jobs" asp-action="Details" asp-route-id="@job.Id">
-                    <div class="rounded-md flex items-center shadow-xl p-10 space-x-5 h-full">
-                        <div class="flex flex-col justify-center mt-auto gap-2">
-                            <img src="~/img/job/1.webp" alt="@job.Title" class="rounded-md w-16" />
-                            <span class="text-[13px] text-gray-700">@job.JobType?.Type</span>
-                        </div>
-                        <div class="flex flex-col flex-grow">
-                            <div>
-                                <h2 class="text-lg font-medium m-0 p-0">@job.Title</h2>
+                @if (job.IsActive)
+                {
+                    <a asp-controller="Jobs" asp-action="Details" asp-route-id="@job.Id">
+                        <div class="rounded-md flex items-center shadow-xl p-10 space-x-5 h-full">
+                            <div class="flex flex-col justify-center mt-auto gap-2">
+                                <img src="~/img/job/1.webp" alt="@job.Title" class="rounded-md w-16" />
+                                <span class="text-[13px] text-gray-700">@job.JobType?.Type</span>
                             </div>
-                            <div>
-                                <span class="text-sm">@job.Employer?.CompanyName</span>
+                            <div class="flex flex-col flex-grow">
+                                <div>
+                                    <h2 class="text-lg font-medium m-0 p-0">@job.Title</h2>
+                                </div>
+                                <div>
+                                    <span class="text-sm">@job.Employer?.CompanyName</span>
+                                </div>
+                                <div class="space-x-1">
+                                    <span class="text-xs text-gray-500">@job.Location</span>
+                                    <span>-</span>
+                                    <span class="text-xs text-gray-500">@job.RemoteOption?.Name</span>
+                                </div>
                             </div>
-                            <div class="space-x-1">
-                                <span class="text-xs text-gray-500">@job.Location</span>
-                                <span>-</span>
-                                <span class="text-xs text-gray-500">@job.RemoteOption?.Name</span>
-                            </div>
-                        </div>
-                        <div class="flex flex-col items-center justify-between h-full">
-                            <div>
-                                @if (User.Identity!.IsAuthenticated)
-                                {
-                                    @if (ViewBag.SavedJobIds != null && ((List<int>)ViewBag.SavedJobIds).Contains(job.Id))
+                            <div class="flex flex-col items-center justify-between h-full">
+
+                                <div>
+                                    @if (User.Identity!.IsAuthenticated)
                                     {
-                                        <!-- Kayıtlı iş ilanı varsa, silme butonu göster -->
-                                        <form asp-controller="SavedJobs" asp-action="DeleteSevedJobs" method="post">
-                                            <input type="hidden" name="jobId" value="@job.Id" />
-                                            <button type="submit">
-                                                <i class="fa-solid fa-bookmark"></i> <!-- Dolu ikon (Kayıtlı) -->
-                                            </button>
-                                        </form>
+                                        @if (ViewBag.SavedJobIds != null && ((List<int>)ViewBag.SavedJobIds).Contains(job.Id))
+                                        {
+                                            <!-- Kayıtlı iş ilanı varsa, silme butonu göster -->
+                                            <form asp-controller="SavedJobs" asp-action="DeleteSevedJobs" method="post">
+                                                <input type="hidden" name="jobId" value="@job.Id" />
+                                                <button type="submit">
+                                                    <i class="fa-solid fa-bookmark"></i> <!-- Dolu ikon (Kayıtlı) -->
+                                                </button>
+                                            </form>
+                                        }
+                                        else
+                                        {
+                                            <!-- Kayıtlı değilse, kaydetme butonu göster -->
+                                            <form asp-controller="SavedJobs" asp-action="CreateSavedJobs" method="post">
+                                                <input type="hidden" name="jobId" value="@job.Id" />
+                                                <button type="submit">
+                                                    <i class="fa-regular fa-bookmark"></i> <!-- Boş ikon (Kaydedilmemiş) -->
+                                                </button>
+                                            </form>
+                                        }
                                     }
-                                    else
-                                    {
-                                        <!-- Kayıtlı değilse, kaydetme butonu göster -->
-                                        <form asp-controller="SavedJobs" asp-action="CreateSavedJobs" method="post">
-                                            <input type="hidden" name="jobId" value="@job.Id" />
-                                            <button type="submit">
-                                                <i class="fa-regular fa-bookmark"></i> <!-- Boş ikon (Kaydedilmemiş) -->
-                                            </button>
-                                        </form>
-                                    }
-                                }
+                                </div>
 
-
+                                <div>
+                                    <span class="text-xs text-gray-500">@job.CreatedDate.ToString("dd.MM.yyyy")</span>
+                                </div>
                             </div>
 
-                            <div>
-                                <span class="text-xs text-gray-500">@job.CreatedDate.ToString("dd.MM.yyyy")</span>
-                            </div>
                         </div>
-
-                    </div>
-                </a>
+                    </a>
+                }
             }
         </div>
 

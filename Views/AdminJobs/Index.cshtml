@@ -18,6 +18,7 @@
                 <th>Company Name</th>
                 <th>Location</th>
                 <th>Remote Option</th>
+                <th>Is Active</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -29,7 +30,8 @@
                     <td>@job.Title</td>
                     <td>@job.Employer?.CompanyName</td>
                     <td>@job.Location</td>
-                    <td> @(job.RemoteOption?.Name)</td>
+                    <td>@job.RemoteOption?.Name</td>
+                    <td>@(job.IsActive ? "Active" : "Deactive")</td>
                     <td>
                         <a asp-controller="AdminJobs" asp-action="Edit" asp-route-id="@job.Id"
                             class="btn btn-sm btn-warning">Edit</a>

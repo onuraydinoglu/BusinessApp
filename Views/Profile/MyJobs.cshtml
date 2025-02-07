@@ -9,23 +9,29 @@
 <div class="divider my-5"></div>
 
 <div class="mb-20">
-  <table class="table text-center">
+  <table class="table">
     <thead>
       <tr>
-        <th>#</th>
-        <th>Full Name</th>
-        <th>Job</th>
-        <th>Action</th>
+        <th>Sector</th>
+        <th>Specialization</th>
+        <th>City</th>
+        <th>Position Level</th>
+        <th>Job Type</th>
+        <th>Remote Option</th>
+        <th class="text-center">Action</th>
       </tr>
     </thead>
     <tbody>
       @foreach (var myJobs in Model)
       {
         <tr>
-          <th>@myJobs.Id</th>
-          <td>@myJobs.User?.FullName</td>
+          <td>@myJobs.Job?.Category?.Name</td>
           <td>@myJobs.Job?.Title</td>
-          <td>
+          <td>@myJobs.Job?.Location</td>
+          <td>@myJobs.Job?.PositionLevel?.Level</td>
+          <td>@myJobs.Job?.JobType?.Type</td>
+          <td>@myJobs.Job?.RemoteOption?.Name</td>
+          <td class="text-center">
             <a asp-controller="Jobs" asp-action="Details" asp-route-id="@myJobs.Job?.Id"
               class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white h-[40px] min-h-0">Details</a>
           </td>
