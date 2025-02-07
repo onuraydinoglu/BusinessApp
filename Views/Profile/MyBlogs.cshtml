@@ -4,6 +4,8 @@
   <h2>My Blog List</h2>
   <a asp-controller="Profile" asp-action="Index"
     class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white w-40">My Profile</a>
+  <a asp-controller="Profile" asp-action="BlogCreate"
+    class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white w-40">Add Blog</a>
 </div>
 
 <div class="divider my-5"></div>
@@ -25,9 +27,15 @@
           <td>@myBlogs.Description</td>
           <td class="text-center">
             <a asp-controller="Blogs" asp-action="Details" asp-route-id="@myBlogs.Id"
-              class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white h-[40px] min-h-0">Details</a>
+              class="btn btn-sm bg-[#B561B0] hover:bg-[#B561B0] text-white ">Details</a>
+            <a asp-controller="Profile" asp-action="BlogEdit" asp-route-id="@myBlogs.Id"
+              class="btn btn-sm btn-warning">Edit</a>
+            <button class="btn btn-sm btn-error" onclick="my_modal_@(myBlogs.Id).showModal()">
+              Delete
+            </button>
           </td>
         </tr>
+        @await Html.PartialAsync("_BlogDelete", myBlogs)
       }
     </tbody>
   </table>

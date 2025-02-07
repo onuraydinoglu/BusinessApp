@@ -1,0 +1,56 @@
+@model Blog
+
+<div class="flex justify-between items-center mt-5">
+  <h2>Add Blog</h2>
+  <a asp-controller="Profile" asp-action="MyBlogs"
+    class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white">Back to My Blogs</a>
+</div>
+
+<div class="divider my-5"></div>
+
+<form asp-controller="Profile" asp-action="BlogCreate" method="post" enctype="multipart/form-data" class="mb-20">
+  <div class="mt-5 w-[50%] mx-auto space-y-4">
+
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">Title</span>
+      </div>
+      <input asp-for="Title" type="text" placeholder="Title" class="input input-bordered" />
+    </label>
+    <span asp-validation-for="Title" class="text-red-500 text-sm"></span>
+
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">Description</span>
+      </div>
+      <textarea asp-for="Description" class="textarea textarea-bordered h-24" placeholder="Blog Description"></textarea>
+    </label>
+    <span asp-validation-for="Description" class="text-red-500 text-sm"></span>
+
+    <input type="file" class="file-input file-input-bordered w-full max-w-xs" asp-for="BlogImage" />
+
+    <label class="form-control w-full max-w-xs">
+      <div class="label">
+        <span class="label-text">Category</span>
+      </div>
+      <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="select select-bordered">
+        <option disabled selected>Select Category</option>
+      </select>
+      <span asp-validation-for="CategoryId" class="text-red-500 text-sm"></span>
+    </label>
+
+    <input type="hidden" asp-for="UserId" value="@ViewBag.CurrentUserId" />
+
+
+    <div class="form-control">
+      <label class="label cursor-pointer">
+        <span class="label-text">Is Active?</span>
+        <input asp-for="IsActive" type="checkbox" checked="checked" class="checkbox" />
+      </label>
+    </div>
+
+    <button type="submit" class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white my-4 w-full">
+      Add Blog
+    </button>
+  </div>
+</form>
