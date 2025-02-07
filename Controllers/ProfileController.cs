@@ -14,13 +14,15 @@ namespace BusinessApp.Controllers
     private readonly IRoleRepository _roleRepository;
     private readonly IApplicationRepository _applicationRepository;
     private readonly ISavedJobRepository _savedJobRepository;
+    private readonly IBlogRepository _blogRepository;
 
-    public ProfileController(IUserRepository userRepository, IRoleRepository roleRepository, IApplicationRepository applicationRepository, ISavedJobRepository savedJobRepository)
+    public ProfileController(IUserRepository userRepository, IRoleRepository roleRepository, IApplicationRepository applicationRepository, ISavedJobRepository savedJobRepository, IBlogRepository blogRepository)
     {
       _userRepository = userRepository;
       _roleRepository = roleRepository;
       _applicationRepository = applicationRepository;
       _savedJobRepository = savedJobRepository;
+      _blogRepository = blogRepository;
     }
 
     public async Task<IActionResult> Index()
@@ -62,5 +64,18 @@ namespace BusinessApp.Controllers
       var savedJobs = await _savedJobRepository.GetAllSavedJobsAsync(int.Parse(userId));
       return View(savedJobs);
     }
+
+    public async Task<IActionResult> MyBlogs()
+    {
+      var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+      if (userId is null)
+      {
+        return Unauthorized();
+      }
+
+      var myBlogs = await _blogRepository.GetAllUserAndBlogAsync(int.Parse(userId));
+      return View(myBlogs);
+    }
+
   }
 }

@@ -8,5 +8,6 @@ namespace BusinessApp.Repositories.Abstracts
     Task<IEnumerable<Blog>> GetAllBlogsAsync();
     Task<Blog> GetByIdBlogAsync(int id);
     Task UpdateBlogAsync(Blog blog);
+    Task<List<Blog>> GetAllUserAndBlogAsync(int userId);
   }
 }

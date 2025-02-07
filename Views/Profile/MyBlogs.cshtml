@@ -1,0 +1,34 @@
+@model IEnumerable<Blog>
+
+<div class="flex justify-between items-center mt-5">
+  <h2>My Blog List</h2>
+  <a asp-controller="Profile" asp-action="Index"
+    class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white w-40">My Profile</a>
+</div>
+
+<div class="divider my-5"></div>
+
+<div class="mb-20">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th class="text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var myBlogs in Model)
+      {
+        <tr>
+          <td>@myBlogs.Title</td>
+          <td>@myBlogs.Description</td>
+          <td class="text-center">
+            <a asp-controller="Blogs" asp-action="Details" asp-route-id="@myBlogs.Id"
+              class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white h-[40px] min-h-0">Details</a>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

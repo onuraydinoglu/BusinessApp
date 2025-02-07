@@ -20,6 +20,17 @@ namespace BusinessApp.Repositories.Concretes
       return blogs;
     }
 
+    public async Task<List<Blog>> GetAllUserAndBlogAsync(int userId)
+    {
+      var myBlogs = await _context.Blogs
+          .Include(x => x.User)
+          .Include(x => x.Category)
+          .Where(x => x.UserId == userId)
+          .ToListAsync();
+
+      return myBlogs;
+    }
+
     public async Task<Blog> GetByIdBlogAsync(int id)
     {
       var blog = await _context.Blogs.Include(x => x.Category).Include(x => x.User).FirstOrDefaultAsync(x => x.Id == id);
