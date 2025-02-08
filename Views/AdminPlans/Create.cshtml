@@ -1,0 +1,63 @@
+@model Plan
+
+<div class="flex justify-between items-center mt-5">
+  <h2>Add Plan</h2>
+  <a asp-controller="AdminPlans" asp-action="Index"
+    class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white">Back to Plans</a>
+</div>
+
+<div class="divider my-5"></div>
+
+<form asp-controller="AdminPlans" asp-action="Create" method="post" class="mb-20">
+  <div class="mt-5 w-[50%] mx-auto space-y-4">
+
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">
+          <span class="label-text">First Name</span>
+        </span>
+      </div>
+      <input asp-for="Title" type="text" placeholder="Name" class="input input-bordered" />
+    </label>
+
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">
+          <span class="label-text">Content One</span>
+        </span>
+      </div>
+      <input asp-for="ContentOne" type="text" placeholder="Content One" class="input input-bordered" />
+    </label>
+
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">
+          <span class="label-text">Content Two</span>
+        </span>
+      </div>
+      <input asp-for="ContentTwo" type="text" placeholder="Content Two" class="input input-bordered" />
+    </label>
+
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">
+          <span class="label-text">Content Three</span>
+        </span>
+      </div>
+      <input asp-for="ContentThree" type="text" placeholder="Content Three" class="input input-bordered" />
+    </label>
+
+
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">
+          <span class="label-text">Price</span>
+        </span>
+      </div>
+      <input asp-for="Price" type="text" placeholder="Price" class="input input-bordered" />
+    </label>
+
+    <button type="submit" class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white my-4 w-full">Add
+      Plan</button>
+  </div>
+</form>

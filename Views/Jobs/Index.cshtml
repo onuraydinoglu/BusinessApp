@@ -72,12 +72,12 @@
                 <details>
                     <summary class="text-xl">Specialization</summary>
                     <ol class="max-h-[300px] overflow-y-auto">
-                        @foreach (var jobType in Model.JobTypes)
+                        @foreach (var specialization in Model.Specializations)
                         {
                             <li>
                                 <label class="flex items-center cursor-pointer">
                                     <input type="checkbox" class="checkbox bg-[#343A40] checkbox-xs rounded-[5px]" />
-                                    <span class="ml-2">@jobType.Type</span>
+                                    <span class="ml-2">@specialization.Name</span>
                                 </label>
                             </li>
                         }
@@ -163,7 +163,7 @@
                                     <span class="text-sm">@job.Employer?.CompanyName</span>
                                 </div>
                                 <div class="space-x-1">
-                                    <span class="text-xs text-gray-500">@job.Location</span>
+                                    <span class="text-xs text-gray-500">@job.City?.Name</span>
                                     <span>-</span>
                                     <span class="text-xs text-gray-500">@job.RemoteOption?.Name</span>
                                 </div>

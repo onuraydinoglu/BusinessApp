@@ -164,7 +164,10 @@ namespace BusinessApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CityId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDate")
@@ -173,7 +176,7 @@ namespace BusinessApp.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EmployerId")
+                    b.Property<int?>("EmployerId")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsActive")
@@ -185,22 +188,25 @@ namespace BusinessApp.Migrations
                     b.Property<string>("JobImage")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("JobTypeId")
+                    b.Property<int?>("JobTypeId")
                         .HasColumnType("int");
 
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PositionLevelId")
+                    b.Property<int?>("PositionLevelId")
                         .HasColumnType("int");
 
-                    b.Property<int>("RemoteOptionId")
+                    b.Property<int?>("RemoteOptionId")
                         .HasColumnType("int");
 
                     b.Property<string>("SalaryRange")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("SavedJobId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SpecializationId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -216,6 +222,8 @@ namespace BusinessApp.Migrations
 
                     b.HasIndex("CategoryId");
 
+                    b.HasIndex("CityId");
+
                     b.HasIndex("EmployerId");
 
                     b.HasIndex("JobTypeId");
@@ -223,6 +231,8 @@ namespace BusinessApp.Migrations
                     b.HasIndex("PositionLevelId");
 
                     b.HasIndex("RemoteOptionId");
+
+                    b.HasIndex("SpecializationId");
 
                     b.HasIndex("UserId");
 
@@ -246,6 +256,37 @@ namespace BusinessApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("JobTypes");
+                });
+
+            modelBuilder.Entity("BusinessApp.Entities.Plan", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ContentOne")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContentThree")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContentTwo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Plans");
                 });
 
             modelBuilder.Entity("BusinessApp.Entities.PositionLevel", b =>
@@ -333,6 +374,30 @@ namespace BusinessApp.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("SavedJobs");
+                });
+
+            modelBuilder.Entity("BusinessApp.Entities.Specialization", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Specializations");
                 });
 
             modelBuilder.Entity("BusinessApp.Entities.User", b =>
@@ -431,39 +496,39 @@ namespace BusinessApp.Migrations
                 {
                     b.HasOne("BusinessApp.Entities.Category", "Category")
                         .WithMany("Jobs")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
+
+                    b.HasOne("BusinessApp.Entities.City", "City")
+                        .WithMany()
+                        .HasForeignKey("CityId");
 
                     b.HasOne("BusinessApp.Entities.Employer", "Employer")
                         .WithMany("Jobs")
-                        .HasForeignKey("EmployerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EmployerId");
 
                     b.HasOne("BusinessApp.Entities.JobType", "JobType")
                         .WithMany()
-                        .HasForeignKey("JobTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("JobTypeId");
 
                     b.HasOne("BusinessApp.Entities.PositionLevel", "PositionLevel")
                         .WithMany()
-                        .HasForeignKey("PositionLevelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PositionLevelId");
 
                     b.HasOne("BusinessApp.Entities.RemoteOption", "RemoteOption")
                         .WithMany()
-                        .HasForeignKey("RemoteOptionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RemoteOptionId");
+
+                    b.HasOne("BusinessApp.Entities.Specialization", "Specialization")
+                        .WithMany()
+                        .HasForeignKey("SpecializationId");
 
                     b.HasOne("BusinessApp.Entities.User", null)
                         .WithMany("Jobs")
                         .HasForeignKey("UserId");
 
                     b.Navigation("Category");
+
+                    b.Navigation("City");
 
                     b.Navigation("Employer");
 
@@ -472,6 +537,8 @@ namespace BusinessApp.Migrations
                     b.Navigation("PositionLevel");
 
                     b.Navigation("RemoteOption");
+
+                    b.Navigation("Specialization");
                 });
 
             modelBuilder.Entity("BusinessApp.Entities.SavedJob", b =>
@@ -489,6 +556,15 @@ namespace BusinessApp.Migrations
                     b.Navigation("Job");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("BusinessApp.Entities.Specialization", b =>
+                {
+                    b.HasOne("BusinessApp.Entities.Category", "Category")
+                        .WithMany("Specializations")
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("BusinessApp.Entities.User", b =>
@@ -513,6 +589,8 @@ namespace BusinessApp.Migrations
             modelBuilder.Entity("BusinessApp.Entities.Category", b =>
                 {
                     b.Navigation("Jobs");
+
+                    b.Navigation("Specializations");
                 });
 
             modelBuilder.Entity("BusinessApp.Entities.Employer", b =>

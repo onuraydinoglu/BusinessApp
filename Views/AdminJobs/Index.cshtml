@@ -16,7 +16,7 @@
                 <th>#</th>
                 <th>Name</th>
                 <th>Company Name</th>
-                <th>Location</th>
+                <th>City</th>
                 <th>Remote Option</th>
                 <th>Is Active</th>
                 <th>Action</th>
@@ -29,7 +29,7 @@
                     <th>@job.Id</th>
                     <td>@job.Title</td>
                     <td>@job.Employer?.CompanyName</td>
-                    <td>@job.Location</td>
+                    <td>@job.City?.Name</td>
                     <td>@job.RemoteOption?.Name</td>
                     <td>@(job.IsActive ? "Active" : "Deactive")</td>
                     <td>

@@ -1,0 +1,47 @@
+@model IEnumerable<Plan>
+
+<div class="flex justify-between items-center mt-5">
+  <h2>Categories List</h2>
+  <a asp-controller="AdminPlans" asp-action="Create"
+    class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white">Add Category</a>
+</div>
+
+<div class="divider my-5"></div>
+
+<div class="mb-20">
+  <table class="table text-center">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Content 1</th>
+        <th>Content 2</th>
+        <th>Content 3</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var plan in Model)
+      {
+        <tr>
+          <td>@plan.Id</td>
+          <th>@plan.Title</th>
+          <th>@plan.ContentOne</th>
+          <th>@plan.ContentTwo</th>
+          <th>@plan.ContentThree</th>
+          <th>@plan.Price</th>
+          <td>
+            <a asp-controller="AdminPlans" asp-action="Edit" asp-route-id="@plan.Id"
+              class="btn btn-sm btn-warning">Edit</a>
+            <button class="btn btn-sm btn-error" onclick="my_modal_@(plan.Id).showModal()">
+              Delete
+            </button>
+          </td>
+        </tr>
+        @await Html.PartialAsync("_Delete", plan)
+      }
+    </tbody>
+  </table>
+</div>

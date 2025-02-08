@@ -13,5 +13,6 @@ namespace BusinessApp.Models
         public IEnumerable<SavedJob> SavedJobs { get; set; } = null!;
         public IEnumerable<RemoteOption> RemoteOptions { get; set; } = null!;
         public IEnumerable<PositionLevel> PositionLevels { get; set; } = null!;
+        public IEnumerable<Specialization> Specializations { get; set; } = null!;
     }
 }

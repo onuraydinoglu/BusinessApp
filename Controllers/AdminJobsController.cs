@@ -16,7 +16,9 @@ namespace BusinessApp.Controllers
         private readonly IEmployerRepository _employerRepository;
         private readonly IRemoteOptionRepository _remoteOptionRepository;
         private readonly IPositionLevelRepository _positionLevelRepository;
-        public AdminJobsController(IJobRepository jobRepository, ICategoryRepository categoryRepository, IJobTypeRepository jobTypeRepository, IEmployerRepository employerRepository, IRemoteOptionRepository remoteOptionRepository, IPositionLevelRepository positionLevelRepository)
+        private readonly ISpecializationRepository _specializationRepository;
+        private readonly ICityRepository _cityRepository;
+        public AdminJobsController(IJobRepository jobRepository, ICategoryRepository categoryRepository, IJobTypeRepository jobTypeRepository, IEmployerRepository employerRepository, IRemoteOptionRepository remoteOptionRepository, IPositionLevelRepository positionLevelRepository, ICityRepository cityRepository, ISpecializationRepository specializationRepository)
         {
             _jobRepository = jobRepository;
             _categoryRepository = categoryRepository;
@@ -24,6 +26,8 @@ namespace BusinessApp.Controllers
             _employerRepository = employerRepository;
             _remoteOptionRepository = remoteOptionRepository;
             _positionLevelRepository = positionLevelRepository;
+            _cityRepository = cityRepository;
+            _specializationRepository = specializationRepository;
         }
 
         [HttpGet]
@@ -41,6 +45,8 @@ namespace BusinessApp.Controllers
             ViewBag.RemoteOptions = new SelectList(await _remoteOptionRepository.GetAllAsync(), "Id", "Name");
             ViewBag.PositionLevels = new SelectList(await _positionLevelRepository.GetAllAsync(), "Id", "Level");
             ViewBag.Employers = new SelectList(await _employerRepository.GetAllAsync(), "Id", "CompanyName");
+            ViewBag.Specializations = new SelectList(await _specializationRepository.GetAllAsync(), "Id", "Name");
+            ViewBag.Cities = new SelectList(await _cityRepository.GetAllAsync(), "Id", "Name");
 
             return View();
         }
@@ -75,12 +81,16 @@ namespace BusinessApp.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
+            var job = await _jobRepository.GetByIdJobAsync(id);
+
             ViewBag.Categories = new SelectList(await _categoryRepository.GetAllAsync(), "Id", "Name");
             ViewBag.JobTypes = new SelectList(await _jobTypeRepository.GetAllAsync(), "Id", "Type");
             ViewBag.RemoteOptions = new SelectList(await _remoteOptionRepository.GetAllAsync(), "Id", "Name");
             ViewBag.PositionLevels = new SelectList(await _positionLevelRepository.GetAllAsync(), "Id", "Level");
             ViewBag.Employers = new SelectList(await _employerRepository.GetAllAsync(), "Id", "CompanyName");
-            var job = await _jobRepository.GetByIdJobAsync(id);
+            ViewBag.Specializations = new SelectList(await _specializationRepository.GetAllAsync(), "Id", "Name");
+            ViewBag.Cities = new SelectList(await _cityRepository.GetAllAsync(), "Id", "Name");
+
             return View(job);
         }
 

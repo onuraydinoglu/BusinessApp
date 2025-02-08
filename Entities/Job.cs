@@ -12,16 +12,20 @@ namespace BusinessApp.Entities
     public bool IsCompleted { get; set; }
     public string? JobImage { get; set; }
     public string? Url { get; set; }
-    public int JobTypeId { get; set; }
+    public int? JobTypeId { get; set; }
     public JobType? JobType { get; set; }
-    public int RemoteOptionId { get; set; }
+    public int? RemoteOptionId { get; set; }
     public RemoteOption? RemoteOption { get; set; }
-    public int PositionLevelId { get; set; }
+    public int? PositionLevelId { get; set; }
     public PositionLevel? PositionLevel { get; set; }
-    public int EmployerId { get; set; }
-    public Employer Employer { get; set; }
-    public int CategoryId { get; set; }
+    public int? EmployerId { get; set; }
+    public Employer? Employer { get; set; }
+    public int? CategoryId { get; set; }
     public Category? Category { get; set; }
+    public int? SpecializationId { get; set; }
+    public Specialization? Specialization { get; set; }
+    public int? CityId { get; set; }
+    public City? City { get; set; }
     public int? SavedJobId { get; set; }
     public ICollection<SavedJob> SavedJobs { get; set; } = new List<SavedJob>();
   }

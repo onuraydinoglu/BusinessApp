@@ -71,6 +71,24 @@ namespace BusinessApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Plans",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ContentOne = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ContentTwo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ContentThree = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<int>(type: "int", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Plans", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PositionLevels",
                 columns: table => new
                 {
@@ -110,6 +128,26 @@ namespace BusinessApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Roles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Specializations",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CategoryId = table.Column<int>(type: "int", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Specializations", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Specializations_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -195,11 +233,13 @@ namespace BusinessApp.Migrations
                     IsCompleted = table.Column<bool>(type: "bit", nullable: false),
                     JobImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    JobTypeId = table.Column<int>(type: "int", nullable: false),
-                    RemoteOptionId = table.Column<int>(type: "int", nullable: false),
-                    PositionLevelId = table.Column<int>(type: "int", nullable: false),
-                    EmployerId = table.Column<int>(type: "int", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    JobTypeId = table.Column<int>(type: "int", nullable: true),
+                    RemoteOptionId = table.Column<int>(type: "int", nullable: true),
+                    PositionLevelId = table.Column<int>(type: "int", nullable: true),
+                    EmployerId = table.Column<int>(type: "int", nullable: true),
+                    CategoryId = table.Column<int>(type: "int", nullable: true),
+                    SpecializationId = table.Column<int>(type: "int", nullable: true),
+                    CityId = table.Column<int>(type: "int", nullable: true),
                     SavedJobId = table.Column<int>(type: "int", nullable: true),
                     UserId = table.Column<int>(type: "int", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -211,32 +251,37 @@ namespace BusinessApp.Migrations
                         name: "FK_Jobs_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Jobs_Cities_CityId",
+                        column: x => x.CityId,
+                        principalTable: "Cities",
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Jobs_Employers_EmployerId",
                         column: x => x.EmployerId,
                         principalTable: "Employers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Jobs_JobTypes_JobTypeId",
                         column: x => x.JobTypeId,
                         principalTable: "JobTypes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Jobs_PositionLevels_PositionLevelId",
                         column: x => x.PositionLevelId,
                         principalTable: "PositionLevels",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Jobs_RemoteOptions_RemoteOptionId",
                         column: x => x.RemoteOptionId,
                         principalTable: "RemoteOptions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Jobs_Specializations_SpecializationId",
+                        column: x => x.SpecializationId,
+                        principalTable: "Specializations",
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Jobs_Users_UserId",
                         column: x => x.UserId,
@@ -323,6 +368,11 @@ namespace BusinessApp.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Jobs_CityId",
+                table: "Jobs",
+                column: "CityId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Jobs_EmployerId",
                 table: "Jobs",
                 column: "EmployerId");
@@ -343,6 +393,11 @@ namespace BusinessApp.Migrations
                 column: "RemoteOptionId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Jobs_SpecializationId",
+                table: "Jobs",
+                column: "SpecializationId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Jobs_UserId",
                 table: "Jobs",
                 column: "UserId");
@@ -356,6 +411,11 @@ namespace BusinessApp.Migrations
                 name: "IX_SavedJobs_UserId",
                 table: "SavedJobs",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Specializations_CategoryId",
+                table: "Specializations",
+                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_EmployerId",
@@ -378,7 +438,7 @@ namespace BusinessApp.Migrations
                 name: "Blogs");
 
             migrationBuilder.DropTable(
-                name: "Cities");
+                name: "Plans");
 
             migrationBuilder.DropTable(
                 name: "SavedJobs");
@@ -387,7 +447,7 @@ namespace BusinessApp.Migrations
                 name: "Jobs");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Cities");
 
             migrationBuilder.DropTable(
                 name: "JobTypes");
@@ -399,7 +459,13 @@ namespace BusinessApp.Migrations
                 name: "RemoteOptions");
 
             migrationBuilder.DropTable(
+                name: "Specializations");
+
+            migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Employers");

@@ -19,7 +19,8 @@ namespace BusinessApp.Controllers
         private readonly IApplicationRepository _applicationRepository;
         private readonly IRemoteOptionRepository _remoteOptionRepository;
         private readonly IPositionLevelRepository _positionLevelRepository;
-        public JobsController(IJobRepository jobRepository, ICategoryRepository categoryRepository, IJobTypeRepository jobTypeRepository, IEmployerRepository employerRepository, IUserRepository userRepository, ICityRepository cityRepository, ISavedJobRepository savedJobRepository, IApplicationRepository applicationRepository, IRemoteOptionRepository remoteOptionRepository, IPositionLevelRepository positionLevelRepository)
+        private readonly ISpecializationRepository _specializationRepository;
+        public JobsController(IJobRepository jobRepository, ICategoryRepository categoryRepository, IJobTypeRepository jobTypeRepository, IEmployerRepository employerRepository, IUserRepository userRepository, ICityRepository cityRepository, ISavedJobRepository savedJobRepository, IApplicationRepository applicationRepository, IRemoteOptionRepository remoteOptionRepository, IPositionLevelRepository positionLevelRepository, ISpecializationRepository specializationRepository)
         {
             _jobRepository = jobRepository;
             _categoryRepository = categoryRepository;
@@ -31,6 +32,7 @@ namespace BusinessApp.Controllers
             _applicationRepository = applicationRepository;
             _remoteOptionRepository = remoteOptionRepository;
             _positionLevelRepository = positionLevelRepository;
+            _specializationRepository = specializationRepository;
         }
 
         public async Task<IActionResult> Index()
@@ -41,6 +43,7 @@ namespace BusinessApp.Controllers
             var cities = await _cityRepository.GetAllAsync();
             var remoteOption = await _remoteOptionRepository.GetAllAsync();
             var positionLevel = await _positionLevelRepository.GetAllAsync();
+            var specialization = await _specializationRepository.GetAllAsync();
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var savedJobIds = new List<int>();
@@ -59,7 +62,8 @@ namespace BusinessApp.Controllers
                 Categories = categories,
                 Cities = cities,
                 RemoteOptions = remoteOption,
-                PositionLevels = positionLevel
+                PositionLevels = positionLevel,
+                Specializations = specialization
             });
         }
 

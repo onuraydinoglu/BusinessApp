@@ -22,29 +22,40 @@
     </label>
     <span asp-validation-for="Description" class="text-red-500 text-sm"></span>
 
-    <label class="form-control">
+    <label class="form-control w-full">
       <div class="label">
-        <span class="label-text">
-          <span class="label-text">Location</span>
-        </span>
+        <span class="label-text">City</span>
       </div>
-      <input asp-for="Location" type="text" placeholder="Location" class="input input-bordered" />
+      <select asp-for="CityId" asp-items="ViewBag.Cities" class="select select-bordered">
+        <option disabled selected>Select City</option>
+      </select>
+      <span asp-validation-for="CityId" class="text-red-500 text-sm"></span>
     </label>
-    <span asp-validation-for="Location" class="text-red-500 text-sm"></span>
 
-    <div class="flex gap-4">
+    <div class="grid grid-cols-2 gap-4">
       <label class="form-control w-full max-w-xs">
         <div class="label">
-          <span class="label-text">Category</span>
+          <span class="label-text">Sector</span>
         </div>
         <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="select select-bordered">
-          <option disabled selected>Select Category</option>
+          <option disabled selected>Select Sector</option>
         </select>
         <span asp-validation-for="CategoryId" class="text-red-500 text-sm"></span>
       </label>
+
+      <!-- Specialization Eklenecek -->
+      <label class="form-control w-full max-w-xs">
+        <div class="label">
+          <span class="label-text">Specialization</span>
+        </div>
+        <select asp-for="Id" asp-items="ViewBag.Specializations" class="select select-bordered">
+          <option disabled selected>Select Specialization</option>
+        </select>
+        <span class="text-red-500 text-sm"></span>
+      </label>
     </div>
 
-    <div class="flex gap-4">
+    <div class="grid grid-cols-2 gap-4">
       <label class="form-control w-full max-w-xs">
         <div class="label">
           <span class="label-text">Job Type</span>
@@ -54,21 +65,7 @@
         </select>
         <span asp-validation-for="JobTypeId" class="text-red-500 text-sm"></span>
       </label>
-    </div>
 
-    <div class="flex gap-4">
-      <label class="form-control w-full max-w-xs">
-        <div class="label">
-          <span class="label-text">Company Name</span>
-        </div>
-        <select asp-for="EmployerId" asp-items="ViewBag.Employers" class="select select-bordered">
-          <option disabled selected>Select Company</option>
-        </select>
-        <span asp-validation-for="EmployerId" class="text-red-500 text-sm"></span>
-      </label>
-    </div>
-
-    <div class="flex gap-4">
       <label class="form-control w-full max-w-xs">
         <div class="label">
           <span class="label-text">Remote Option</span>
@@ -80,7 +77,7 @@
       </label>
     </div>
 
-    <div class="flex gap-4">
+    <div class="grid grid-cols-2 gap-4">
       <label class="form-control w-full max-w-xs">
         <div class="label">
           <span class="label-text">Position Level</span>
@@ -90,20 +87,32 @@
         </select>
         <span asp-validation-for="PositionLevelId" class="text-red-500 text-sm"></span>
       </label>
-    </div>
 
-    <div class="form-control">
-      <label class="label cursor-pointer">
-        <span asp-validation-for="IsCompleted" class="label-text">Is Completed?</span>
-        <input asp-for="IsCompleted" type="checkbox" class="checkbox" />
+      <label class="form-control w-full max-w-xs">
+        <div class="label">
+          <span class="label-text">Company Name</span>
+        </div>
+        <select asp-for="EmployerId" asp-items="ViewBag.Employers" class="select select-bordered">
+          <option disabled selected>Select Company</option>
+        </select>
+        <span asp-validation-for="EmployerId" class="text-red-500 text-sm"></span>
       </label>
     </div>
 
-    <div class="form-control">
-      <label class="label cursor-pointer">
-        <span asp-validation-for="IsActive" class="label-text">Is Active?</span>
-        <input asp-for="IsActive" type="checkbox" class="checkbox" />
-      </label>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="form-control">
+        <label class="label cursor-pointer">
+          <span asp-validation-for="IsCompleted" class="label-text">Is Comleted?</span>
+          <input asp-for="IsCompleted" type="checkbox" checked="checked" class="checkbox mr-3" />
+        </label>
+      </div>
+
+      <div class="form-control">
+        <label class="label cursor-pointer">
+          <span asp-validation-for="IsActive" class="label-text">Is Active?</span>
+          <input asp-for="IsActive" type="checkbox" checked="checked" class="checkbox mr-3" />
+        </label>
+      </div>
     </div>
 
     <button type="submit" class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white my-4 w-full">Update

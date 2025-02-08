@@ -22,6 +22,7 @@ namespace BusinessApp.Repositories.Context
     public DbSet<City> Cities { get; set; }
     public DbSet<RemoteOption> RemoteOptions { get; set; }
     public DbSet<PositionLevel> PositionLevels { get; set; }
-
+    public DbSet<Plan> Plans { get; set; }
+    public DbSet<Specialization> Specializations { get; set; }
   }
 }

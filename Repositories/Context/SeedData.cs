@@ -71,6 +71,23 @@ namespace BusinessApp.Repositories
           context.SaveChanges();
         }
 
+        if (!context.Cities.Any())
+        {
+          context.Cities.AddRange(
+              new City { Name = "İstanbul" },
+              new City { Name = "Hatay" },
+              new City { Name = "Ankara" },
+              new City { Name = "İzmir" },
+              new City { Name = "Bursa" },
+              new City { Name = "Antalya" },
+              new City { Name = "Adana" },
+              new City { Name = "Konya" },
+              new City { Name = "Kayseri" },
+              new City { Name = "Kocaeli" }
+          );
+          context.SaveChanges();
+        }
+
         if (!context.Employers.Any())
         {
           context.Employers.AddRange(
@@ -188,7 +205,6 @@ namespace BusinessApp.Repositories
               {
                 Title = "Senior Software Engineer",
                 Description = "Develop and maintain enterprise applications.",
-                Location = "İstanbul",
                 SalaryRange = "10000-15000",
                 IsActive = true,
                 RemoteOptionId = 1,
@@ -196,13 +212,13 @@ namespace BusinessApp.Repositories
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
                 EmployerId = 1,
-                CategoryId = 1
+                CategoryId = 1,
+                CityId = 1
               },
               new Job
               {
                 Title = "Junior Web Developer",
                 Description = "Assist in the creation of web-based applications.",
-                Location = "Hatay",
                 SalaryRange = "6000-8000",
                 IsActive = true,
                 RemoteOptionId = 1,
@@ -210,13 +226,13 @@ namespace BusinessApp.Repositories
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 2,
                 EmployerId = 3,
-                CategoryId = 1
+                CategoryId = 1,
+                CityId = 2
               },
               new Job
               {
                 Title = "HR Specialist",
                 Description = "Manage recruitment and employee relations.",
-                Location = "Samsun",
                 SalaryRange = "8000-10000",
                 IsActive = true,
                 RemoteOptionId = 1,
@@ -224,13 +240,13 @@ namespace BusinessApp.Repositories
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
                 EmployerId = 2,
-                CategoryId = 3
+                CategoryId = 3,
+                CityId = 3
               },
               new Job
               {
                 Title = "Financial Analyst",
                 Description = "Analyze financial data and create reports.",
-                Location = "İstanbul",
                 SalaryRange = "9000-12000",
                 IsActive = true,
                 RemoteOptionId = 2,
@@ -238,13 +254,14 @@ namespace BusinessApp.Repositories
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
                 EmployerId = 1,
-                CategoryId = 2
+                CategoryId = 2,
+                CityId = 1
+
               },
               new Job
               {
                 Title = "Mobile App Developer",
                 Description = "Develop mobile applications for Android and iOS.",
-                Location = "Antalya",
                 SalaryRange = "10000-14000",
                 IsActive = true,
                 RemoteOptionId = 1,
@@ -252,13 +269,13 @@ namespace BusinessApp.Repositories
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
                 EmployerId = 3,
-                CategoryId = 1
+                CategoryId = 1,
+                CityId = 4
               },
               new Job
               {
                 Title = "Marketing Specialist",
                 Description = "Plan and execute marketing campaigns.",
-                Location = "Bursa",
                 SalaryRange = "7000-9000",
                 IsActive = true,
                 RemoteOptionId = 2,
@@ -266,13 +283,13 @@ namespace BusinessApp.Repositories
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 2,
                 EmployerId = 2,
-                CategoryId = 3
+                CategoryId = 3,
+                CityId = 5
               },
               new Job
               {
                 Title = "DevOps Engineer",
                 Description = "Maintain CI/CD pipelines and infrastructure.",
-                Location = "İstanbul",
                 SalaryRange = "11000-16000",
                 IsActive = true,
                 RemoteOptionId = 3,
@@ -280,13 +297,13 @@ namespace BusinessApp.Repositories
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
                 EmployerId = 1,
-                CategoryId = 1
+                CategoryId = 1,
+                CityId = 1
               },
               new Job
               {
                 Title = "Data Scientist",
                 Description = "Analyze and model large datasets to extract insights.",
-                Location = "Ankara",
                 SalaryRange = "12000-18000",
                 IsActive = true,
                 RemoteOptionId = 3,
@@ -294,7 +311,8 @@ namespace BusinessApp.Repositories
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
                 EmployerId = 3,
-                CategoryId = 1
+                CategoryId = 1,
+                CityId = 3
               }
           );
           context.SaveChanges();
@@ -379,23 +397,136 @@ namespace BusinessApp.Repositories
           context.SaveChanges();
         }
 
-        if (!context.Cities.Any())
+        if (!context.Plans.Any())
         {
-          context.Cities.AddRange(
-              new City { Name = "İstanbul" },
-              new City { Name = "Ankara" },
-              new City { Name = "İzmir" },
-              new City { Name = "Bursa" },
-              new City { Name = "Antalya" },
-              new City { Name = "Adana" },
-              new City { Name = "Konya" },
-              new City { Name = "Hatay" },
-              new City { Name = "Kayseri" },
-              new City { Name = "Kocaeli" }
+          context.Plans.AddRange(
+              new Plan
+              {
+                Title = "Starter Pack",
+                ContentOne = "1 Job Post",
+                ContentTwo = "30 Days Duration",
+                ContentThree = "Basic Support",
+                Price = 1500
+              },
+              new Plan
+              {
+                Title = "Essential Pack",
+                ContentOne = "2 Job Posts",
+                ContentTwo = "45 Days Duration",
+                ContentThree = "Priority Support",
+                Price = 3000
+              },
+              new Plan
+              {
+                Title = "Growth Pack",
+                ContentOne = "3 Job Posts",
+                ContentTwo = "60 Days Duration",
+                ContentThree = "Advanced Support",
+                Price = 5000
+              },
+              new Plan
+              {
+                Title = "Professional Pack",
+                ContentOne = "5 Job Posts",
+                ContentTwo = "90 Days Duration",
+                ContentThree = "Premium Support",
+                Price = 7500
+              },
+              new Plan
+              {
+                Title = "Enterprise Pack",
+                ContentOne = "10 Job Posts",
+                ContentTwo = "120 Days Duration",
+                ContentThree = "Dedicated Support",
+                Price = 12000
+              },
+              new Plan
+              {
+                Title = "SmartPost Basic",
+                ContentOne = "1 Job Post",
+                ContentTwo = "30 Days Duration",
+                ContentThree = "Includes Candidate Testing",
+                Price = 2000
+              },
+              new Plan
+              {
+                Title = "SmartPost Pro",
+                ContentOne = "3 Job Posts",
+                ContentTwo = "60 Days Duration",
+                ContentThree = "Includes Advanced Testing Tools",
+                Price = 6000
+              },
+              new Plan
+              {
+                Title = "Custom Plan",
+                ContentOne = "Flexible Job Posts",
+                ContentTwo = "Flexible Duration",
+                ContentThree = "Customizable Features",
+                Price = 0 // Price to be determined in discussions
+              },
+              new Plan
+              {
+                Title = "Ultimate Recruitment Pack",
+                ContentOne = "Unlimited Job Posts",
+                ContentTwo = "1 Year Duration",
+                ContentThree = "Full Access to All Features",
+                Price = 25000
+              }
           );
           context.SaveChanges();
         }
 
+        if (!context.Specializations.Any())
+        {
+          context.Specializations.AddRange(
+              // Software Development Specializations
+              new Specialization { Name = "Full-Stack Developer", CategoryId = 1 },
+              new Specialization { Name = "Front-End Developer", CategoryId = 1 },
+              new Specialization { Name = "Back-End Developer", CategoryId = 1 },
+              new Specialization { Name = "Mobile Developer", CategoryId = 1 },
+              new Specialization { Name = "DevOps Engineer", CategoryId = 1 },
+              new Specialization { Name = "Game Developer", CategoryId = 1 },
+              new Specialization { Name = "Data Scientist", CategoryId = 1 },
+
+              // Finance Specializations
+              new Specialization { Name = "Investment Analyst", CategoryId = 2 },
+              new Specialization { Name = "Risk Manager", CategoryId = 2 },
+              new Specialization { Name = "Financial Planner", CategoryId = 2 },
+              new Specialization { Name = "Auditor", CategoryId = 2 },
+
+              // Accounting Specializations
+              new Specialization { Name = "Certified Public Accountant", CategoryId = 3 },
+              new Specialization { Name = "Tax Consultant", CategoryId = 3 },
+              new Specialization { Name = "Financial Accountant", CategoryId = 3 },
+              new Specialization { Name = "Management Accountant", CategoryId = 3 },
+
+              // Sales & Customer Service Specializations
+              new Specialization { Name = "Sales Executive", CategoryId = 4 },
+              new Specialization { Name = "Sales Consultant", CategoryId = 4 },
+              new Specialization { Name = "Business Development Manager", CategoryId = 4 },
+              new Specialization { Name = "Customer Success Manager", CategoryId = 5 },
+              new Specialization { Name = "Technical Support Specialist", CategoryId = 5 },
+
+              // Marketing Specializations
+              new Specialization { Name = "SEO Specialist", CategoryId = 6 },
+              new Specialization { Name = "Content Marketer", CategoryId = 6 },
+              new Specialization { Name = "Social Media Manager", CategoryId = 6 },
+              new Specialization { Name = "Digital Marketing Specialist", CategoryId = 6 },
+
+              // Management Specializations
+              new Specialization { Name = "Project Manager", CategoryId = 7 },
+              new Specialization { Name = "Operations Manager", CategoryId = 7 },
+              new Specialization { Name = "HR Manager", CategoryId = 7 },
+              new Specialization { Name = "Product Manager", CategoryId = 7 },
+
+              // Retail & Store Management Specializations
+              new Specialization { Name = "Retail Manager", CategoryId = 8 },
+              new Specialization { Name = "Store Supervisor", CategoryId = 8 },
+              new Specialization { Name = "Inventory Manager", CategoryId = 8 }
+          );
+
+          context.SaveChanges();
+        }
       }
     }
   }

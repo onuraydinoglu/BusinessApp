@@ -1,3 +1,5 @@
+@model IEnumerable<Plan>
+
 @section FullWidthSection {
     <div class="flex items-center gap-20 h-[450px]">
         <div>
@@ -64,153 +66,23 @@
     </div>
 
     <div class="grid xl:grid-cols-3 md:grid-cols-2 gap-6">
-        <!-- Card 1 -->
-        <div class="flex flex-col bg-white shadow rounded-lg p-6 h-full">
-            <h2 class="text-lg font-bold text-blue-600">1 Ad</h2>
-            <ul class="my-4 space-y-2">
-                <li class="flex items-center"><span class="text-purple-500 mr-2">✔</span> 30 Days Posting Duration</li>
-                <li class="flex items-center"><span class="text-violet-600
- mr-2">✔</span> 12 Months Membership</li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> Unlimited Application Viewing
-                </li>
-            </ul>
-            <div class="mt-auto">
-                <span class="mt-6 text-2xl font-bold text-gray-800">3,400 ₺</span>
-                <span class="text-sm font-normal text-gray-500">+VAT</span>
-                <button class="mt-4 w-full bg-[#230939] text-white py-2 rounded">+ Add</button>
+        @foreach (var plan in Model)
+        {
+            <div class="flex flex-col bg-white shadow rounded-lg p-6 h-full">
+                <h2 class="text-lg font-bold text-[#230939]">@plan.Title</h2>
+                <ul class="my-4 space-y-2">
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✔</span>@plan.ContentOne</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✔</span>@plan.ContentTwo</li>
+                    <li class="flex items-center"><span class="text-green-500 mr-2">✔</span>@plan.ContentThree</li>
+                </ul>
+                <div class="mt-auto">
+                    <span class="mt-6 text-2xl font-bold text-gray-800">@plan.Price₺</span>
+                    <span class="text-sm font-normal text-gray-500">+VAT</span>
+                    <button class="mt-4 w-full bg-[#230939] text-white py-2 rounded">+ Add</button>
+                </div>
             </div>
-        </div>
+        }
 
-        <!-- Card 2 -->
-        <div class="flex flex-col bg-white shadow rounded-lg p-6 h-full">
-            <h2 class="text-lg font-bold text-blue-600">2 Ads</h2>
-            <ul class="my-4 space-y-2">
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 30 Days Posting Duration</li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 12 Months Membership</li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> Unlimited Application Viewing
-                </li>
-            </ul>
-            <div class="mt-auto">
-                <span class="mt-6 text-2xl font-bold text-gray-800">6,250 ₺</span>
-                <span class="text-sm font-normal text-gray-500">+VAT</span>
-                <button class="mt-4 w-full bg-[#230939] text-white py-2 rounded">+ Add</button>
-            </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="flex flex-col bg-white shadow rounded-lg p-6 h-full">
-            <h2 class="text-lg font-bold text-blue-600">3 Ads</h2>
-            <ul class="my-4 space-y-2">
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 30 Days Posting Duration</li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 12 Months Membership</li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> Unlimited Application Viewing
-                </li>
-            </ul>
-            <div class="mt-auto">
-                <span class="mt-6 text-2xl font-bold text-gray-800">9,000 ₺</span>
-                <span class="text-sm font-normal text-gray-500">+VAT</span>
-                <button class="mt-4 w-full bg-[#230939] text-white py-2 rounded">+ Add</button>
-            </div>
-        </div>
-
-        <!-- Card 1 -->
-        <div class="flex flex-col bg-white shadow rounded-lg p-6 h-full">
-            <h2 class="text-lg font-bold text-blue-600">1 Ad</h2>
-            <ul class="my-4 space-y-2">
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 60 Days Posting Duration</li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 12 Months Membership</li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> Unlimited Application Viewing
-                </li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> Access to 10 CVs without
-                    Applications</li>
-            </ul>
-            <div class="mt-auto">
-                <span class="mt-6 text-2xl font-bold text-gray-800">4,800 ₺</span>
-                <span class="text-sm font-normal text-gray-500">+VAT</span>
-                <button class="mt-4 w-full bg-[#230939] text-white py-2 rounded">+ Add</button>
-            </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="flex flex-col bg-white shadow rounded-lg p-6 h-full">
-            <h2 class="text-lg font-bold text-blue-600">2 Ads</h2>
-            <ul class="mt-4 space-y-2">
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 60 Days Posting Duration</li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 12 Months Membership</li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> Unlimited Application Viewing
-                </li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> Access to 10 CVs without
-                    Applications</li>
-            </ul>
-            <div class="mt-auto">
-                <span class="mt-6 text-2xl font-bold text-gray-800">8,350 ₺</span>
-                <span class="text-sm font-normal text-gray-500">+VAT</span>
-                <button class="mt-4 w-full bg-[#230939] text-white py-2 rounded">+ Add</button>
-            </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="flex flex-col bg-white shadow rounded-lg p-6 h-full">
-            <h2 class="text-lg font-bold text-blue-600">3 Ads</h2>
-            <ul class="mt-4 space-y-2">
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 60 Days Posting Duration</li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 12 Months Membership</li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> Unlimited Application Viewing
-                </li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> Access to 10 CVs without
-                    Applications</li>
-            </ul>
-            <div class="mt-auto">
-                <span class="mt-6 text-2xl font-bold text-gray-800">12,500 ₺</span>
-                <span class="text-sm font-normal text-gray-500">+VAT</span>
-                <button class="mt-4 w-full bg-[#230939] text-white py-2 rounded">+ Add</button>
-            </div>
-        </div>
-
-        <!-- Card 1 -->
-        <div class="flex flex-col bg-blue-50 border border-blue-300 shadow rounded-lg p-6 h-full">
-            <h2 class="text-lg font-bold text-blue-600">Smarttest</h2>
-            <p class="text-gray-700 mt-2 font-bold">Let's Talk</p>
-            <ul class="mt-4 space-y-2">
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 1 Ad Posting</li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 30 Days Posting Duration</li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 3 Months Membership</li>
-            </ul>
-            <div class="mt-auto">
-                <button class="mt-4 w-full text-blue-500 border border-blue-500 py-2 rounded hover:bg-blue-100">View
-                    Details</button>
-            </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="flex flex-col bg-blue-50 border border-blue-300 shadow rounded-lg p-6 h-full">
-            <h2 class="text-lg font-bold text-blue-600">Smartinterview</h2>
-            <p class="text-gray-700 mt-2 font-bold">Let's Talk</p>
-            <ul class="mt-4 space-y-2">
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 1 Ad Posting</li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 30 Days Posting Duration</li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 3 Months Membership</li>
-            </ul>
-            <div class="mt-auto">
-                <button class="mt-4 w-full text-blue-500 border border-blue-500 py-2 rounded hover:bg-blue-100">View
-                    Details</button>
-            </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="flex flex-col bg-blue-50 border border-blue-300 shadow rounded-lg p-6 h-full">
-            <h2 class="text-lg font-bold text-blue-600">Custom Option</h2>
-            <p class="text-gray-700 mt-2 font-bold">Let's Talk</p>
-            <ul class="mt-4 space-y-2">
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 1 Ad Posting</li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 30 Days Posting Duration</li>
-                <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> 3 Months Membership</li>
-            </ul>
-            <div class="mt-auto">
-                <button class="mt-4 w-full text-blue-500 border border-blue-500 py-2 rounded hover:bg-blue-100">Request
-                    Option</button>
-            </div>
-        </div>
 
     </div>
 </div>

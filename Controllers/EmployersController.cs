@@ -7,16 +7,17 @@ namespace BusinessApp.Controllers
 {
     public class EmployersController : Controller
     {
-        private readonly IEmployerRepository _employerRepository;
+        private readonly IPlanRepository _planRepository;
 
-        public EmployersController(IEmployerRepository employerRepository)
+        public EmployersController(IPlanRepository planRepository)
         {
-            _employerRepository = employerRepository;
+            _planRepository = planRepository;
         }
+
         public async Task<IActionResult> Index()
         {
-            var employers = await _employerRepository.GetAllAsync();
-            return View(employers);
+            var plans = await _planRepository.GetAllAsync();
+            return View(plans);
         }
     }
 }
