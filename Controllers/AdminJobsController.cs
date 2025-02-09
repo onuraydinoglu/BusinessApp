@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using BusinessApp.Entities;
 using BusinessApp.Models;
 using BusinessApp.Repositories.Abstracts;
@@ -7,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BusinessApp.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Employer")]
     public class AdminJobsController : Controller
     {
         private readonly ICategoryRepository _categoryRepository;
@@ -44,10 +45,32 @@ namespace BusinessApp.Controllers
             ViewBag.JobTypes = new SelectList(await _jobTypeRepository.GetAllAsync(), "Id", "Type");
             ViewBag.RemoteOptions = new SelectList(await _remoteOptionRepository.GetAllAsync(), "Id", "Name");
             ViewBag.PositionLevels = new SelectList(await _positionLevelRepository.GetAllAsync(), "Id", "Level");
-            ViewBag.Employers = new SelectList(await _employerRepository.GetAllAsync(), "Id", "CompanyName");
             ViewBag.Specializations = new SelectList(await _specializationRepository.GetAllAsync(), "Id", "Name");
             ViewBag.Cities = new SelectList(await _cityRepository.GetAllAsync(), "Id", "Name");
 
+            if (User.IsInRole("Admin"))
+            {
+                // Admin ise tüm employer listesini dropdown olarak göster
+                ViewBag.Employers = new SelectList(await _employerRepository.GetAllAsync(), "Id", "CompanyName");
+            }
+
+            else if (User.IsInRole("Employer"))
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (userId is null)
+                {
+                    return Unauthorized();
+                }
+
+                // Kullanıcının tüm şirketlerini getir
+                var employers = await _employerRepository.GetEmployersByUserIdAsync(int.Parse(userId));
+                if (employers is null || employers.Count == 0)
+                {
+                    return NotFound("Şirket bilgisi bulunamadı.");
+                }
+
+                ViewBag.Employers = new SelectList(employers, "Id", "CompanyName");
+            }
             return View();
         }
 

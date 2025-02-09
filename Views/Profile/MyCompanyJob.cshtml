@@ -1,0 +1,44 @@
+@model IEnumerable<Job>
+
+<div class="flex justify-between items-center mt-5">
+  <h2>My Job List</h2>
+  <a asp-controller="AdminJobs" asp-action="Create"
+    class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white w-40">Add Job</a>
+  <a asp-controller="Profile" asp-action="Index"
+    class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white w-40">My Profile</a>
+</div>
+
+<div class="divider my-5"></div>
+
+<div class="mb-20">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Sector</th>
+        <th>Specialization</th>
+        <th>City</th>
+        <th>Position Level</th>
+        <th>Job Type</th>
+        <th>Remote Option</th>
+        <th class="text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var myJobs in Model)
+      {
+        <tr>
+          <td>@myJobs.Category?.Name</td>
+          <td>@myJobs.Title</td>
+          <td>@myJobs.City?.Name</td>
+          <td>@myJobs.PositionLevel?.Level</td>
+          <td>@myJobs.JobType?.Type</td>
+          <td>@myJobs.RemoteOption?.Name</td>
+          <td class="text-center">
+            <a asp-controller="Jobs" asp-action="Details" asp-route-id="@myJobs.Id"
+              class="btn bg-[#B561B0] hover:bg-[#B561B0] text-white h-[40px] min-h-0">Details</a>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

@@ -2,8 +2,16 @@
 
 <div class="flex justify-between items-center mt-5">
   <h2>Add Job</h2>
-  <a asp-controller="AdminJobs" asp-action="Index"
-    class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white">Back to Jobs</a>
+  @if (User.IsInRole("Admin"))
+  {
+    <a asp-controller="AdminJobs" asp-action="Index"
+      class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white">Back to Jobs</a>
+  }
+  else if (User.IsInRole("Employer"))
+  {
+    <a asp-controller="Profile" asp-action="MyCompanyJob"
+      class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white">Back to My Company Jobs</a>
+  }
 </div>
 
 <div class="divider my-5"></div>
@@ -95,15 +103,30 @@
         <span asp-validation-for="PositionLevelId" class="text-red-500 text-sm"></span>
       </label>
 
-      <label class="form-control w-full max-w-xs">
-        <div class="label">
-          <span class="label-text">Company Name</span>
-        </div>
-        <select asp-for="EmployerId" asp-items="ViewBag.Employers" class="select select-bordered">
-          <option disabled selected>Select Company</option>
-        </select>
-        <span asp-validation-for="EmployerId" class="text-red-500 text-sm"></span>
-      </label>
+      @if (User.IsInRole("Admin"))
+      {
+        <label class="form-control w-full max-w-xs">
+          <div class="label">
+            <span class="label-text">Company Name</span>
+          </div>
+          <select asp-for="EmployerId" asp-items="ViewBag.Employers" class="select select-bordered">
+            <option disabled selected>Select Company</option>
+          </select>
+          <span asp-validation-for="EmployerId" class="text-red-500 text-sm"></span>
+        </label>
+      }
+      else if (User.IsInRole("Employer"))
+      {
+        <label class="form-control w-full max-w-xs">
+          <div class="label">
+            <span class="label-text">Select Your Company</span>
+          </div>
+          <select asp-for="EmployerId" asp-items="ViewBag.Employers" class="select select-bordered">
+            <option disabled selected>Select Your Company</option>
+          </select>
+          <span asp-validation-for="EmployerId" class="text-red-500 text-sm"></span>
+        </label>
+      }
     </div>
 
     <div class="grid grid-cols-2 gap-4">

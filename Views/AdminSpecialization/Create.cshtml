@@ -1,0 +1,35 @@
+@model Specialization
+
+<div class="flex justify-between items-center mt-5">
+  <h2>Add Employer</h2>
+  <a asp-controller="AdminSpecialization" asp-action="Index"
+    class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white">Back to Specializations</a>
+</div>
+
+<div class="divider my-5"></div>
+
+<form asp-controller="AdminSpecialization" asp-action="Create" method="post" enctype="multipart/form-data"
+  class="mb-20">
+  <div class="mt-5 w-[50%] mx-auto space-y-4">
+
+    <label class="form-control mb-3">
+      <div class="label">
+        <span class="label-text">Name</span>
+      </div>
+      <input asp-for="Name" type="text" placeholder="Frontend Developer" class="input input-bordered w-full" />
+    </label>
+
+    <label class="form-control w-full max-w-xs">
+      <div class="label">
+        <span class="label-text">Sector</span>
+      </div>
+      <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="select select-bordered">
+        <option disabled selected>Select Sector</option>
+      </select>
+      <span asp-validation-for="CategoryId" class="text-red-500 text-sm"></span>
+    </label>
+
+    <button type="submit" class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white my-4 w-full">Add
+      Specialization</button>
+  </div>
+</form>

@@ -20,6 +20,17 @@ namespace BusinessApp.Repositories.Concretes
       return employers;
     }
 
+    public async Task<List<Employer>> GetEmployersByUserIdAsync(int userId)
+    {
+      return await _context.Employers
+          .Include(x => x.User)
+          .Include(x => x.Category)
+          .Where(x => x.UserId == userId)
+          .ToListAsync();
+    }
+
+
+
     public async Task<IEnumerable<Employer>> GetAllEmployersUserAsync(int userId)
     {
       var employer = await _context.Employers.Include(x => x.User).Include(x => x.Category).Where(x => x.UserId == userId).ToListAsync();

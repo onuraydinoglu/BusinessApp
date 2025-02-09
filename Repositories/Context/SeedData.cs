@@ -213,7 +213,7 @@ namespace BusinessApp.Repositories
                 PositionLevelId = 1,
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 1,
-                EmployerId = 1,
+                EmployerId = 2,
                 CategoryId = 1,
                 CityId = 1
               },
@@ -227,7 +227,7 @@ namespace BusinessApp.Repositories
                 PositionLevelId = 2,
                 JobImage = "~/img/Job/8.webp",
                 JobTypeId = 2,
-                EmployerId = 3,
+                EmployerId = 2,
                 CategoryId = 1,
                 CityId = 2
               },

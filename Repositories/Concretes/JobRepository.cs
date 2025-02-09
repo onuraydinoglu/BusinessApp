@@ -20,6 +20,15 @@ namespace BusinessApp.Repositories.Concretes
       return jobs;
     }
 
+    public async Task<List<Job>> GetAllUserAndJobAsync(int employerId)
+    {
+      var jobs = await _context.Jobs
+          .Where(x => x.EmployerId == employerId)
+          .Include(x => x.Category).Include(x => x.City).Include(x => x.JobType).Include(x => x.RemoteOption).Include(x => x.PositionLevel)
+          .ToListAsync();
+
+      return jobs;
+    }
 
 
     public async Task<Job> GetByIdJobAsync(int? id)

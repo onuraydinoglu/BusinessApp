@@ -1,0 +1,42 @@
+@model IEnumerable<Specialization>
+
+<div class="flex justify-between items-center mt-5">
+  <h2>Categories List</h2>
+  <a asp-controller="AdminSpecialization" asp-action="Create"
+    class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white">Add Specialization</a>
+</div>
+
+<div class="divider my-5"></div>
+
+<div class="mb-20">
+  <table class="table text-center">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Sector</th>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var spc in Model)
+      {
+        <tr>
+          <td>@spc.Id</td>
+          <td>@spc.Category?.Name</td>
+          <th>@spc.Name</th>
+          <td>
+            <a asp-controller="AdminSpecialization" asp-action="Edit" asp-route-id="@spc.Id"
+              class="btn btn-sm btn-warning">Edit</a>
+            <button class="btn btn-sm btn-error" onclick="my_modal_@(spc.Id).showModal()">
+              Delete
+            </button>
+
+          </td>
+        </tr>
+        @await Html.PartialAsync("_Delete", spc)
+      }
+    </tbody>
+  </table>
+</div>
