@@ -1,0 +1,54 @@
+@model IEnumerable<Employer>
+
+<div class="flex justify-between items-center mt-5">
+    <h2>Employers List</h2>
+    <a asp-controller="AdminEmployers" asp-action="Create"
+        class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white">Add Employer</a>
+</div>
+
+<div class="divider my-5"></div>
+
+<div class="mb-20">
+    <table class="table text-center">
+        <!-- head -->
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>User</th>
+                <th>Company Name</th>
+                <th>Sector</th>
+                <th>Created Date</th>
+                <th>Active</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employer in Model)
+            {
+                <tr>
+                    <td>@employer.Id</td>
+                    <td>@employer.User?.FullName</td>
+                    <td>@employer.CompanyName</td>
+                    <td>@employer.Category?.Name</td>
+                    <td>@employer.CreatedDate.ToString("dd.MM.yyyy")</td>
+                    <td>
+                        <span
+                            class="badge p-3 rounded-full text-white @(employer.IsActive ? "bg-green-600 text-green-100" : "bg-yellow-600 text-yellow-100")">
+                            @(employer.IsActive ? "Approved" : "Pending Approval")
+                        </span>
+                    </td>
+                    <td>
+                        <a asp-controller="AdminEmployers" asp-action="Edit" asp-route-id="@employer.Id"
+                            class="btn btn-sm btn-warning">
+                            Edit
+                        </a>
+                        <button class="btn btn-sm btn-error" onclick="my_modal_@(employer.Id).showModal()">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+                @await Html.PartialAsync("_Delete", employer)
+            }
+        </tbody>
+    </table>
+</div>

@@ -18,6 +18,7 @@ namespace BusinessApp.Entities
     public string? Url { get; set; }
     public ICollection<Job> Jobs { get; set; } = new List<Job>();
     public ICollection<Specialization> Specializations { get; set; } = new List<Specialization>();
+    public ICollection<Employer> Employers { get; set; } = new List<Employer>();
 
     private static string GenerateUrl(string name)
     {

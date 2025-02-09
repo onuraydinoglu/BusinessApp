@@ -88,67 +88,9 @@ namespace BusinessApp.Repositories
           context.SaveChanges();
         }
 
-        if (!context.Employers.Any())
-        {
-          context.Employers.AddRange(
-              new Employer
-              {
-                CompanyName = "Google",
-                JobId = 1,
-                UserId = 1
-              },
-              new Employer
-              {
-                CompanyName = "Microsoft",
-                JobId = 2,
-                UserId = 2
-              },
-              new Employer
-              {
-                CompanyName = "JP Morgan",
-                JobId = 3,
-                UserId = 3
-              },
-              new Employer
-              {
-                CompanyName = "Amazon",
-                JobId = 4,
-                UserId = 4
-              },
-              new Employer
-              {
-                CompanyName = "Tesla",
-                JobId = 5,
-                UserId = 1
-              },
-              new Employer
-              {
-                CompanyName = "Netflix",
-                JobId = 6,
-                UserId = 2
-              }
-          );
-          context.SaveChanges();
-        }
-
         if (!context.Users.Any())
         {
           context.Users.AddRange(
-              new User
-              {
-                FirstName = "Muhammet Onur",
-                LastName = "Aydınoğlu",
-                Email = "onur@example.com",
-                Password = "onur",
-                PhoneNumber = "+905551112233",
-                DateOfBirth = new DateTime(1998, 09, 14),
-                ProfileImage = "profile.webp",
-                Education = "Computer Engineering",
-                Skills = "C#, .NET, SQL",
-                ResumeUrl = "cv.pdf",
-                RoleId = 1,
-                EmployerId = 1
-              },
               new User
               {
                 FirstName = "Nisa Nur",
@@ -161,8 +103,21 @@ namespace BusinessApp.Repositories
                 Education = "Computer Engineering",
                 Skills = "Marketing, HR, Excel",
                 ResumeUrl = "cv.pdf",
-                RoleId = 1,
-                EmployerId = 1
+                RoleId = 1
+              },
+              new User
+              {
+                FirstName = "Muhammet Onur",
+                LastName = "Aydınoğlu",
+                Email = "onur@example.com",
+                Password = "onur",
+                PhoneNumber = "+905551112233",
+                DateOfBirth = new DateTime(1998, 09, 14),
+                ProfileImage = "profile.webp",
+                Education = "Computer Engineering",
+                Skills = "C#, .NET, SQL",
+                ResumeUrl = "cv.pdf",
+                RoleId = 2
               },
               new User
               {
@@ -176,8 +131,7 @@ namespace BusinessApp.Repositories
                 Education = "Information Technology",
                 Skills = "JavaScript, React, Node.js",
                 ResumeUrl = "cv.pdf",
-                RoleId = 3,
-                EmployerId = 1
+                RoleId = 3
               },
               new User
               {
@@ -191,8 +145,56 @@ namespace BusinessApp.Repositories
                 Education = "Information Technology",
                 Skills = "JavaScript, React, Node.js",
                 ResumeUrl = "cv.pdf",
-                RoleId = 2,
-                EmployerId = 2
+                RoleId = 3
+              }
+          );
+          context.SaveChanges();
+        }
+
+        if (!context.Employers.Any())
+        {
+          context.Employers.AddRange(
+              new Employer
+              {
+                CompanyName = "Google",
+                IsActive = true,
+                CategoryId = 1,
+                UserId = 1
+              },
+              new Employer
+              {
+                CompanyName = "Microsoft",
+                IsActive = true,
+                CategoryId = 2,
+                UserId = 2
+              },
+              new Employer
+              {
+                CompanyName = "JP Morgan",
+                IsActive = false,
+                CategoryId = 3,
+                UserId = 3
+              },
+              new Employer
+              {
+                CompanyName = "Amazon",
+                IsActive = false,
+                CategoryId = 4,
+                UserId = 4
+              },
+              new Employer
+              {
+                CompanyName = "Tesla",
+                IsActive = false,
+                CategoryId = 5,
+                UserId = 1
+              },
+              new Employer
+              {
+                CompanyName = "Netflix",
+                IsActive = true,
+                CategoryId = 6,
+                UserId = 2
               }
           );
           context.SaveChanges();

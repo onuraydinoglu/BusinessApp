@@ -196,6 +196,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxNeUJsb2dzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/onura/Desktop/BusinessApp/Views/Profile/MyCompany.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxNeUNvbXBhbnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/onura/Desktop/BusinessApp/Views/Profile/MyJob.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxNeUpvYi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/onura/Desktop/BusinessApp/Views/Profile/MyJobs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxNeUpvYnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -206,6 +214,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/onura/Desktop/BusinessApp/Views/Profile/_BlogDelete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxfQmxvZ0RlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/onura/Desktop/BusinessApp/Views/Profile/_Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxfRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/onura/Desktop/BusinessApp/Views/Shared/Error.cshtml]

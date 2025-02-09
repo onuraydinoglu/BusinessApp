@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using System.Threading.Tasks;
 using BusinessApp.Entities;
 using BusinessApp.Models;
@@ -12,15 +13,19 @@ namespace BusinessApp.Controllers
   public class AdminEmployersController : Controller
   {
     private readonly IEmployerRepository _employerRepository;
+    private readonly ICategoryRepository _categoryRepository;
+    private readonly IUserRepository _userRepository;
 
-    public AdminEmployersController(IEmployerRepository employerRepository)
+    public AdminEmployersController(IEmployerRepository employerRepository, ICategoryRepository categoryRepository, IUserRepository userRepository)
     {
       _employerRepository = employerRepository;
+      _categoryRepository = categoryRepository;
+      _userRepository = userRepository;
     }
 
     public async Task<IActionResult> Index()
     {
-      var employers = await _employerRepository.GetAllAsync();
+      var employers = await _employerRepository.GetAllEmployersAsync();
       return View(employers);
     }
 
@@ -28,6 +33,8 @@ namespace BusinessApp.Controllers
     [HttpGet]
     public async Task<IActionResult> Create()
     {
+      ViewBag.Users = new SelectList(await _userRepository.GetAllAsync(), "Id", "FullName");
+      ViewBag.Categories = new SelectList(await _categoryRepository.GetAllAsync(), "Id", "Name");
       return View();
     }
 
@@ -41,6 +48,9 @@ namespace BusinessApp.Controllers
     [HttpGet]
     public async Task<IActionResult> Edit(int id)
     {
+      ViewBag.Users = new SelectList(await _userRepository.GetAllAsync(), "Id", "FullName");
+      ViewBag.Categories = new SelectList(await _categoryRepository.GetAllAsync(), "Id", "Name");
+
       var employer = await _employerRepository.GetByIdAsync(id);
       return View(employer);
     }

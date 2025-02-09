@@ -4,15 +4,39 @@
   <input type="hidden" asp-for="Id">
   <div class="mt-5 w-[50%] mx-auto space-y-4">
 
-    <label class="form-control">
+    <label class="form-control w-full">
       <div class="label">
-        <span class="label-text">
-          <span class="label-text">Company Name</span>
-        </span>
+        <span class="label-text">User</span>
       </div>
-      <input asp-for="CompanyName" type="text" placeholder="Company Name" class="input input-bordered" />
+      <select asp-for="UserId" asp-items="ViewBag.Users" class="select select-bordered">
+        <option disabled selected>Select User</option>
+      </select>
+      <span asp-validation-for="UserId" class="text-red-500 text-sm"></span>
     </label>
-    <span asp-validation-for="CompanyName" class="text-red-500 text-sm"></span>
+
+    <label class="form-control mb-3">
+      <div class="label">
+        <span class="label-text">Company Name</span>
+      </div>
+      <input asp-for="CompanyName" type="text" placeholder="ONI Academy" class="input input-bordered w-full" />
+    </label>
+
+    <label class="form-control w-full">
+      <div class="label">
+        <span class="label-text">Sector</span>
+      </div>
+      <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="select select-bordered">
+        <option disabled selected>Select Sector</option>
+      </select>
+      <span asp-validation-for="CategoryId" class="text-red-500 text-sm"></span>
+    </label>
+
+    <div class="form-control">
+      <label class="label cursor-pointer">
+        <span asp-validation-for="IsActive" class="label-text">Is Active?</span>
+        <input asp-for="IsActive" type="checkbox" class="checkbox mr-3" />
+      </label>
+    </div>
 
     <button type="submit" class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white my-4 w-full">Update
       Employer</button>

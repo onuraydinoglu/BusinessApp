@@ -55,26 +55,52 @@
     <h1 class="text-4xl font-bold text-center mb-10">My Profile</h1>
     <div class="grid grid-cols-3 gap-6">
 
-      <div class="flex flex-col h-full shadow-lg bg-white rounded-lg p-5 text-center">
-        <div class="mb-4">
-          <h2 class="text-2xl font-bold text-center mb-2">My Applications</h2>
-          <p class="text-gray-600">Track your job applications</p>
-        </div>
-        <a class="btn bg-[#230939] hover:bg-[#230939] text-white font-bold py-2 px-4 rounded h-[40px] min-h-0 mt-auto"
-          asp-controller="Profile" asp-action="MyJobs">View
-          Applications</a>
-      </div>
+      @if (User.IsInRole("User"))
+      {
 
-      <div class="flex flex-col h-full shadow-lg bg-white rounded-lg  p-5 text-center">
-        <div class="mb-4">
-          <h2 class="text-2xl font-bold text-center mb-2">Saved Opportunities</h2>
-          <p class="text-gray-600">Access your saved job opportunities</p>
+        <div class="flex flex-col h-full shadow-lg bg-white rounded-lg p-5 text-center">
+          <div class="mb-4">
+            <h2 class="text-2xl font-bold text-center mb-2">My Applications</h2>
+            <p class="text-gray-600">Track your job applications</p>
+          </div>
+          <a class="btn bg-[#230939] hover:bg-[#230939] text-white font-bold py-2 px-4 rounded h-[40px] min-h-0 mt-auto"
+            asp-controller="Profile" asp-action="MyJobs">View
+            Applications</a>
         </div>
-        <a asp-controller="Profile" asp-action="SavedJobs"
-          class="btn bg-[#230939] hover:bg-[#230939] text-white font-bold py-2 px-4 rounded h-[40px] min-h-0 mt-auto">View
-          Saved Jobs</a>
-      </div>
 
+        <div class="flex flex-col h-full shadow-lg bg-white rounded-lg  p-5 text-center">
+          <div class="mb-4">
+            <h2 class="text-2xl font-bold text-center mb-2">Saved Opportunities</h2>
+            <p class="text-gray-600">Access your saved job opportunities</p>
+          </div>
+          <a asp-controller="Profile" asp-action="SavedJobs"
+            class="btn bg-[#230939] hover:bg-[#230939] text-white font-bold py-2 px-4 rounded h-[40px] min-h-0 mt-auto">View
+            Saved Jobs</a>
+        </div>
+      }
+
+      @if (User.IsInRole("Employer"))
+      {
+        <div class="flex flex-col h-full shadow-lg bg-white rounded-lg p-5 text-center">
+          <div class="mb-4">
+            <h2 class="text-2xl font-bold text-center mb-2">My Company</h2>
+            <p class="text-gray-600">Manage and review your company</p>
+          </div>
+          <a asp-controller="Profile" asp-action="MyCompany"
+            class="btn bg-[#230939] hover:bg-[#230939] text-white font-bold py-2 px-4 rounded h-[40px] min-h-0 mt-auto">View
+            Blogs</a>
+        </div>
+
+        <div class="flex flex-col h-full shadow-lg bg-white rounded-lg p-5 text-center">
+          <div class="mb-4">
+            <h2 class="text-2xl font-bold text-center mb-2">My Job</h2>
+            <p class="text-gray-600">Manage and review your job</p>
+          </div>
+          <a asp-controller="Profile" asp-action="MyJob"
+            class="btn bg-[#230939] hover:bg-[#230939] text-white font-bold py-2 px-4 rounded h-[40px] min-h-0 mt-auto">View
+            Blogs</a>
+        </div>
+      }
 
       <div class="flex flex-col h-full shadow-lg bg-white rounded-lg p-5 text-center">
         <div class="mb-4">

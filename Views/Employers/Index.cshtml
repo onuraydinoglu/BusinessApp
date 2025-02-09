@@ -8,10 +8,19 @@
                 applications, and connect with skilled professionals who meet your needs. Join thousands of employers who
                 trust us for their hiring process.
             </p>
-            <button class="btn bg-[#B561B0] text-white py-3 px-5 h-[40px] min-h-0 w-56" onclick="my_modal_1.showModal()">
-                Create Employer Account
-            </button>
-            @await Html.PartialAsync("_CreateEmployer")
+            @if (User.Identity!.IsAuthenticated)
+            {
+                <button class="btn bg-[#B561B0] text-white py-3 px-5 h-[40px] min-h-0 w-56" onclick="my_modal_1.showModal()">
+                    Create Employer Account
+                </button>
+            }
+            else
+            {
+                <a asp-controller="Auth" asp-action="Login" class="btn bg-[#B561B0] text-white py-3 px-5 h-[40px] min-h-0 w-56">
+                    Log in first to apply
+                </a>
+            }
+            @await Html.PartialAsync("_CreateEmployer", new Employer())
         </div>
         <div class="flex justify-end w-1/2">
             <img src="~/img/employer/employer.png" alt="" />

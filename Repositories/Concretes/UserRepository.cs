@@ -53,6 +53,7 @@ namespace BusinessApp.Repositories.Concretes
       usr.Education = user.Education;
       usr.Skills = user.Skills;
       usr.ResumeUrl = user.ResumeUrl;
+      usr.RoleId = user.RoleId;
       _context.Users.Update(usr);
       await _context.SaveChangesAsync();
     }

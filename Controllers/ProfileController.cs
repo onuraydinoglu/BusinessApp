@@ -16,8 +16,9 @@ namespace BusinessApp.Controllers
     private readonly ISavedJobRepository _savedJobRepository;
     private readonly IBlogRepository _blogRepository;
     private readonly ICategoryRepository _categoryRepository;
+    private readonly IEmployerRepository _employerRepository;
 
-    public ProfileController(IUserRepository userRepository, IRoleRepository roleRepository, IApplicationRepository applicationRepository, ISavedJobRepository savedJobRepository, IBlogRepository blogRepository, ICategoryRepository categoryRepository)
+    public ProfileController(IUserRepository userRepository, IRoleRepository roleRepository, IApplicationRepository applicationRepository, ISavedJobRepository savedJobRepository, IBlogRepository blogRepository, ICategoryRepository categoryRepository, IEmployerRepository employerRepository)
     {
       _userRepository = userRepository;
       _roleRepository = roleRepository;
@@ -25,6 +26,7 @@ namespace BusinessApp.Controllers
       _savedJobRepository = savedJobRepository;
       _blogRepository = blogRepository;
       _categoryRepository = categoryRepository;
+      _employerRepository = employerRepository;
     }
 
     public async Task<IActionResult> Index()
@@ -79,7 +81,6 @@ namespace BusinessApp.Controllers
       return View(myBlogs);
     }
 
-
     [HttpGet]
     public async Task<IActionResult> BlogCreate()
     {
@@ -128,5 +129,22 @@ namespace BusinessApp.Controllers
       return RedirectToAction("MyBlogs");
     }
 
+    [HttpGet]
+    public async Task<IActionResult> MyCompany()
+    {
+      var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+      if (userId is null)
+      {
+        return Unauthorized();
+      }
+
+      var myCompanys = await _employerRepository.GetAllEmployersUserAsync(int.Parse(userId));
+      return View(myCompanys);
+    }
+    [HttpGet]
+    public async Task<IActionResult> MyJob()
+    {
+      return View();
+    }
   }
 }

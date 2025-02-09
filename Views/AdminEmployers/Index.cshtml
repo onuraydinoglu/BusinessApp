@@ -14,8 +14,11 @@
     <thead>
       <tr>
         <th>#</th>
+        <th>User</th>
         <th>Company Name</th>
+        <th>Sector</th>
         <th>Created Date</th>
+        <th>IsActive</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -24,8 +27,11 @@
       {
         <tr>
           <td>@employer.Id</td>
+          <td>@employer.User?.FullName</td>
           <td>@employer.CompanyName</td>
+          <td>@employer.Category?.Name</td>
           <td>@employer.CreatedDate.ToString("dd.MM.yyyy")</td>
+          <td>@(employer.IsActive ? "Activated" : "Pending Approval")</td>
           <td>
             <a asp-controller="AdminEmployers" asp-action="Edit" asp-route-id="@employer.Id"
               class="btn btn-sm btn-warning">Edit</a>

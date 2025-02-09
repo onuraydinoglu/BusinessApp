@@ -138,6 +138,9 @@ namespace BusinessApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("CompanyName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -145,13 +148,17 @@ namespace BusinessApp.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("JobId")
-                        .HasColumnType("int");
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Employers");
                 });
@@ -420,9 +427,6 @@ namespace BusinessApp.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EmployerId")
-                        .HasColumnType("int");
-
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
@@ -448,8 +452,6 @@ namespace BusinessApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("EmployerId");
 
                     b.HasIndex("RoleId");
 
@@ -492,6 +494,21 @@ namespace BusinessApp.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("BusinessApp.Entities.Employer", b =>
+                {
+                    b.HasOne("BusinessApp.Entities.Category", "Category")
+                        .WithMany("Employers")
+                        .HasForeignKey("CategoryId");
+
+                    b.HasOne("BusinessApp.Entities.User", "User")
+                        .WithMany("Employers")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Category");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("BusinessApp.Entities.Job", b =>
                 {
                     b.HasOne("BusinessApp.Entities.Category", "Category")
@@ -503,7 +520,7 @@ namespace BusinessApp.Migrations
                         .HasForeignKey("CityId");
 
                     b.HasOne("BusinessApp.Entities.Employer", "Employer")
-                        .WithMany("Jobs")
+                        .WithMany()
                         .HasForeignKey("EmployerId");
 
                     b.HasOne("BusinessApp.Entities.JobType", "JobType")
@@ -569,35 +586,22 @@ namespace BusinessApp.Migrations
 
             modelBuilder.Entity("BusinessApp.Entities.User", b =>
                 {
-                    b.HasOne("BusinessApp.Entities.Employer", "Employer")
-                        .WithMany("Users")
-                        .HasForeignKey("EmployerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("BusinessApp.Entities.Role", "Role")
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Employer");
-
                     b.Navigation("Role");
                 });
 
             modelBuilder.Entity("BusinessApp.Entities.Category", b =>
                 {
+                    b.Navigation("Employers");
+
                     b.Navigation("Jobs");
 
                     b.Navigation("Specializations");
-                });
-
-            modelBuilder.Entity("BusinessApp.Entities.Employer", b =>
-                {
-                    b.Navigation("Jobs");
-
-                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("BusinessApp.Entities.Job", b =>
@@ -607,6 +611,8 @@ namespace BusinessApp.Migrations
 
             modelBuilder.Entity("BusinessApp.Entities.User", b =>
                 {
+                    b.Navigation("Employers");
+
                     b.Navigation("Jobs");
                 });
 #pragma warning restore 612, 618
