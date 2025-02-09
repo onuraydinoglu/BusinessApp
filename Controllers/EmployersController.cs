@@ -19,5 +19,10 @@ namespace BusinessApp.Controllers
             var plans = await _planRepository.GetAllAsync();
             return View(plans);
         }
+
+        public async Task<IActionResult> CreateEmployer()
+        {
+            return View();
+        }
     }
 }

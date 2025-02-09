@@ -1,0 +1,33 @@
+<dialog id="my_modal_1" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box bg-[#F0F0F0]">
+        <h3 class="text-xl font-bold text-[#230939]">Employer Registration</h3>
+        <p class="py-2 text-gray-600">Fill in the details to register as an employer.</p>
+        <form>
+            <label class="form-control mb-3">
+                <div class="label">
+                    <span class="label-text">Company Name</span>
+                </div>
+                <input type="text" placeholder="ONI Academy" class="input input-bordered w-full" />
+            </label>
+
+            <label class="form-control w-full">
+                <div class="label">
+                    <span class="label-text">Sector</span>
+                </div>
+                <select class="select select-bordered">
+                    <option disabled selected>Selelected Sector</option>
+                    <option>Star Wars</option>
+                    <option>Harry Potter</option>
+                    <option>Lord of the Rings</option>
+                    <option>Planet of the Apes</option>
+                    <option>Star Trek</option>
+                </select>
+            </label>
+
+            <div class="modal-action">
+                <button type="button" class="btn btn-neutral" onclick="my_modal_1.close()">Cancel</button>
+                <button class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white">Apply</button>
+            </div>
+        </form>
+    </div>
+</dialog>
