@@ -200,6 +200,58 @@ namespace BusinessApp.Repositories
           context.SaveChanges();
         }
 
+        if (!context.Specializations.Any())
+        {
+          context.Specializations.AddRange(
+              // Software Development Specializations
+              new Specialization { Name = "Full-Stack Developer", CategoryId = 1 },
+              new Specialization { Name = "Front-End Developer", CategoryId = 1 },
+              new Specialization { Name = "Back-End Developer", CategoryId = 1 },
+              new Specialization { Name = "Mobile Developer", CategoryId = 1 },
+              new Specialization { Name = "DevOps Engineer", CategoryId = 1 },
+              new Specialization { Name = "Game Developer", CategoryId = 1 },
+              new Specialization { Name = "Data Scientist", CategoryId = 1 },
+
+              // Finance Specializations
+              new Specialization { Name = "Investment Analyst", CategoryId = 2 },
+              new Specialization { Name = "Risk Manager", CategoryId = 2 },
+              new Specialization { Name = "Financial Planner", CategoryId = 2 },
+              new Specialization { Name = "Auditor", CategoryId = 2 },
+
+              // Accounting Specializations
+              new Specialization { Name = "Certified Public Accountant", CategoryId = 3 },
+              new Specialization { Name = "Tax Consultant", CategoryId = 3 },
+              new Specialization { Name = "Financial Accountant", CategoryId = 3 },
+              new Specialization { Name = "Management Accountant", CategoryId = 3 },
+
+              // Sales & Customer Service Specializations
+              new Specialization { Name = "Sales Executive", CategoryId = 4 },
+              new Specialization { Name = "Sales Consultant", CategoryId = 4 },
+              new Specialization { Name = "Business Development Manager", CategoryId = 4 },
+              new Specialization { Name = "Customer Success Manager", CategoryId = 5 },
+              new Specialization { Name = "Technical Support Specialist", CategoryId = 5 },
+
+              // Marketing Specializations
+              new Specialization { Name = "SEO Specialist", CategoryId = 6 },
+              new Specialization { Name = "Content Marketer", CategoryId = 6 },
+              new Specialization { Name = "Social Media Manager", CategoryId = 6 },
+              new Specialization { Name = "Digital Marketing Specialist", CategoryId = 6 },
+
+              // Management Specializations
+              new Specialization { Name = "Project Manager", CategoryId = 7 },
+              new Specialization { Name = "Operations Manager", CategoryId = 7 },
+              new Specialization { Name = "HR Manager", CategoryId = 7 },
+              new Specialization { Name = "Product Manager", CategoryId = 7 },
+
+              // Retail & Store Management Specializations
+              new Specialization { Name = "Retail Manager", CategoryId = 8 },
+              new Specialization { Name = "Store Supervisor", CategoryId = 8 },
+              new Specialization { Name = "Inventory Manager", CategoryId = 8 }
+          );
+
+          context.SaveChanges();
+        }
+
         if (!context.Jobs.Any())
         {
           context.Jobs.AddRange(
@@ -207,7 +259,6 @@ namespace BusinessApp.Repositories
               {
                 Title = "Senior Software Engineer",
                 Description = "Develop and maintain enterprise applications.",
-                SalaryRange = "10000-15000",
                 IsActive = true,
                 RemoteOptionId = 1,
                 PositionLevelId = 1,
@@ -215,13 +266,13 @@ namespace BusinessApp.Repositories
                 JobTypeId = 1,
                 EmployerId = 2,
                 CategoryId = 1,
+                SpecializationId = 1,
                 CityId = 1
               },
               new Job
               {
                 Title = "Junior Web Developer",
                 Description = "Assist in the creation of web-based applications.",
-                SalaryRange = "6000-8000",
                 IsActive = true,
                 RemoteOptionId = 1,
                 PositionLevelId = 2,
@@ -229,13 +280,13 @@ namespace BusinessApp.Repositories
                 JobTypeId = 2,
                 EmployerId = 2,
                 CategoryId = 1,
+                SpecializationId = 2,
                 CityId = 2
               },
               new Job
               {
                 Title = "HR Specialist",
                 Description = "Manage recruitment and employee relations.",
-                SalaryRange = "8000-10000",
                 IsActive = true,
                 RemoteOptionId = 1,
                 PositionLevelId = 3,
@@ -243,13 +294,13 @@ namespace BusinessApp.Repositories
                 JobTypeId = 1,
                 EmployerId = 2,
                 CategoryId = 3,
+                SpecializationId = 5,
                 CityId = 3
               },
               new Job
               {
                 Title = "Financial Analyst",
                 Description = "Analyze financial data and create reports.",
-                SalaryRange = "9000-12000",
                 IsActive = true,
                 RemoteOptionId = 2,
                 PositionLevelId = 4,
@@ -257,6 +308,7 @@ namespace BusinessApp.Repositories
                 JobTypeId = 1,
                 EmployerId = 1,
                 CategoryId = 2,
+                SpecializationId = 6,
                 CityId = 1
 
               },
@@ -264,7 +316,6 @@ namespace BusinessApp.Repositories
               {
                 Title = "Mobile App Developer",
                 Description = "Develop mobile applications for Android and iOS.",
-                SalaryRange = "10000-14000",
                 IsActive = true,
                 RemoteOptionId = 1,
                 PositionLevelId = 1,
@@ -272,13 +323,13 @@ namespace BusinessApp.Repositories
                 JobTypeId = 1,
                 EmployerId = 3,
                 CategoryId = 1,
+                SpecializationId = 3,
                 CityId = 4
               },
               new Job
               {
                 Title = "Marketing Specialist",
                 Description = "Plan and execute marketing campaigns.",
-                SalaryRange = "7000-9000",
                 IsActive = true,
                 RemoteOptionId = 2,
                 PositionLevelId = 2,
@@ -286,13 +337,13 @@ namespace BusinessApp.Repositories
                 JobTypeId = 2,
                 EmployerId = 2,
                 CategoryId = 3,
+                SpecializationId = 7,
                 CityId = 5
               },
               new Job
               {
                 Title = "DevOps Engineer",
                 Description = "Maintain CI/CD pipelines and infrastructure.",
-                SalaryRange = "11000-16000",
                 IsActive = true,
                 RemoteOptionId = 3,
                 PositionLevelId = 3,
@@ -300,13 +351,13 @@ namespace BusinessApp.Repositories
                 JobTypeId = 1,
                 EmployerId = 1,
                 CategoryId = 1,
+                SpecializationId = 4,
                 CityId = 1
               },
               new Job
               {
                 Title = "Data Scientist",
                 Description = "Analyze and model large datasets to extract insights.",
-                SalaryRange = "12000-18000",
                 IsActive = true,
                 RemoteOptionId = 3,
                 PositionLevelId = 4,
@@ -314,6 +365,7 @@ namespace BusinessApp.Repositories
                 JobTypeId = 1,
                 EmployerId = 3,
                 CategoryId = 1,
+                SpecializationId = 3,
                 CityId = 3
               }
           );
@@ -478,57 +530,6 @@ namespace BusinessApp.Repositories
           context.SaveChanges();
         }
 
-        if (!context.Specializations.Any())
-        {
-          context.Specializations.AddRange(
-              // Software Development Specializations
-              new Specialization { Name = "Full-Stack Developer", CategoryId = 1 },
-              new Specialization { Name = "Front-End Developer", CategoryId = 1 },
-              new Specialization { Name = "Back-End Developer", CategoryId = 1 },
-              new Specialization { Name = "Mobile Developer", CategoryId = 1 },
-              new Specialization { Name = "DevOps Engineer", CategoryId = 1 },
-              new Specialization { Name = "Game Developer", CategoryId = 1 },
-              new Specialization { Name = "Data Scientist", CategoryId = 1 },
-
-              // Finance Specializations
-              new Specialization { Name = "Investment Analyst", CategoryId = 2 },
-              new Specialization { Name = "Risk Manager", CategoryId = 2 },
-              new Specialization { Name = "Financial Planner", CategoryId = 2 },
-              new Specialization { Name = "Auditor", CategoryId = 2 },
-
-              // Accounting Specializations
-              new Specialization { Name = "Certified Public Accountant", CategoryId = 3 },
-              new Specialization { Name = "Tax Consultant", CategoryId = 3 },
-              new Specialization { Name = "Financial Accountant", CategoryId = 3 },
-              new Specialization { Name = "Management Accountant", CategoryId = 3 },
-
-              // Sales & Customer Service Specializations
-              new Specialization { Name = "Sales Executive", CategoryId = 4 },
-              new Specialization { Name = "Sales Consultant", CategoryId = 4 },
-              new Specialization { Name = "Business Development Manager", CategoryId = 4 },
-              new Specialization { Name = "Customer Success Manager", CategoryId = 5 },
-              new Specialization { Name = "Technical Support Specialist", CategoryId = 5 },
-
-              // Marketing Specializations
-              new Specialization { Name = "SEO Specialist", CategoryId = 6 },
-              new Specialization { Name = "Content Marketer", CategoryId = 6 },
-              new Specialization { Name = "Social Media Manager", CategoryId = 6 },
-              new Specialization { Name = "Digital Marketing Specialist", CategoryId = 6 },
-
-              // Management Specializations
-              new Specialization { Name = "Project Manager", CategoryId = 7 },
-              new Specialization { Name = "Operations Manager", CategoryId = 7 },
-              new Specialization { Name = "HR Manager", CategoryId = 7 },
-              new Specialization { Name = "Product Manager", CategoryId = 7 },
-
-              // Retail & Store Management Specializations
-              new Specialization { Name = "Retail Manager", CategoryId = 8 },
-              new Specialization { Name = "Store Supervisor", CategoryId = 8 },
-              new Specialization { Name = "Inventory Manager", CategoryId = 8 }
-          );
-
-          context.SaveChanges();
-        }
       }
     }
   }

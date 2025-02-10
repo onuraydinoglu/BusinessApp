@@ -1,9 +1,7 @@
 @model IEnumerable<Blog>
 
 <div class="flex justify-between items-center mt-5">
-  <h2>My Blog List</h2>
-  <a asp-controller="Profile" asp-action="Index"
-    class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white w-40">My Profile</a>
+  <a asp-controller="Profile" asp-action="Index" class="link">My Profile</a>
   <a asp-controller="Profile" asp-action="BlogCreate"
     class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white w-40">Add Blog</a>
 </div>

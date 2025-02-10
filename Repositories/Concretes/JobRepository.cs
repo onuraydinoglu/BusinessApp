@@ -16,7 +16,7 @@ namespace BusinessApp.Repositories.Concretes
 
     public async Task<IEnumerable<Job>> GetAllJobsAsync()
     {
-      var jobs = await _context.Jobs.Include(x => x.Category).Include(x => x.City).Include(x => x.JobType).Include(x => x.Employer).Include(x => x.SavedJobs).Include(x => x.RemoteOption).Include(x => x.PositionLevel).ToListAsync();
+      var jobs = await _context.Jobs.Include(x => x.Category).Include(x => x.City).Include(x => x.JobType).Include(x => x.Employer).Include(x => x.SavedJobs).Include(x => x.RemoteOption).Include(x => x.PositionLevel).Include(x => x.Specialization).ToListAsync();
       return jobs;
     }
 
@@ -24,16 +24,14 @@ namespace BusinessApp.Repositories.Concretes
     {
       var jobs = await _context.Jobs
           .Where(x => x.EmployerId == employerId)
-          .Include(x => x.Category).Include(x => x.City).Include(x => x.JobType).Include(x => x.RemoteOption).Include(x => x.PositionLevel)
-          .ToListAsync();
+          .Include(x => x.Category).Include(x => x.City).Include(x => x.JobType).Include(x => x.RemoteOption).Include(x => x.PositionLevel).Include(x => x.Specialization).ToListAsync();
 
       return jobs;
     }
 
-
     public async Task<Job> GetByIdJobAsync(int? id)
     {
-      var job = await _context.Jobs.Include(x => x.Category).Include(x => x.City).Include(x => x.JobType).Include(x => x.Employer).Include(x => x.RemoteOption).Include(x => x.PositionLevel).FirstOrDefaultAsync(x => x.Id == id);
+      var job = await _context.Jobs.Include(x => x.Category).Include(x => x.City).Include(x => x.JobType).Include(x => x.Employer).Include(x => x.RemoteOption).Include(x => x.PositionLevel).Include(x => x.Specialization).FirstOrDefaultAsync(x => x.Id == id);
       return job;
     }
 

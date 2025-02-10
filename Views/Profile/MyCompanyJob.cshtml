@@ -1,11 +1,10 @@
 @model IEnumerable<Job>
 
 <div class="flex justify-between items-center mt-5">
-  <h2>My Job List</h2>
+  <a asp-controller="Profile" asp-action="Index" class="link">My Profile</a>
+
   <a asp-controller="AdminJobs" asp-action="Create"
     class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white w-40">Add Job</a>
-  <a asp-controller="Profile" asp-action="Index"
-    class="btn bg-[#230939] hover:bg-[#230939] text-white hover:text-white w-40">My Profile</a>
 </div>
 
 <div class="divider my-5"></div>
@@ -14,6 +13,7 @@
   <table class="table">
     <thead>
       <tr>
+        <th>Name</th>
         <th>Sector</th>
         <th>Specialization</th>
         <th>City</th>
@@ -27,8 +27,9 @@
       @foreach (var myJobs in Model)
       {
         <tr>
-          <td>@myJobs.Category?.Name</td>
           <td>@myJobs.Title</td>
+          <td>@myJobs.Category?.Name</td>
+          <td>@myJobs.Specialization?.Name</td>
           <td>@myJobs.City?.Name</td>
           <td>@myJobs.PositionLevel?.Level</td>
           <td>@myJobs.JobType?.Type</td>
