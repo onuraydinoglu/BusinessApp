@@ -121,10 +121,10 @@ namespace BusinessApp.Repositories
               },
               new User
               {
-                FirstName = "Elisa",
+                FirstName = "Muhammet",
                 LastName = "Aydınoğlu",
-                Email = "elisa@example.com",
-                Password = "elisa",
+                Email = "muhammet@example.com",
+                Password = "muhammet",
                 PhoneNumber = "+905556667788",
                 DateOfBirth = new DateTime(2029, 2, 15),
                 ProfileImage = "profile.webp",
@@ -135,12 +135,12 @@ namespace BusinessApp.Repositories
               },
               new User
               {
-                FirstName = "Yağız",
-                LastName = "Aydınoğlu",
-                Email = "yagiz@example.com",
-                Password = "elisa",
+                FirstName = "Nur",
+                LastName = "Işık",
+                Email = "nur@example.com",
+                Password = "nur",
                 PhoneNumber = "+905556667788",
-                DateOfBirth = new DateTime(2030, 2, 15),
+                DateOfBirth = new DateTime(2029, 2, 15),
                 ProfileImage = "profile.webp",
                 Education = "Information Technology",
                 Skills = "JavaScript, React, Node.js",

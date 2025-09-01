@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8qI5evltX5A=",
+  "dgSpecHash": "s/54qMMWHqM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\onura\\Desktop\\BusinessApp\\BusinessApp.csproj",
+  "projectFilePath": "C:\\Users\\onura\\source\\repos\\ONITECH\\BusinessApp\\BusinessApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\onura\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\onura\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

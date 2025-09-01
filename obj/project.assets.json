@@ -4717,11 +4717,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\onura\\Desktop\\BusinessApp\\BusinessApp.csproj",
+      "projectUniqueName": "C:\\Users\\onura\\source\\repos\\ONITECH\\BusinessApp\\BusinessApp.csproj",
       "projectName": "BusinessApp",
-      "projectPath": "C:\\Users\\onura\\Desktop\\BusinessApp\\BusinessApp.csproj",
+      "projectPath": "C:\\Users\\onura\\source\\repos\\ONITECH\\BusinessApp\\BusinessApp.csproj",
       "packagesPath": "C:\\Users\\onura\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\onura\\Desktop\\BusinessApp\\obj\\",
+      "outputPath": "C:\\Users\\onura\\source\\repos\\ONITECH\\BusinessApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4795,7 +4795,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.109/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
