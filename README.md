@@ -179,4 +179,3 @@ The application includes seed data with:
 - HTTPS redirection in production
 - Input validation and sanitization
 
-**Built with ❤️ using ASP.NET Core MVC**
