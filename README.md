@@ -162,18 +162,6 @@ The application uses cookie-based authentication with the following configuratio
 4. **Application Process** → Job seekers apply with profile information
 5. **Management** → Employers review applications and manage hiring process
 
-## 🚀 Deployment
-
-### Development
-```bash
-dotnet run --environment Development
-```
-
-### Production
-1. Update `appsettings.json` with production database connection
-2. Set environment to Production
-3. Deploy to IIS, Azure App Service, or other hosting platform
-
 ## 📝 Default Test Data
 
 The application includes seed data with:
